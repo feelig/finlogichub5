@@ -84,3 +84,33 @@ if (nevadaCalculator) {
   const checkedRadio = Array.from(radios).find((radio) => radio.checked);
   updateNevadaCalculator(checkedRadio ? checkedRadio.value : "llc");
 }
+
+const guideSearchInputs = document.querySelectorAll("[data-guide-search-input]");
+
+guideSearchInputs.forEach((input) => {
+  const section = input.closest(".section");
+  if (!section) return;
+
+  const cards = Array.from(section.querySelectorAll("[data-guide-card]"));
+  const emptyState = section.querySelector("[data-guide-empty]");
+
+  function updateResults() {
+    const query = input.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const matches = !query || (card.dataset.search || "").includes(query);
+      card.hidden = !matches;
+      if (matches) {
+        visibleCount += 1;
+      }
+    });
+
+    if (emptyState) {
+      emptyState.hidden = visibleCount !== 0;
+    }
+  }
+
+  input.addEventListener("input", updateResults);
+  updateResults();
+});

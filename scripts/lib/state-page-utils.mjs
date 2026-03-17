@@ -13,6 +13,10 @@ const MONTH_INDEX = {
   December: 11
 };
 
+export const DEFAULT_STALE_REVIEW_DAYS = 45;
+export const REVIEW_SOON_DAYS = 30;
+export const MIN_RECOMMENDED_SOURCE_COUNT = 5;
+
 export function parseReviewDate(value) {
   const match = String(value).match(/^([A-Za-z]+)\s+(\d{1,2}),\s+(\d{4})$/);
 
@@ -46,6 +50,50 @@ export function getPageRoute(page) {
 export function differenceInDays(olderDate, newerDate) {
   const milliseconds = newerDate.getTime() - olderDate.getTime();
   return Math.floor(milliseconds / (1000 * 60 * 60 * 24));
+}
+
+export function addDays(date, days) {
+  return new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
+}
+
+export function getReviewStatus(
+  reviewDate,
+  referenceDate,
+  {
+    staleReviewDays = DEFAULT_STALE_REVIEW_DAYS,
+    reviewSoonDays = REVIEW_SOON_DAYS
+  } = {}
+) {
+  const ageInDays = differenceInDays(reviewDate, referenceDate);
+  const nextReviewDate = addDays(reviewDate, staleReviewDays);
+
+  if (ageInDays > staleReviewDays) {
+    return {
+      tone: "overdue",
+      label: "Manual review overdue",
+      detail: "Refresh this page against official sources now.",
+      ageInDays,
+      nextReviewDate
+    };
+  }
+
+  if (ageInDays >= reviewSoonDays) {
+    return {
+      tone: "soon",
+      label: "Priority refresh soon",
+      detail: "Review the official sources again before this page ages out.",
+      ageInDays,
+      nextReviewDate
+    };
+  }
+
+  return {
+    tone: "fresh",
+    label: "Fresh manual review",
+    detail: "This page is still within the current review window.",
+    ageInDays,
+    nextReviewDate
+  };
 }
 
 export function pluralize(count, singular, plural = `${singular}s`) {

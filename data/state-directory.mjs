@@ -35,14 +35,14 @@ export const stateDirectory = [
     homeComparison: {
       focus: "LLC or L3C",
       deadline: "April 15",
-      fee: "$203 online / $200 paper",
+      fee: "$202-$203 online / $200 paper",
       lateRule: "No flat late fee stated on the due-date chart"
     },
     directoryComparison: {
       obligation: "Annual report",
       entityFocus: "LLCs, L3Cs, corporations, partnerships",
       deadline: "April 15 for LLCs; fiscal-year-based for corporations",
-      amount: "$203 online or $200 paper for LLCs"
+      amount: "$202-$203 online or $200 paper for LLCs"
     }
   },
   {
@@ -54,20 +54,20 @@ export const stateDirectory = [
     coverageBucket: "annual-registration-and-tax",
     featuredInHomeNav: false,
     homeCardDescription:
-      "April 1 timing, $50 registration fee, and filing-portal guidance for Georgia entities.",
+      "January 1 to April 1 timing, common $60 online total, and the published $25 late penalty.",
     directoryCardDescription:
-      "April 1 timing, $50 filing fee, and conservative guidance where the portal does not publish a preserved flat late fee.",
+      "January 1 to April 1 timing, common $60 online total for many profit entities, and the published $25 late penalty.",
     homeComparison: {
-      focus: "Annual registration",
+      focus: "Profit corporation or LLC",
       deadline: "April 1",
-      fee: "$50",
-      lateRule: "Check portal guidance if already late"
+      fee: "$60 common online total",
+      lateRule: "$25 late penalty"
     },
     directoryComparison: {
       obligation: "Annual registration",
       entityFocus: "Business entities using the annual registration portal",
       deadline: "April 1",
-      amount: "$50 filing fee"
+      amount: "Varies by entity type; common $60 online total"
     }
   },
   {
@@ -284,21 +284,21 @@ export const stateDirectory = [
     coverageBucket: "annual-reports",
     featuredInHomeNav: false,
     homeCardDescription:
-      "$70 for-profit fee, end-of-anniversary-month deadline, reminder timing, and delinquency or dissolution sequence.",
+      "$70 for-profit fee, $95 delinquent total, end-of-anniversary-month deadline, and the dissolution or termination sequence.",
     directoryCardDescription:
-      "$70 for-profit filing fee, end-of-anniversary-month deadline, reminder timing, and the official delinquency or dissolution sequence.",
+      "$70 for-profit filing fee, $95 delinquent total, end-of-anniversary-month deadline, and the official delinquency or dissolution sequence.",
     homeComparison: {
       focus: "For-profit business filing an annual report",
       deadline: "By the end of the anniversary month each year",
       fee: "$70 for for-profit businesses",
       lateRule:
-        "Delinquency notice next month; domestic dissolution at 120 days; foreign termination at 90 days"
+        "$25 delinquency fee, then domestic dissolution at 120 days or foreign termination at 90 days"
     },
     directoryComparison: {
       obligation: "Annual report",
       entityFocus: "For-profit business entities",
       deadline: "End of the anniversary month",
-      amount: "$70 for for-profit businesses"
+      amount: "$70 annual report or $95 with delinquency fee"
     }
   },
   {

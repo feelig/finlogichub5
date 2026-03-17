@@ -3,9 +3,11 @@ import path from "node:path";
 
 import { liveStatePages } from "../data/live-state-pages.mjs";
 import {
+  DEFAULT_STALE_REVIEW_DAYS,
   differenceInDays,
   formatLongDate,
   getPageRoute,
+  MIN_RECOMMENDED_SOURCE_COUNT,
   parseReviewDate
 } from "./lib/state-page-utils.mjs";
 
@@ -15,7 +17,7 @@ const JSON_REPORT = path.join(REPORTS_DIR, "daily-source-scan.json");
 const MARKDOWN_REPORT = path.join(REPORTS_DIR, "daily-source-scan.md");
 const SCANNED_AT = new Date();
 const SCANNED_AT_TEXT = formatLongDate(SCANNED_AT);
-const STALE_REVIEW_DAYS = Number(process.env.STALE_REVIEW_DAYS ?? 45);
+const STALE_REVIEW_DAYS = Number(process.env.STALE_REVIEW_DAYS ?? DEFAULT_STALE_REVIEW_DAYS);
 const CONCURRENCY = 6;
 const TIMEOUT_MS = 15000;
 
@@ -130,6 +132,7 @@ function formatRoute(route) {
 
 function renderMarkdownReport({ pageSummaries, stalePages, linkSummary }) {
   const lines = [];
+  const thinCoveragePages = pageSummaries.filter((page) => page.sourceCount < MIN_RECOMMENDED_SOURCE_COUNT);
 
   lines.push("# Daily Source Scan");
   lines.push("");
@@ -172,6 +175,17 @@ function renderMarkdownReport({ pageSummaries, stalePages, linkSummary }) {
   lines.push("## Pages Near Review Threshold");
   lines.push("");
   lines.push(`- ${warningStates.length > 0 ? sentenceList(warningStates) : "None"}`);
+
+  lines.push("");
+  lines.push("## Pages Below Recommended Source Coverage");
+  lines.push("");
+  lines.push(
+    `- ${
+      thinCoveragePages.length > 0
+        ? sentenceList(thinCoveragePages.map((page) => `${page.state} (${page.sourceCount} sources)`))
+        : "None"
+    }`
+  );
 
   if (linkSummary.broken.length > 0) {
     lines.push("");
@@ -246,6 +260,7 @@ const report = {
     brokenOrError: linkSummary.broken.length
   },
   stalePages,
+  thinCoveragePages: pageSummaries.filter((page) => page.sourceCount < MIN_RECOMMENDED_SOURCE_COUNT),
   pages: pageSummaries,
   brokenLinks: linkSummary.broken,
   blockedLinks: linkSummary.blocked,

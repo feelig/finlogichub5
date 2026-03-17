@@ -93,8 +93,18 @@ function renderStateCards(entries, mode) {
     .map((entry) => {
       const description =
         mode === "home" ? entry.homeCardDescription : entry.directoryCardDescription;
+      const searchText = [
+        entry.state,
+        entry.guideLabel,
+        entry.guideType,
+        entry.directoryComparison.obligation,
+        entry.directoryComparison.entityFocus,
+        description
+      ]
+        .join(" ")
+        .toLowerCase();
 
-      return `            <a class="state-card" href="${escapeHtml(entry.route)}">
+      return `            <a class="state-card" href="${escapeHtml(entry.route)}" data-guide-card data-search="${escapeHtml(searchText)}">
               <h3>${escapeHtml(entry.guideLabel)}</h3>
               <p>${escapeHtml(description)}</p>
               <span>${escapeHtml(renderCardMeta(entry))}</span>
@@ -188,6 +198,23 @@ function renderCustomerFlow() {
     .join("\n");
 }
 
+function renderSearchPanel(title, description) {
+  return `          <div class="filter-bar">
+            <div>
+              <strong>${escapeHtml(title)}</strong>
+              <span>${escapeHtml(description)}</span>
+            </div>
+            <label class="field field--search">
+              <span>Search live guides</span>
+              <input
+                type="search"
+                placeholder="Type a state, filing type, or entity"
+                data-guide-search-input
+              />
+            </label>
+          </div>`;
+}
+
 function renderHomePage({ entries, latestReviewText, uniqueSourceCount }) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -213,8 +240,9 @@ ${renderHeader()}
             <h1>Find the right filing deadline, annual fee, or recurring business tax fast.</h1>
             <p class="hero__subtitle">
               Every live guide is tied to official state sources, carries a manual review date, and
-              sits behind a daily source-health scan. The goal is simple: help customers see what is
-              due, when it is due, and what it costs without wading through clutter.
+              sits behind a daily source-health scan. Every live guide now targets at least five
+              official sources so customers can see what is due, when it is due, and what it costs
+              without wading through clutter.
             </p>
             <div class="notice-bar">
               <strong>Important:</strong>
@@ -276,9 +304,14 @@ ${renderCustomerFlow()}
               backs the answer.
             </p>
           </div>
+${renderSearchPanel(
+  "Start with the closest match",
+  "Search by state, filing label, or entity type before scanning the full grid."
+)}
           <div class="state-grid">
 ${renderStateCards(entries, "home")}
           </div>
+          <p class="empty-state" hidden data-guide-empty>No matching live guide yet. Try a state name, entity type, or filing label.</p>
         </section>
 
         <section class="section surface">
@@ -402,9 +435,14 @@ ${renderCoverageMetrics(bucketSummaries)}
               rules separate instead of compressing them.
             </p>
           </div>
+${renderSearchPanel(
+  "Search the directory",
+  "Filter the live guides by state, filing label, or the entity type you care about."
+)}
           <div class="state-grid">
 ${renderStateCards(entries, "directory")}
           </div>
+          <p class="empty-state" hidden data-guide-empty>No matching live guide yet. Try a state, obligation, or entity type.</p>
         </section>
 
         <section class="section surface">
@@ -454,6 +492,7 @@ ${renderDirectoryComparisonRows(entries)}
               <h2>How updates are handled</h2>
             </div>
             <ul class="checklist">
+              <li>Every live guide targets at least five official state sources.</li>
               <li>Automated scans check official source links every day.</li>
               <li>The scan also flags pages whose manual review date has gone stale.</li>
               <li>Broken links trigger a report instead of silently leaving bad data live.</li>
@@ -465,6 +504,7 @@ ${renderDirectoryComparisonRows(entries)}
 
 ${renderFooter()}
     </div>
+    <script src="/script.js"></script>
   </body>
 </html>
 `;

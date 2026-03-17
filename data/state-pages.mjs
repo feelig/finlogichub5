@@ -23,7 +23,7 @@ export const statePages = [
     ],
     "heroTitle": "California Statement of Information fee and due date",
     "heroSubtitle": "California's Statement of Information rules are one of the easiest places to make a filing mistake because the answer depends on entity type. California stock corporations generally file every year in the month of registration, while California LLCs file every two years in the month of registration in the matching odd or even year. The California Secretary of State also publishes a six-month filing window after the initial filing.",
-    "lastReviewed": "March 11, 2026",
+    "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: California Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -62,6 +62,10 @@ export const statePages = [
       {
         "href": "https://bizfileonline.sos.ca.gov/",
         "label": "California bizfile Online filing portal"
+      },
+      {
+        "href": "https://www.sos.ca.gov/business-programs/customer-alerts/misleading-statement-information-solicitations",
+        "label": "California SOS misleading Statement of Information solicitations alert"
       }
     ],
     "scriptSrc": null
@@ -90,7 +94,7 @@ export const statePages = [
     ],
     "heroTitle": "Connecticut annual report fee and due date",
     "heroSubtitle": "Connecticut requires annual reports for LLCs, stock corporations, non-stock corporations, LLPs, and LPs. The state guidance focuses on the due-date lookup and reminder process, while the current Connecticut fee pages and filing guide PDF provide the fee table by entity type. Connecticut also makes the consequence of missing the report clear: overdue entities can lose the ability to obtain a certificate of legal existence and may be dissolved.",
-    "lastReviewed": "March 16, 2026",
+    "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Connecticut Secretary of the State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -129,6 +133,14 @@ export const statePages = [
       {
         "href": "https://portal.ct.gov/-/media/SOTS/Step-by-Step-Guide-to-Filing-Annual-Reports.pdf",
         "label": "Connecticut step-by-step annual report filing guide PDF"
+      },
+      {
+        "href": "https://business.ct.gov/knowledge-base/articles/sots/certificates-of-legal-existence",
+        "label": "Connecticut certificates of legal existence guidance"
+      },
+      {
+        "href": "https://business.ct.gov/knowledge-base/articles/get-notifications-about-your-business-account-activity",
+        "label": "Connecticut business account activity notifications"
       }
     ],
     "scriptSrc": null
@@ -147,13 +159,17 @@ export const statePages = [
         "href": "/"
       },
       {
+        "label": "States",
+        "href": "/states.html"
+      },
+      {
         "label": "Delaware annual report deadline",
         "href": null
       }
     ],
     "heroTitle": "Delaware annual report deadline and LLC annual tax",
     "heroSubtitle": "Delaware is a common place for filing confusion because corporations, foreign corporations, and Delaware LLCs do not follow the same rule. This page separates them so the word \"annual report\" does not accidentally get applied to Delaware LLC annual tax.",
-    "lastReviewed": "March 11, 2026",
+    "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Delaware Division of Corporations",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -188,6 +204,10 @@ export const statePages = [
       {
         "href": "https://icis.corp.delaware.gov/ecorp/logintax.aspx",
         "label": "Delaware online filing and tax payment portal"
+      },
+      {
+        "href": "https://corp.delaware.gov/faqs/",
+        "label": "Delaware Division of Corporations franchise tax and annual report FAQs"
       }
     ],
     "scriptSrc": "/script.js"
@@ -216,7 +236,7 @@ export const statePages = [
     ],
     "heroTitle": "Florida annual report fee and due date",
     "heroSubtitle": "Florida requires annual reports for profit corporations, non-profit corporations, limited liability companies, limited partnerships, and limited liability limited partnerships. The Florida Department of State makes the timeline unusually clear: annual reports are filed each year between January 1 and May 1, a $400 late fee applies to most for-profit entities after May 1, and businesses that still do not file by the third Friday in September face administrative dissolution or revocation.",
-    "lastReviewed": "March 16, 2026",
+    "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Florida Department of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -255,6 +275,10 @@ export const statePages = [
       {
         "href": "https://dos.fl.gov/sunbiz/about-us/faqs/",
         "label": "Florida Division of Corporations FAQs"
+      },
+      {
+        "href": "https://dos.fl.gov/sunbiz/manage-business/efile/reinstatement/",
+        "label": "Florida reinstatement filing page"
       }
     ],
     "scriptSrc": null
@@ -262,10 +286,10 @@ export const statePages = [
   {
     "filePath": "tools/georgia/annual-report-deadline/index.html",
     "titleTag": "Georgia Annual Registration Deadline | FinLogic Hub",
-    "metaDescription": "Georgia annual registration deadline guidance for business entities, including the current April 1 timing and $50 filing fee.",
+    "metaDescription": "Georgia annual registration deadline guidance for business entities, including the January 1 to April 1 filing window, common $60 online total, and the published $25 late penalty.",
     "canonicalUrl": "https://finlogichub5.com/tools/georgia/annual-report-deadline/",
     "ogTitle": "Georgia Annual Registration Deadline | FinLogic Hub",
-    "ogDescription": "Review Georgia annual registration timing and filing-fee guidance using the current Secretary of State filing portals.",
+    "ogDescription": "Review Georgia annual registration timing, common online totals, and the published late-penalty rule using Georgia Secretary of State guidance.",
     "state": "Georgia",
     "breadcrumbs": [
       {
@@ -273,39 +297,55 @@ export const statePages = [
         "href": "/"
       },
       {
+        "label": "States",
+        "href": "/states.html"
+      },
+      {
         "label": "Georgia annual registration deadline",
         "href": null
       }
     ],
     "heroTitle": "Georgia annual registration deadline",
-    "heroSubtitle": "Georgia uses annual registration instead of a traditional annual report label for many entities. The current Secretary of State guidance used for this page points to an April 1 deadline and a $50 filing fee for the entity types covered by the filing portal.",
-    "lastReviewed": "March 11, 2026",
-    "sourceBadge": "Based on Georgia SOS guidance and filing portal",
+    "heroSubtitle": "Georgia uses annual registration instead of a traditional annual report label for many entities. The current Georgia Secretary of State guidance points to a January 1 to April 1 filing window, a common $60 online total for many profit entities, lower totals for some nonprofits and domestic LLPs, and a published $25 late penalty.",
+    "lastReviewed": "March 17, 2026",
+    "sourceBadge": "Source: Georgia Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
       {
-        "label": "Deadline",
-        "text": "April 1 each year."
+        "label": "Filing window",
+        "text": "January 1 through April 1 each year."
       },
       {
-        "label": "Published filing fee",
-        "text": "$50 for the covered annual registration filing."
+        "label": "Common online total",
+        "text": "$60 for many profit entities, with lower totals for nonprofits and domestic LLPs."
       },
       {
-        "label": "Best next step",
-        "text": "Use the One Click Annual Registration portal and confirm the entity shown there."
+        "label": "Late rule",
+        "text": "$25 penalty if the annual registration is filed after the deadline."
       }
     ],
-    "summaryNoteHtml": "<p class=\"table-note\">\n              This page stays conservative on late-fee language because the Georgia portal and\n              guidance used for this review did not provide a flat late-fee number in a source we\n              could preserve directly today.\n            </p>",
-    "bodyHtml": "<section class=\"detail-grid\">\n          <article class=\"detail-card\">\n            <h3>What this page is designed to answer</h3>\n            <p>\n              If you landed here from an old Georgia annual-report URL, the practical question is\n              usually the same: what is the deadline, what is the filing fee, and where do I go to\n              file? This page answers those points first and avoids inventing penalty math that is\n              not clearly published in the current review set.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>What to do if you are already late</h3>\n            <p>\n              Go directly to the Georgia filing portal and review the current instructions for your\n              entity before relying on a third-party late-fee estimate. If the Secretary of State\n              later publishes a clearer flat late-fee or reinstatement schedule, this page should be\n              updated to match it.\n            </p>\n          </article>\n        </section>",
+    "summaryNoteHtml": "<p class=\"table-note\">\n              Georgia is one of the states where a single flat fee is misleading. The deadline is\n              shared, but the total depends on entity type and filing method.\n            </p>",
+    "bodyHtml": "<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Georgia core rules</p>\n            <h2>What the Georgia Secretary of State says now</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Question</th>\n                  <th>Current Georgia answer used on this page</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>When do annual registrations file?</td>\n                  <td>The Georgia Secretary of State says annual registrations are filed between January 1 and April 1 each year.</td>\n                </tr>\n                <tr>\n                  <td>When is the first filing usually due?</td>\n                  <td>Georgia FAQ guidance says corporations file the first annual registration between January 1 and April 1 of the calendar year after incorporation or registration.</td>\n                </tr>\n                <tr>\n                  <td>What fee should most customers expect first?</td>\n                  <td>The current Georgia guidance shows a common $60 online total for many profit entities, with lower totals published for some nonprofits and domestic LLPs.</td>\n                </tr>\n                <tr>\n                  <td>What happens if you miss April 1?</td>\n                  <td>The state currently publishes a $25 late penalty for the annual registration.</td>\n                </tr>\n                <tr>\n                  <td>Where should you file?</td>\n                  <td>Start with the Georgia annual registration instructions, then confirm the entity and filing path through the Secretary of State portal.</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"detail-grid\">\n          <article class=\"detail-card\">\n            <h3>Why this page changed</h3>\n            <p>\n              Georgia used to be summarized on this site with a flat $50 figure. That is too simple.\n              The current official guidance surfaces a more useful customer answer: the deadline is\n              shared, many profit entities now see a $60 online total, and lower totals exist for\n              at least some nonprofit and domestic LLP filings.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>What to do if you are already late</h3>\n            <p>\n              Go directly to the Georgia annual registration instructions and filing portal, confirm\n              the exact entity record, and expect the published $25 late penalty to matter. If your\n              entity type or filing path is unusual, use the SOS guidance on the live record before\n              relying on a generic third-party fee table.\n            </p>\n          </article>\n        </section>",
     "sourceLinks": [
+      {
+        "href": "https://sos.ga.gov/how-to-guide/how-file-annual-registration",
+        "label": "Georgia SOS annual registration how-to guide"
+      },
+      {
+        "href": "https://sos.ga.gov/page/business-division-faq",
+        "label": "Georgia SOS business division FAQ"
+      },
       {
         "href": "https://sos.ga.gov/page/corporations-division",
         "label": "Georgia Secretary of State Corporations Division"
       },
       {
         "href": "https://ecorp.sos.ga.gov/BusinessSearch",
-        "label": "Georgia One Click Annual Registration filing portal"
+        "label": "Georgia annual registration portal and business search"
+      },
+      {
+        "href": "https://sos.ga.gov/reference-filing-fees-effective-962025",
+        "label": "Georgia SOS filing fees reference"
       }
     ],
     "scriptSrc": "/script.js"
@@ -334,7 +374,7 @@ export const statePages = [
     ],
     "heroTitle": "Kansas information report deadline and LLC filing fee",
     "heroSubtitle": "Kansas now describes this recurring filing as an information report, not a standard annual report page. The Kansas Secretary of State says businesses file biennially based on the year they were formed. For-profit businesses are due by April 15 in the matching odd or even year, and not-for-profit businesses are due by June 15 in the matching odd or even year.",
-    "lastReviewed": "March 11, 2026",
+    "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Kansas Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -355,7 +395,7 @@ export const statePages = [
     "bodyHtml": "<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Timing rules</p>\n            <h2>What the Kansas information-report page says</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Business type</th>\n                  <th>Filing cadence</th>\n                  <th>Due date</th>\n                  <th>After the due date</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>For-profit businesses on file with the Kansas Secretary of State</td>\n                  <td>Biennial, in each succeeding odd or even year matching the formation year</td>\n                  <td>April 15</td>\n                  <td>Three-month delinquency interval, then forfeiture if still not filed</td>\n                </tr>\n                <tr>\n                  <td>Not-for-profit businesses on file with the Kansas Secretary of State</td>\n                  <td>Biennial, in each succeeding odd or even year matching the formation year</td>\n                  <td>June 15</td>\n                  <td>Three-month delinquency interval, then forfeiture if still not filed</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Kansas LLC fee detail</p>\n            <h2>What the Kansas LLC form confirms</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Item</th>\n                  <th>Official detail used on this page</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Online Kansas LLC filing fee</td>\n                  <td>$53</td>\n                </tr>\n                <tr>\n                  <td>Paper Kansas LLC filing fee</td>\n                  <td>$55</td>\n                </tr>\n                <tr>\n                  <td>Tax closing date example on the form</td>\n                  <td>If the entity's tax year ends on December 31, the report due-date period is between January 1 and April 15 after that December.</td>\n                </tr>\n                <tr>\n                  <td>Why the page says information report</td>\n                  <td>The Kansas website uses \"information report,\" while the entity form PDFs still use \"annual report\" language for the filing form itself.</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"detail-grid\">\n          <article class=\"detail-card\">\n            <h3>Delinquency and forfeiture</h3>\n            <p>\n              Kansas gives every business a three-month delinquency interval after the due date.\n              Once that interval passes, the Secretary of State says the business will forfeit and\n              will not be able to file other documents until past-due reports are submitted and the\n              business is reinstated.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>What this page does not guess</h3>\n            <p>\n              The general Kansas information-report page does not publish every entity-specific fee\n              on one screen, so this guide only states the LLC fee that is directly confirmed by the\n              Kansas LLC form. If you need another entity's exact filing fee, confirm it from the\n              matching Kansas form before you file.\n            </p>\n          </article>\n        </section>",
     "sourceLinks": [
       {
-        "href": "https://sos.ks.gov/businesses/information-reports.html",
+        "href": "https://sos.ks.gov/filing-center/business/business.html",
         "label": "Kansas Secretary of State information reports page"
       },
       {
@@ -363,8 +403,16 @@ export const statePages = [
         "label": "Kansas Secretary of State LLC annual report form and fee schedule"
       },
       {
-        "href": "https://www.kansas.gov/annual-reports/index.do",
+        "href": "https://www.sos.ks.gov/eforms/user_login.aspx?frm=BS",
         "label": "Kansas online information-report filing portal"
+      },
+      {
+        "href": "https://sos.ks.gov/businesses/reinstate-a-business.html",
+        "label": "Kansas reinstatement guidance for forfeited businesses"
+      },
+      {
+        "href": "https://sos.ks.gov/forms/business_services/Biennial-Filing.pdf",
+        "label": "Kansas biennial filing information-report PDF"
       }
     ],
     "scriptSrc": null
@@ -389,7 +437,7 @@ export const statePages = [
     ],
     "heroTitle": "Nevada annual fee calculator",
     "heroSubtitle": "Nevada entities typically deal with two recurring state charges at the annual filing stage: the annual list fee and the state business license renewal fee. This calculator combines the published amounts for LLCs and corporations and shows the basic late penalties published in the statutes used for this page.",
-    "lastReviewed": "March 11, 2026",
+    "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Nevada Revised Statutes",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -424,6 +472,10 @@ export const statePages = [
       {
         "href": "https://www.leg.state.nv.us/NRS/NRS-076.html#NRS076Sec130",
         "label": "NRS 76.130 - State business license renewal fee and late penalty"
+      },
+      {
+        "href": "https://www.leg.state.nv.us/NRS/NRS-078.html#NRS078Sec175",
+        "label": "NRS 78.175 - Nevada corporation default and annual-list consequences"
       }
     ],
     "scriptSrc": "/script.js"
@@ -452,7 +504,7 @@ export const statePages = [
     ],
     "heroTitle": "New York biennial statement fee and due date",
     "heroSubtitle": "New York requires domestic and foreign business corporations and LLCs to file a Biennial Statement every two years with the Department of State. The key rule is not a single calendar-day deadline. The filing is due during the calendar month in which the entity's original formation or authority filing was made with the state.",
-    "lastReviewed": "March 16, 2026",
+    "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: New York Department of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -487,6 +539,10 @@ export const statePages = [
       {
         "href": "https://dos.ny.gov/corporation-and-business-entity-search-database",
         "label": "New York corporation and business entity search database"
+      },
+      {
+        "href": "https://dos.ny.gov/faqs-corporations-business-entities",
+        "label": "New York Department of State corporations and business entities FAQ"
       }
     ],
     "scriptSrc": null
@@ -505,13 +561,17 @@ export const statePages = [
         "href": "/"
       },
       {
+        "label": "States",
+        "href": "/states.html"
+      },
+      {
         "label": "North Carolina annual report deadline",
         "href": null
       }
     ],
     "heroTitle": "North Carolina annual report deadline for LLCs and corporations",
-    "heroSubtitle": "The North Carolina Secretary of State publishes different annual report timing rules by entity type. LLCs and L3Cs use a fixed April 15 deadline, while business corporations follow the 15th day of the fourth month after the fiscal year ends.",
-    "lastReviewed": "March 11, 2026",
+    "heroSubtitle": "The North Carolina Secretary of State publishes different annual report timing and fee rules by entity type. LLCs and L3Cs use a fixed April 15 deadline with a $200 filing fee plus a small electronic fee, while business corporations follow the 15th day of the fourth month after fiscal year end and use a much lower annual report fee.",
+    "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: NC Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -521,23 +581,35 @@ export const statePages = [
       },
       {
         "label": "LLC fee",
-        "text": "$203 online or $200 on paper."
+        "text": "$200 paper, $202 by ACH, or $203 by credit card online."
       },
       {
-        "label": "Corporation timing",
-        "text": "15th day of the fourth month following fiscal year end."
+        "label": "Corporation fee",
+        "text": "$25 paper, $20 by ACH, or $21 by credit card online."
       }
     ],
-    "summaryNoteHtml": "<p class=\"table-note\">\n              The due-date chart used for this summary does not publish a flat late fee on the same\n              page. This guide intentionally does not invent one.\n            </p>",
-    "bodyHtml": "<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Fee and deadline table</p>\n            <h2>What the North Carolina chart says</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Entity type</th>\n                  <th>Published due date</th>\n                  <th>Online fee</th>\n                  <th>Paper fee</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Business corporation</td>\n                  <td>15th day of the fourth month following fiscal year end</td>\n                  <td>$25</td>\n                  <td>$25</td>\n                </tr>\n                <tr>\n                  <td>Limited Liability Company (LLC or L3C)</td>\n                  <td>April 15 each year after the year of creation</td>\n                  <td>$203</td>\n                  <td>$200</td>\n                </tr>\n                <tr>\n                  <td>Partnerships (LLP and LLLP)</td>\n                  <td>15th day of the fourth month after fiscal year end</td>\n                  <td>$203</td>\n                  <td>$200</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"detail-grid\">\n          <article class=\"detail-card\">\n            <h3>How to read the deadline correctly</h3>\n            <p>\n              LLCs in North Carolina are simpler than corporations: the chart uses a fixed April 15\n              due date. Business corporations do not use that fixed date because the filing deadline\n              tracks the entity's fiscal year end instead.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>What happens if you are late</h3>\n            <p>\n              The annual report due-date chart confirms when the filing is due and what the filing\n              fee is, but it does not publish a flat late fee on the same page. If you are already\n              overdue, check the Secretary of State filing instructions before relying on any\n              third-party summary.\n            </p>\n          </article>\n        </section>",
+    "summaryNoteHtml": "<p class=\"table-note\">\n              North Carolina is one of the states where the online total changes slightly depending\n              on whether the payment is made by ACH or credit card.\n            </p>",
+    "bodyHtml": "<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Fee and deadline table</p>\n            <h2>What the North Carolina guidance says</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Entity type</th>\n                  <th>Published due date</th>\n                  <th>Online fee</th>\n                  <th>Paper fee</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Business corporation</td>\n                  <td>15th day of the fourth month following fiscal year end</td>\n                  <td>$20 ACH or $21 credit card</td>\n                  <td>$25</td>\n                </tr>\n                <tr>\n                  <td>Limited Liability Company (LLC or L3C)</td>\n                  <td>April 15 each year after the year of creation</td>\n                  <td>$202 ACH or $203 credit card</td>\n                  <td>$200</td>\n                </tr>\n                <tr>\n                  <td>Partnerships (LLP and LLLP)</td>\n                  <td>15th day of the fourth month after fiscal year end</td>\n                  <td>$202 ACH or $203 credit card</td>\n                  <td>$200</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"detail-grid\">\n          <article class=\"detail-card\">\n            <h3>How to read the deadline correctly</h3>\n            <p>\n              LLCs in North Carolina are simpler than corporations: the chart uses a fixed April 15\n              due date. Business corporations do not use that fixed date because the filing deadline\n              tracks the entity's fiscal year end instead.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>What happens if you are late</h3>\n            <p>\n              The annual report due-date chart confirms when the filing is due and what the filing\n              fee is, but it does not publish a flat late fee on the same page. If you are already\n              overdue, check the Secretary of State filing instructions before relying on any\n              third-party summary.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>If the business was dissolved already</h3>\n            <p>\n              The North Carolina reinstatement page says that when the ground for dissolution is\n              failure to file annual reports, the business must file an annual report and pay the\n              applicable filing fee for each missing year. Overdue entities should not stop at the\n              current-year fee alone.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>Where the fee math comes from</h3>\n            <p>\n              North Carolina separates the statutory filing fee from the electronic payment fee.\n              That is why the best planning answer is usually a paper amount plus a small online\n              add-on for ACH or credit-card processing.\n            </p>\n          </article>\n        </section>",
     "sourceLinks": [
       {
         "href": "https://www.sosnc.gov/divisions/business_registration/annual_report_due_dates",
         "label": "North Carolina Secretary of State annual report due dates"
       },
       {
-        "href": "https://www.sosnc.gov/online_services/search/Business_Registration",
-        "label": "North Carolina Business Registration search and filing entry point"
+        "href": "https://www.sosnc.gov/divisions/business_registration/annual_report/12819032",
+        "label": "North Carolina SOS file an annual report guidance"
+      },
+      {
+        "href": "https://www.sosnc.gov/manual/register_a_foreign_business/maintaining_registration",
+        "label": "North Carolina SOS maintaining registration guidance"
+      },
+      {
+        "href": "https://www.sosnc.gov/divisions/business_registration/Reinstatement_and_Requalification_Paper_Domestic",
+        "label": "North Carolina SOS reinstatement guidance"
+      },
+      {
+        "href": "https://b2b.sosnc.gov/fees/by_title/_Business_Registration",
+        "label": "North Carolina business registration fee table"
       }
     ],
     "scriptSrc": "/script.js"
@@ -556,14 +628,18 @@ export const statePages = [
         "href": "/"
       },
       {
+        "label": "States",
+        "href": "/states.html"
+      },
+      {
         "label": "Pennsylvania annual report deadline",
         "href": null
       }
     ],
     "heroTitle": "Pennsylvania annual report deadline",
     "heroSubtitle": "Pennsylvania's annual report requirement started in 2025. The Department of State now uses different filing windows by association type, with a $7 filing fee for most business corporations, LLCs, LPs, and LLPs.",
-    "lastReviewed": "March 11, 2026",
-    "sourceBadge": "Source: Pennsylvania Department of State",
+    "lastReviewed": "March 17, 2026",
+    "sourceBadge": "Source: Pennsylvania Department of State and Business Filing Services",
     "summaryTitle": "At a glance",
     "metrics": [
       {
@@ -587,8 +663,20 @@ export const statePages = [
         "label": "Pennsylvania Department of State annual reports guidance"
       },
       {
+        "href": "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/business/graphics/annual-reports-one-pager.pdf",
+        "label": "Pennsylvania annual reports one-pager PDF"
+      },
+      {
+        "href": "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/business/graphics/how%20to%20file%20an%20annual%20report.pdf",
+        "label": "Pennsylvania how to file an annual report PDF"
+      },
+      {
         "href": "https://file.dos.pa.gov/",
         "label": "Pennsylvania online filing portal"
+      },
+      {
+        "href": "https://www.pa.gov/agencies/dos/alerts-and-notices/business-and-charities-scams",
+        "label": "Pennsylvania DOS business and charities scam alerts"
       }
     ],
     "scriptSrc": "/script.js"
@@ -617,7 +705,7 @@ export const statePages = [
     ],
     "heroTitle": "Texas franchise tax due date and information report rules",
     "heroSubtitle": "Texas does not use a standard annual report page for most business entities. The core annual compliance item is the franchise tax report due each May 15, along with the appropriate Public Information Report or Ownership Information Report. For report years 2024 and later, the Texas Comptroller also changed how no-tax-due entities file.",
-    "lastReviewed": "March 11, 2026",
+    "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Texas Comptroller of Public Accounts",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -635,7 +723,7 @@ export const statePages = [
       }
     ],
     "summaryNoteHtml": null,
-    "bodyHtml": "<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Core filing rules</p>\n            <h2>What the Texas Comptroller says for 2026 reports</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Item</th>\n                  <th>Official rule used on this page</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Annual due date</td>\n                  <td>The annual franchise tax report is due May 15. If May 15 falls on a weekend or holiday, the due date moves to the next business day.</td>\n                </tr>\n                <tr>\n                  <td>2026 no-tax-due threshold</td>\n                  <td>$2,650,000.</td>\n                </tr>\n                <tr>\n                  <td>No Tax Due Report change</td>\n                  <td>For reports originally due on or after January 1, 2024, entities at or below the no-tax-due threshold are no longer required to file a No Tax Due Report.</td>\n                </tr>\n                <tr>\n                  <td>Information report still required</td>\n                  <td>Even when no tax is due under the threshold rules, the filing still needs the appropriate Public Information Report or Ownership Information Report based on entity type.</td>\n                </tr>\n                <tr>\n                  <td>Late penalties</td>\n                  <td>$50 on each report filed after the due date. If tax is paid 1 to 30 days late, the tax penalty is 5%. If tax is paid more than 30 days late, the tax penalty is 10%.</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">PIR versus OIR</p>\n            <h2>Which Texas information report applies</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Entity type</th>\n                  <th>Information report named in the Comptroller FAQ</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Corporations, LLCs, professional associations, limited partnerships, financial institutions</td>\n                  <td>Public Information Report (PIR)</td>\n                </tr>\n                <tr>\n                  <td>Associations, trusts, and other taxable entities not listed above</td>\n                  <td>Ownership Information Report (OIR)</td>\n                </tr>\n                <tr>\n                  <td>Members of a combined group with Texas nexus</td>\n                  <td>A separate PIR or OIR for each member, as described in the Comptroller FAQ</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"detail-grid\">\n          <article class=\"detail-card\">\n            <h3>Newly taxable entities</h3>\n            <p>\n              The Texas Comptroller FAQ says that an entity first subject to franchise tax on or\n              after October 4, 2009 files its first annual report on May 15 of the year following\n              the year it became subject to the tax. That is useful if you formed recently and are\n              trying to figure out whether a short first-period report is already due.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>What happens if you ignore it</h3>\n            <p>\n              The penalty section gives the clearest flat number: $50 for each late report. The\n              Comptroller also states that tax paid late carries percentage penalties. If the issue\n              keeps going unresolved, the state can move into forfeiture and reinstatement steps, so\n              overdue entities should use the official filing and notice pages instead of guessing.\n            </p>\n          </article>\n        </section>",
+    "bodyHtml": "<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Core filing rules</p>\n            <h2>What the Texas Comptroller says for 2026 reports</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Item</th>\n                  <th>Official rule used on this page</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Annual due date</td>\n                  <td>The annual franchise tax report is due May 15. If May 15 falls on a weekend or holiday, the due date moves to the next business day, and Webfile payments must be submitted by 11:59 p.m. Central Time on the due date to be timely.</td>\n                </tr>\n                <tr>\n                  <td>2026 no-tax-due threshold</td>\n                  <td>$2,650,000.</td>\n                </tr>\n                <tr>\n                  <td>No Tax Due Report change</td>\n                  <td>For reports originally due on or after January 1, 2024, entities at or below the no-tax-due threshold are no longer required to file a No Tax Due Report.</td>\n                </tr>\n                <tr>\n                  <td>Information report still required</td>\n                  <td>Even when no tax is due under the threshold rules, the filing still needs the appropriate Public Information Report or Ownership Information Report based on entity type.</td>\n                </tr>\n                <tr>\n                  <td>Late penalties</td>\n                  <td>$50 on each report filed after the due date. If tax is paid 1 to 30 days late, the tax penalty is 5%. If tax is paid more than 30 days late, the tax penalty is 10%.</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">PIR versus OIR</p>\n            <h2>Which Texas information report applies</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Entity type</th>\n                  <th>Information report named in the Comptroller FAQ</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Corporations, LLCs, professional associations, limited partnerships, financial institutions</td>\n                  <td>Public Information Report (PIR)</td>\n                </tr>\n                <tr>\n                  <td>Associations, trusts, and other taxable entities not listed above</td>\n                  <td>Ownership Information Report (OIR)</td>\n                </tr>\n                <tr>\n                  <td>Members of a combined group with Texas nexus</td>\n                  <td>A separate PIR or OIR for each member, as described in the Comptroller FAQ</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"detail-grid\">\n          <article class=\"detail-card\">\n            <h3>Newly taxable entities</h3>\n            <p>\n              The Texas Comptroller FAQ says that an entity first subject to franchise tax on or\n              after October 4, 2009 files its first annual report on May 15 of the year following\n              the year it became subject to the tax. That is useful if you formed recently and are\n              trying to figure out whether a short first-period report is already due.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>What happens if you ignore it</h3>\n            <p>\n              The penalty section gives the clearest flat number: $50 for each late report. The\n              Comptroller also states that tax paid late carries percentage penalties. If the issue\n              keeps going unresolved, the state can move into forfeiture and reinstatement steps, so\n              overdue entities should use the official filing and notice pages instead of guessing.\n            </p>\n          </article>\n        </section>",
     "sourceLinks": [
       {
         "href": "https://comptroller.texas.gov/taxes/franchise/",
@@ -652,6 +740,14 @@ export const statePages = [
       {
         "href": "https://comptroller.texas.gov/taxes/franchise/ntd-rpt-updates-2024.php",
         "label": "Texas Comptroller no-tax-due reporting changes for 2024 and later"
+      },
+      {
+        "href": "https://comptroller.texas.gov/taxes/file-pay/due-dates.php",
+        "label": "Texas Comptroller due dates and Webfile payment timing"
+      },
+      {
+        "href": "https://comptroller.texas.gov/taxes/franchise/current-2024.php",
+        "label": "Texas Comptroller making your franchise tax account current"
       }
     ],
     "scriptSrc": "/script.js"
@@ -679,8 +775,8 @@ export const statePages = [
       }
     ],
     "heroTitle": "Washington annual report fee and deadline",
-    "heroSubtitle": "Washington requires an annual report for registered businesses, and the state guidance for for-profit entities is clearer than many third-party summaries suggest. The annual report is due each year by the end of the anniversary month, the filing fee is $70 for for-profit businesses, and the Secretary of State describes the reminder and delinquency sequence in detail.",
-    "lastReviewed": "March 11, 2026",
+    "heroSubtitle": "Washington requires an annual report for registered businesses, and the state guidance for for-profit entities is clearer than many third-party summaries suggest. The annual report is due each year by the end of the anniversary month, many businesses can file up to 180 days early, the for-profit annual report fee is $70, and delinquent filings move to a $95 total.",
+    "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Washington Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -693,13 +789,17 @@ export const statePages = [
         "text": "$70 for the annual report."
       },
       {
-        "label": "Reminder timing",
-        "text": "Email notice about 60 days before expiration and paper notice about 45 to 60 days before if electronic notice is not selected."
+        "label": "If the report is delinquent",
+        "text": "$95 total for an annual report with the delinquency fee."
       }
     ],
     "summaryNoteHtml": null,
-    "bodyHtml": "<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Official timing</p>\n            <h2>What the Washington Secretary of State says</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Item</th>\n                  <th>Official rule used on this page</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Annual report due date</td>\n                  <td>Annual report must be filed each year by the end of the anniversary month.</td>\n                </tr>\n                <tr>\n                  <td>Filing fee for for-profit businesses</td>\n                  <td>$70.</td>\n                </tr>\n                <tr>\n                  <td>Email reminder</td>\n                  <td>About 60 days prior to expiration.</td>\n                </tr>\n                <tr>\n                  <td>Paper reminder</td>\n                  <td>About 45 to 60 days prior to expiration if electronic notification is not selected.</td>\n                </tr>\n                <tr>\n                  <td>How to file</td>\n                  <td>Through the Corporations and Charities Filing System by selecting express annual report or by logging into the customer profile.</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"detail-grid\">\n          <article class=\"detail-card\">\n            <h3>Delinquency notice sequence</h3>\n            <p>\n              Washington says a delinquency notice is sent on the first day of the month after the\n              expiration date if the annual report has not been filed. Submitted reports remain\n              pending until processed by the Secretary of State.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>Dissolution or termination timing</h3>\n            <p>\n              The Washington Secretary of State says an administrative dissolution notice is sent\n              120 days after the expiration date to domestic entities without a filed annual report.\n              Foreign entities instead receive a statement of termination 90 days after the\n              expiration date if the annual report is still not filed.\n            </p>\n          </article>\n        </section>\n\n<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Practical warning</p>\n            <h2>Washington explicitly warns about third-party solicitations</h2>\n          </div>\n          <p class=\"body-copy\">\n            Washington has an unusually useful official page about misleading annual-report notices.\n            The Secretary of State says a third-party service is not required to submit filings to\n            the Corporations and Charities Division and points readers to the official fee schedule\n            when notices quote higher fees. That is why this guide links directly to the official\n            state pages instead of paraphrasing third-party mailers.\n          </p>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Question</th>\n                  <th>Official answer used here</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Do you need a third-party service to file?</td>\n                  <td>No. Washington says a third-party service is not required to submit filings.</td>\n                </tr>\n                <tr>\n                  <td>What should you do if a quoted fee seems high?</td>\n                  <td>Compare it to the official Washington filing fee schedule and use the official filing system.</td>\n                </tr>\n                <tr>\n                  <td>What if the annual report is already overdue?</td>\n                  <td>File through the official system as soon as possible and use the delinquency timeline above to judge how urgent the issue is.</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>",
+    "bodyHtml": "<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Official timing</p>\n            <h2>What the Washington Secretary of State says</h2>\n          </div>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Item</th>\n                  <th>Official rule used on this page</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Annual report due date</td>\n                  <td>Annual report must be filed each year by the end of the anniversary month.</td>\n                </tr>\n                <tr>\n                  <td>Early filing window</td>\n                  <td>Washington says the annual report may be filed within 180 days before the expiration date.</td>\n                </tr>\n                <tr>\n                  <td>Filing fee for for-profit businesses</td>\n                  <td>$70, or $95 if filed with the delinquency fee.</td>\n                </tr>\n                <tr>\n                  <td>Email reminder</td>\n                  <td>About 60 days prior to expiration.</td>\n                </tr>\n                <tr>\n                  <td>Paper reminder</td>\n                  <td>About 45 to 60 days prior to expiration if electronic notification is not selected.</td>\n                </tr>\n                <tr>\n                  <td>How to file</td>\n                  <td>Through the Corporations and Charities Filing System by selecting express annual report or by logging into the customer profile.</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>\n\n<section class=\"detail-grid\">\n          <article class=\"detail-card\">\n            <h3>Delinquency notice sequence</h3>\n            <p>\n              Washington says a delinquency notice is sent on the first day of the month after the\n              expiration date if the annual report has not been filed. The fee schedule shows a\n              $95 total for an annual report with the delinquency fee. Submitted reports remain\n              pending until processed by the Secretary of State.\n            </p>\n          </article>\n          <article class=\"detail-card\">\n            <h3>Dissolution or termination timing</h3>\n            <p>\n              The Washington Secretary of State says an administrative dissolution notice is sent\n              120 days after the expiration date to domestic entities without a filed annual report.\n              Foreign entities instead receive a statement of termination 90 days after the\n              expiration date if the annual report is still not filed.\n            </p>\n          </article>\n        </section>\n\n<section class=\"section surface\">\n          <div class=\"section__head\">\n            <p class=\"eyebrow\">Practical warning</p>\n            <h2>Washington explicitly warns about third-party solicitations</h2>\n          </div>\n          <p class=\"body-copy\">\n            Washington has an unusually useful official page about misleading annual-report notices.\n            The Secretary of State says a third-party service is not required to submit filings to\n            the Corporations and Charities Division and points readers to the official fee schedule\n            when notices quote higher fees. That is why this guide links directly to the official\n            state pages instead of paraphrasing third-party mailers.\n          </p>\n          <div class=\"table-scroll\">\n            <table class=\"summary-table\">\n              <thead>\n                <tr>\n                  <th>Question</th>\n                  <th>Official answer used here</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr>\n                  <td>Do you need a third-party service to file?</td>\n                  <td>No. Washington says a third-party service is not required to submit filings.</td>\n                </tr>\n                <tr>\n                  <td>What should you do if a quoted fee seems high?</td>\n                  <td>Compare it to the official Washington filing fee schedule and use the official filing system.</td>\n                </tr>\n                <tr>\n                  <td>What if the annual report is already overdue?</td>\n                  <td>File through the official system as soon as possible, expect the delinquency fee to apply, and use the 120-day or 90-day timeline above to judge urgency.</td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </section>",
     "sourceLinks": [
+      {
+        "href": "https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/annual-reports",
+        "label": "Washington annual reports FAQ and 180-day filing window"
+      },
       {
         "href": "https://www.sos.wa.gov/corporations-charities/business-entities/online-filing-instructions/file-annual-report-multiple-entity-types-online",
         "label": "Washington Secretary of State file annual report online instructions"
@@ -715,6 +815,10 @@ export const statePages = [
       {
         "href": "https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/fee-scheduleexpedited-service",
         "label": "Washington filing fee schedule and expedited service FAQ"
+      },
+      {
+        "href": "https://www.sos.wa.gov/corporations-charities/business-entities/return-business-active-status",
+        "label": "Washington return business to active status guidance"
       }
     ],
     "scriptSrc": null

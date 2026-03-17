@@ -1,6 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import { MIN_RECOMMENDED_SOURCE_COUNT } from "./lib/state-page-utils.mjs";
+
 const ROOT = process.cwd();
 const TOOLS_DIR = path.join(ROOT, "tools");
 const CHECK_LINKS = process.argv.includes("--check-links");
@@ -263,6 +265,7 @@ if (CHECK_LINKS) {
 const failingLinks = linkResults.filter(
   (item) => item.category === "broken" || item.category === "error"
 );
+const thinSourceCoverage = pages.filter((page) => page.sourceUrls.length < MIN_RECOMMENDED_SOURCE_COUNT);
 
 console.log(formatPageSummary(pages));
 
@@ -278,6 +281,14 @@ if (CHECK_LINKS) {
   console.log(formatLinkSummary(linkResults));
 }
 
-if (structureIssues.length > 0 || failingLinks.length > 0) {
+if (thinSourceCoverage.length > 0) {
+  console.log("");
+  console.log(`Pages below the recommended ${MIN_RECOMMENDED_SOURCE_COUNT}-source target:`);
+  for (const page of thinSourceCoverage) {
+    console.log(`- ${relative(page.file)} (${page.sourceUrls.length} sources)`);
+  }
+}
+
+if (structureIssues.length > 0 || failingLinks.length > 0 || thinSourceCoverage.length > 0) {
   process.exitCode = 1;
 }

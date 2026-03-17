@@ -3,10 +3,17 @@ import path from "node:path";
 
 import { liveStatePages } from "../data/live-state-pages.mjs";
 import { stateDirectory } from "../data/state-directory.mjs";
-import { getPageRoute, parseReviewDate, pluralize } from "./lib/state-page-utils.mjs";
+import {
+  formatLongDate,
+  getPageRoute,
+  getReviewStatus,
+  parseReviewDate,
+  pluralize
+} from "./lib/state-page-utils.mjs";
 
 const ROOT = process.cwd();
 const SITE_ORIGIN = "https://finlogichub5.com";
+const GENERATED_AT = new Date();
 const directoryByRoute = new Map(stateDirectory.map((entry) => [entry.route, entry]));
 
 function escapeHtml(value) {
@@ -43,9 +50,10 @@ function renderMetrics(metrics) {
 function renderSourceLinks(links) {
   return links
     .map(
-      (link) => `            <li>
+      (link, index) => `            <li class="source-item">
               <a href="${escapeHtml(link.href)}">
-                ${escapeHtml(link.label)}
+                <span class="source-kicker">Official source ${index + 1}</span>
+                <strong>${escapeHtml(link.label)}</strong>
               </a>
             </li>`
     )
@@ -54,6 +62,10 @@ function renderSourceLinks(links) {
 
 function formatReviewDate(value) {
   return parseReviewDate(value).toISOString().slice(0, 10);
+}
+
+function getBadgeToneClass(tone) {
+  return tone ? ` badge--${tone}` : "";
 }
 
 function renderActionCards(links) {
@@ -69,34 +81,54 @@ function renderActionCards(links) {
 }
 
 function renderQuickAnswers(entry) {
+  const answerCards = [
+    {
+      label: "Filing label",
+      text: entry.directoryComparison.obligation
+    },
+    {
+      label: "Who should use this page",
+      text: entry.directoryComparison.entityFocus
+    },
+    {
+      label: "Headline due date",
+      text: entry.directoryComparison.deadline
+    },
+    {
+      label: "Main amount shown",
+      text: entry.directoryComparison.amount
+    }
+  ];
+
+  if (entry.homeComparison?.lateRule) {
+    answerCards.push({
+      label: "If already late",
+      text: entry.homeComparison.lateRule
+    });
+  }
+
   return `        <section class="section surface">
           <div class="section__head">
             <p class="eyebrow">Quick answer</p>
             <h2>What most readers need first</h2>
           </div>
           <div class="insight-grid">
-            <article class="insight-card">
-              <span class="insight-label">Main obligation</span>
-              <strong>${escapeHtml(entry.directoryComparison.obligation)}</strong>
-            </article>
-            <article class="insight-card">
-              <span class="insight-label">Who this page is for</span>
-              <strong>${escapeHtml(entry.directoryComparison.entityFocus)}</strong>
-            </article>
-            <article class="insight-card">
-              <span class="insight-label">Headline due date</span>
-              <strong>${escapeHtml(entry.directoryComparison.deadline)}</strong>
-            </article>
-            <article class="insight-card">
-              <span class="insight-label">Main amount shown</span>
-              <strong>${escapeHtml(entry.directoryComparison.amount)}</strong>
-            </article>
+${answerCards
+  .map(
+    (card) => `            <article class="insight-card">
+              <span class="insight-label">${escapeHtml(card.label)}</span>
+              <strong>${escapeHtml(card.text)}</strong>
+            </article>`
+  )
+  .join("\n")}
           </div>
         </section>`;
 }
 
 function renderCustomerActionSection(page, entry) {
   const primaryLinks = page.sourceLinks.slice(0, 2);
+  const lateRule = entry.homeComparison?.lateRule ??
+    "Check the official portal, state record, or official notice for the current late consequence.";
 
   return `        <section class="section section--split">
           <div class="surface task-panel">
@@ -104,12 +136,28 @@ function renderCustomerActionSection(page, entry) {
               <p class="eyebrow">Customer task</p>
               <h2>What to do before you file or pay</h2>
             </div>
-            <ul class="checklist">
-              <li>Match your entity to this page's scope: ${escapeHtml(entry.directoryComparison.entityFocus)}.</li>
-              <li>Use this page to confirm the main obligation first: ${escapeHtml(entry.directoryComparison.obligation)}.</li>
-              <li>Treat the headline deadline and amount as your planning answer, then follow the official state record if it gives a record-specific date or amount.</li>
-              <li>Finish by saving the filing receipt, confirmation email, or payment receipt from the official portal.</li>
-            </ul>
+            <div class="flow-grid flow-grid--compact">
+              <article class="flow-card">
+                <span class="flow-step">Check scope</span>
+                <h3>Match the entity first</h3>
+                <p>This page is built for ${escapeHtml(entry.directoryComparison.entityFocus)}.</p>
+              </article>
+              <article class="flow-card">
+                <span class="flow-step">Plan the filing</span>
+                <h3>Use the headline answer</h3>
+                <p>Start with ${escapeHtml(entry.directoryComparison.deadline)} and ${escapeHtml(entry.directoryComparison.amount)}.</p>
+              </article>
+              <article class="flow-card">
+                <span class="flow-step">If already late</span>
+                <h3>Use the late-state rule</h3>
+                <p>${escapeHtml(lateRule)}</p>
+              </article>
+            </div>
+            <p class="section-note">
+              After you file, keep the official receipt, confirmation email, or payment record from
+              the state portal. If the state record gives a record-specific date, amount, or status
+              that conflicts with this page, follow the official state source.
+            </p>
           </div>
           <div class="surface task-panel">
             <div class="section__head">
@@ -128,6 +176,8 @@ ${renderActionCards(primaryLinks)}
 }
 
 function renderTrustSnapshot(page, entry) {
+  const reviewStatus = getReviewStatus(parseReviewDate(page.lastReviewed), GENERATED_AT);
+
   return `        <section class="section surface">
           <div class="section__head">
             <p class="eyebrow">Trust snapshot</p>
@@ -135,9 +185,14 @@ function renderTrustSnapshot(page, entry) {
           </div>
           <div class="trust-grid">
             <article class="trust-card">
-              <span>Manual review</span>
+              <span>Review status</span>
+              <strong>${escapeHtml(reviewStatus.label)}</strong>
+              <p>${escapeHtml(reviewStatus.detail)}</p>
+            </article>
+            <article class="trust-card">
+              <span>Last reviewed</span>
               <strong>${escapeHtml(page.lastReviewed)}</strong>
-              <p>A dated review stamp stays visible on the live page.</p>
+              <p>Target refresh by ${escapeHtml(formatLongDate(reviewStatus.nextReviewDate))}.</p>
             </article>
             <article class="trust-card">
               <span>Official sources</span>
@@ -145,14 +200,9 @@ function renderTrustSnapshot(page, entry) {
               <p>The answer points back to the controlling state pages shown below.</p>
             </article>
             <article class="trust-card">
-              <span>Page scope</span>
-              <strong>${escapeHtml(entry.directoryComparison.entityFocus)}</strong>
-              <p>This page keeps entity-specific rules separate instead of flattening them.</p>
-            </article>
-            <article class="trust-card">
-              <span>Update rhythm</span>
-              <strong>Manual review plus daily scan</strong>
-              <p>Automated checks catch broken links while humans still control live copy changes.</p>
+              <span>Monitoring</span>
+              <strong>Daily source scan monitored</strong>
+              <p>Release checks look for stale review dates and broken official links before publishing.</p>
             </article>
           </div>
         </section>`;
@@ -199,6 +249,7 @@ function renderPage(page) {
   const scriptTag = page.scriptSrc ? `\n    <script src="${escapeHtml(page.scriptSrc)}"></script>` : "";
   const summaryNote = page.summaryNoteHtml ? `\n${page.summaryNoteHtml}` : "";
   const directoryEntry = directoryByRoute.get(getPageRoute(page));
+  const reviewStatus = getReviewStatus(parseReviewDate(page.lastReviewed), GENERATED_AT);
   const quickAnswerSection = directoryEntry ? `\n${renderQuickAnswers(directoryEntry)}\n` : "\n";
   const customerActionSection = directoryEntry
     ? `\n${renderCustomerActionSection(page, directoryEntry)}\n`
@@ -265,10 +316,11 @@ function renderPage(page) {
               ${escapeHtml(page.heroSubtitle)}
             </p>
             <div class="badge-row">
+              <span class="badge${getBadgeToneClass(reviewStatus.tone)}">${escapeHtml(reviewStatus.label)}</span>
               <span class="badge">Last reviewed: ${escapeHtml(page.lastReviewed)}</span>
-              <span class="badge">${escapeHtml(page.sourceBadge)}</span>
+              <span class="badge">Target refresh by ${escapeHtml(formatLongDate(reviewStatus.nextReviewDate))}</span>
               <span class="badge">${page.sourceLinks.length} official ${pluralize(page.sourceLinks.length, "source")}</span>
-              <span class="badge">Daily source scan monitored</span>
+              <span class="badge">${escapeHtml(page.sourceBadge)}</span>
             </div>
           </div>
 

@@ -17,7 +17,7 @@ export const manualStatePages = [
     heroTitle: "New Jersey annual report fee and due date",
     heroSubtitle:
       "New Jersey keeps its recurring business filing rule relatively straightforward: every registered business entity files an annual report, the deadline is tied to the anniversary month of formation or authorization, and the filing fee depends mainly on whether the entity is for-profit or non-profit. The main risk is not a published flat late fee. The bigger risk is losing good standing and eventually losing the authority to do business after repeated missed reports.",
-    lastReviewed: "March 16, 2026",
+    lastReviewed: "March 17, 2026",
     sourceBadge: "Source: New Jersey Division of Revenue and Enterprise Services",
     summaryTitle: "At a glance",
     metrics: [
@@ -178,8 +178,8 @@ export const manualStatePages = [
         label: "Business.NJ annual report filing page"
       },
       {
-        href: "https://www.nj.gov/treasury/business.shtml",
-        label: "New Jersey Treasury mobile services for businesses"
+        href: "https://www.nj.gov/treasury/revenue/taxcalreminder.shtml",
+        label: "New Jersey DORES tax and annual-report reminder services"
       },
       {
         href: "https://nj.gov/state/bac/assets/downloads/NJ_Small_Business_Manual_for_download.pdf",
@@ -218,7 +218,7 @@ export const manualStatePages = [
     heroTitle: "Virginia annual registration fee and annual report deadline",
     heroSubtitle:
       "Virginia does not have one single recurring business-filing rule. Corporations file an annual report and also pay an annual registration fee, LLCs pay an annual registration fee, limited partnerships and business trusts use a different annual registration cycle, and LLPs or LLLPs file an annual continuation report. This page keeps those Virginia rules separate so the filing label and due date do not get mixed together.",
-    lastReviewed: "March 16, 2026",
+    lastReviewed: "March 17, 2026",
     sourceBadge: "Source: Virginia State Corporation Commission",
     summaryTitle: "At a glance",
     metrics: [
@@ -397,8 +397,12 @@ export const manualStatePages = [
         label: "Virginia Annual Corporation Requirements and Fee Schedule"
       },
       {
-        href: "https://cis.scc.virginia.gov/",
-        label: "Virginia Clerk's Information System (CIS)"
+        href: "https://www.scc.virginia.gov/clk",
+        label: "Virginia SCC Clerk's Information System (CIS)"
+      },
+      {
+        href: "https://scc.virginia.gov/pages/Misleading-Solicitations",
+        label: "Virginia SCC warning on misleading solicitations"
       }
     ],
     scriptSrc: null
