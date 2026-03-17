@@ -1,5 +1,4 @@
 const lookupForm = document.querySelector("[data-state-lookup]");
-const quickRouteButtons = document.querySelectorAll("[data-route]");
 
 if (lookupForm) {
   lookupForm.addEventListener("submit", (event) => {
@@ -10,15 +9,6 @@ if (lookupForm) {
     }
   });
 }
-
-quickRouteButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const route = button.getAttribute("data-route");
-    if (route) {
-      window.location.href = route;
-    }
-  });
-});
 
 const nevadaConfig = {
   llc: {

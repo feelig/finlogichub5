@@ -1,0 +1,435 @@
+export const coverageBuckets = [
+  {
+    key: "annual-reports",
+    label: "Annual report guides",
+    description:
+      "Recurring annual-report pages where the state publishes a recognizable report cycle and fee structure."
+  },
+  {
+    key: "annual-registration-and-tax",
+    label: "Annual registration and annual tax guides",
+    description:
+      "States where the recurring compliance item is not just an annual report and the filing label changes by entity type."
+  },
+  {
+    key: "recurring-fees-and-statements",
+    label: "Recurring fee and statement tools",
+    description:
+      "Statement, biennial, information-report, annual-list, and franchise-tax pages that need tighter entity-level breakdowns."
+  }
+];
+
+export const stateDirectory = [
+  {
+    state: "North Carolina",
+    route: "/tools/north-carolina/annual-report-deadline/",
+    guideLabel: "North Carolina annual report deadline",
+    chipLabel: "NC LLCs",
+    guideType: "Annual report guide",
+    coverageBucket: "annual-reports",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "LLC and L3C due date, corporation timing, and the current online versus paper fee split.",
+    directoryCardDescription:
+      "LLC, L3C, and corporation timing with the current online and paper filing-fee split.",
+    homeComparison: {
+      focus: "LLC or L3C",
+      deadline: "April 15",
+      fee: "$203 online / $200 paper",
+      lateRule: "No flat late fee stated on the due-date chart"
+    },
+    directoryComparison: {
+      obligation: "Annual report",
+      entityFocus: "LLCs, L3Cs, corporations, partnerships",
+      deadline: "April 15 for LLCs; fiscal-year-based for corporations",
+      amount: "$203 online or $200 paper for LLCs"
+    }
+  },
+  {
+    state: "Georgia",
+    route: "/tools/georgia/annual-report-deadline/",
+    guideLabel: "Georgia annual registration deadline",
+    chipLabel: "Georgia registration",
+    guideType: "Annual registration guide",
+    coverageBucket: "annual-registration-and-tax",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "April 1 timing, $50 registration fee, and filing-portal guidance for Georgia entities.",
+    directoryCardDescription:
+      "April 1 timing, $50 filing fee, and conservative guidance where the portal does not publish a preserved flat late fee.",
+    homeComparison: {
+      focus: "Annual registration",
+      deadline: "April 1",
+      fee: "$50",
+      lateRule: "Check portal guidance if already late"
+    },
+    directoryComparison: {
+      obligation: "Annual registration",
+      entityFocus: "Business entities using the annual registration portal",
+      deadline: "April 1",
+      amount: "$50 filing fee"
+    }
+  },
+  {
+    state: "Pennsylvania",
+    route: "/tools/pennsylvania/annual-report-deadline/",
+    guideLabel: "Pennsylvania annual report deadline",
+    chipLabel: "PA annual reports",
+    guideType: "Annual report guide",
+    coverageBucket: "annual-reports",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "2025 annual report rollout, $7 filing fee, and the 2027 late-enforcement timeline.",
+    directoryCardDescription:
+      "2025 launch rules, $7 filing fee, and the delayed enforcement window that begins with reports due in 2027.",
+    homeComparison: {
+      focus: "LLC",
+      deadline: "January 1 to September 30",
+      fee: "$7",
+      lateRule: "Administrative action begins in 2027, six months after due date"
+    },
+    directoryComparison: {
+      obligation: "Annual report",
+      entityFocus: "Corporations, LLCs, LPs, LLPs",
+      deadline: "Varies by association type",
+      amount: "$7 for most business entities"
+    }
+  },
+  {
+    state: "Delaware",
+    route: "/tools/delaware/annual-report-deadline/",
+    guideLabel: "Delaware annual report and annual tax deadline",
+    chipLabel: "Delaware filing split",
+    guideType: "Annual report plus annual tax guide",
+    coverageBucket: "annual-registration-and-tax",
+    featuredInHomeNav: true,
+    homeCardDescription:
+      "Domestic corporations, foreign corporations, and Delaware LLC annual tax are separated clearly.",
+    directoryCardDescription:
+      "Separates domestic corporations, foreign corporations, and the June 1 Delaware LLC annual tax.",
+    homeComparison: {
+      focus: "Domestic corporation",
+      deadline: "March 1",
+      fee: "$50 filing fee plus franchise tax",
+      lateRule: "$200 penalty plus 1.5% monthly interest"
+    },
+    directoryComparison: {
+      obligation: "Annual report or annual tax",
+      entityFocus: "Domestic corporations, foreign corporations, LLCs, LPs, GPs",
+      deadline: "March 1, June 1, or June 30 depending on entity type",
+      amount: "$50 annual report fee or $300 LLC annual tax"
+    }
+  },
+  {
+    state: "Florida",
+    route: "/tools/florida/annual-report-deadline/",
+    guideLabel: "Florida annual report fee and deadline",
+    chipLabel: "Florida annual report",
+    guideType: "Annual report guide",
+    coverageBucket: "annual-reports",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "May 1 filing deadline, entity-specific annual report fees, $400 late-fee rules, and September dissolution timing.",
+    directoryCardDescription:
+      "May 1 deadline, $400 late-fee rules, September dissolution timing, and separate fee schedules for corporations, LLCs, and partnerships.",
+    homeComparison: {
+      focus: "Profit corporation or LLC filing an annual report",
+      deadline: "January 1 to May 1",
+      fee: "$150 for profit corporations or $138.75 for LLCs",
+      lateRule:
+        "$400 late fee after May 1 for profit corporations, LLCs, LPs, and LLLPs; dissolution or revocation after the September cutoff"
+    },
+    directoryComparison: {
+      obligation: "Annual report",
+      entityFocus: "Profit and non-profit corporations, LLCs, LPs, and LLLPs",
+      deadline: "January 1 to May 1, then September dissolution cutoff",
+      amount:
+        "$61.25 to $500.00 depending on entity type, plus a $400 late fee for most for-profit entities after May 1"
+    }
+  },
+  {
+    state: "Nevada",
+    route: "/tools/nevada/annual-fee-calculator/",
+    guideLabel: "Nevada annual fee calculator",
+    chipLabel: "Nevada annual fees",
+    guideType: "Interactive recurring-fee guide",
+    coverageBucket: "recurring-fees-and-statements",
+    featuredInHomeNav: true,
+    homeCardDescription:
+      "Annual list fees, state business license renewal, and late penalties for LLCs and corporations.",
+    directoryCardDescription:
+      "Annual list fees, business license renewals, and published late penalties for LLCs and corporations.",
+    homeComparison: {
+      focus: "LLC",
+      deadline: "Last day of anniversary month",
+      fee: "$150 annual list + $200 state business license",
+      lateRule: "$75 annual-list penalty + $100 license penalty"
+    },
+    directoryComparison: {
+      obligation: "Annual list and business license renewal",
+      entityFocus: "LLCs and corporations",
+      deadline: "Last day of anniversary month",
+      amount: "$350 recurring LLC state total before late penalties"
+    }
+  },
+  {
+    state: "Texas",
+    route: "/tools/texas/franchise-tax-deadline/",
+    guideLabel: "Texas franchise tax deadline",
+    chipLabel: "Texas franchise tax",
+    guideType: "Franchise tax guide",
+    coverageBucket: "recurring-fees-and-statements",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "May 15 due date, 2026 no-tax-due threshold, information-report requirements, and published late penalties.",
+    directoryCardDescription:
+      "May 15 filing timing, 2026 no-tax-due threshold, information-report rules, and late-report penalties.",
+    homeComparison: {
+      focus: "Taxable entity filing a franchise tax report",
+      deadline: "May 15",
+      fee: "No-tax-due threshold of $2,650,000 for 2026 reports",
+      lateRule: "$50 late-report penalty plus tax penalties if tax is due"
+    },
+    directoryComparison: {
+      obligation: "Franchise tax report and information report",
+      entityFocus: "Taxable entities filing PIR or OIR",
+      deadline: "May 15",
+      amount: "$2,650,000 no-tax-due threshold for 2026 reports"
+    }
+  },
+  {
+    state: "Kansas",
+    route: "/tools/kansas/information-report-deadline/",
+    guideLabel: "Kansas information report deadline",
+    chipLabel: "Kansas info report",
+    guideType: "Information report guide",
+    coverageBucket: "recurring-fees-and-statements",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "Biennial filing cadence, April 15 or June 15 due dates, three-month delinquency window, and the confirmed LLC filing fee.",
+    directoryCardDescription:
+      "Biennial filing timing, April 15 or June 15 due dates, three-month delinquency window, and confirmed Kansas LLC filing fees.",
+    homeComparison: {
+      focus: "Kansas LLC or other business filing an information report",
+      deadline: "April 15 for for-profit businesses; June 15 for not-for-profits",
+      fee: "$53 online or $55 paper for Kansas LLCs",
+      lateRule: "Three-month delinquency interval, then forfeiture"
+    },
+    directoryComparison: {
+      obligation: "Biennial information report",
+      entityFocus:
+        "For-profit and not-for-profit businesses on file with the Secretary of State",
+      deadline:
+        "April 15 or June 15 depending on business type and formation-year parity",
+      amount: "$53 online or $55 paper for Kansas LLCs"
+    }
+  },
+  {
+    state: "New York",
+    route: "/tools/new-york/biennial-statement-deadline/",
+    guideLabel: "New York biennial statement deadline",
+    chipLabel: "New York biennial",
+    guideType: "Biennial statement guide",
+    coverageBucket: "recurring-fees-and-statements",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "$9 filing fee, due-month filing rule, no expedited handling, and past-due status consequences for LLCs and corporations.",
+    directoryCardDescription:
+      "$9 filing fee, due-month filing rule, no expedited handling, and the official past-due status consequences for corporations and LLCs.",
+    homeComparison: {
+      focus: "Business corporation or LLC filing a biennial statement",
+      deadline: "During the calendar month of formation or authority, every two years",
+      fee: "$9",
+      lateRule: "No flat late fee on the DOS page; status shows as past due"
+    },
+    directoryComparison: {
+      obligation: "Biennial Statement",
+      entityFocus: "Business corporations and LLCs",
+      deadline: "Calendar month of formation or authority, every two years",
+      amount: "$9"
+    }
+  },
+  {
+    state: "California",
+    route: "/tools/california/statement-of-information-deadline/",
+    guideLabel: "California Statement of Information deadline",
+    chipLabel: "California SOI",
+    guideType: "Statement of Information guide",
+    coverageBucket: "recurring-fees-and-statements",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "$25 stock corporation fee, $20 California LLC fee, six-month filing window, and delinquency or suspension risk.",
+    directoryCardDescription:
+      "$25 stock corporation fee, $20 California LLC fee, six-month filing window, and official delinquency and suspension language.",
+    homeComparison: {
+      focus: "California stock corporation or LLC filing a Statement of Information",
+      deadline: "Within 90 days initially, then annual or biennial by entity type",
+      fee: "$25 for stock corporations; $20 for California LLCs",
+      lateRule: "FTB penalty and suspension or forfeiture risk after delinquency"
+    },
+    directoryComparison: {
+      obligation: "Statement of Information",
+      entityFocus: "Stock corporations and LLCs",
+      deadline:
+        "Annual for stock corporations; every two years for LLCs, with an official six-month filing window",
+      amount: "$25 for stock corporations and $20 for LLCs"
+    }
+  },
+  {
+    state: "Washington",
+    route: "/tools/washington/annual-report-deadline-guide/",
+    guideLabel: "Washington annual report fee and deadline",
+    chipLabel: "Washington annual report",
+    guideType: "Annual report guide",
+    coverageBucket: "annual-reports",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "$70 for-profit fee, end-of-anniversary-month deadline, reminder timing, and delinquency or dissolution sequence.",
+    directoryCardDescription:
+      "$70 for-profit filing fee, end-of-anniversary-month deadline, reminder timing, and the official delinquency or dissolution sequence.",
+    homeComparison: {
+      focus: "For-profit business filing an annual report",
+      deadline: "By the end of the anniversary month each year",
+      fee: "$70 for for-profit businesses",
+      lateRule:
+        "Delinquency notice next month; domestic dissolution at 120 days; foreign termination at 90 days"
+    },
+    directoryComparison: {
+      obligation: "Annual report",
+      entityFocus: "For-profit business entities",
+      deadline: "End of the anniversary month",
+      amount: "$70 for for-profit businesses"
+    }
+  },
+  {
+    state: "Connecticut",
+    route: "/tools/connecticut/annual-report-deadline/",
+    guideLabel: "Connecticut annual report fee and deadline",
+    chipLabel: "Connecticut annual report",
+    guideType: "Annual report guide",
+    coverageBucket: "annual-reports",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "LLC, corporation, LLP, and LP fee table, reminder timing, overdue consequences, and certificate-of-legal-existence impact.",
+    directoryCardDescription:
+      "LLC, corporation, LLP, and LP fees, reminder timing, overdue consequences, and certificate-of-legal-existence limits.",
+    homeComparison: {
+      focus: "LLC, corporation, LLP, or LP filing an annual report",
+      deadline: "Check the due date on the state business filing page; report is annual",
+      fee:
+        "$80 for LLCs, LLPs, and LPs; $150 domestic stock corporation; $50 non-stock corporation",
+      lateRule:
+        "Overdue entities cannot get a certificate of legal existence and may be dissolved"
+    },
+    directoryComparison: {
+      obligation: "Annual report",
+      entityFocus: "LLCs, stock and non-stock corporations, LLPs, and LPs",
+      deadline: "Annual; due date shown in the state filing system and reminder notices",
+      amount: "$80 to $435 depending on entity type"
+    }
+  },
+  {
+    state: "New Jersey",
+    route: "/tools/new-jersey/annual-report-deadline/",
+    guideLabel: "New Jersey annual report fee and deadline",
+    chipLabel: "New Jersey annual report",
+    guideType: "Annual report guide",
+    coverageBucket: "annual-reports",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "Anniversary-month filing rule, $75 for-profit fee, $30 non-profit fee, and the two-missed-report status risk.",
+    directoryCardDescription:
+      "Annual report timing tied to the anniversary month, clear fee split by profit status, and repeated non-filing consequences.",
+    homeComparison: {
+      focus: "Registered New Jersey business entity",
+      deadline: "Last day of the anniversary month",
+      fee: "$75 for for-profit entities; $30 for non-profits",
+      lateRule: "After two missed reports, the business may lose authority and registration benefits"
+    },
+    directoryComparison: {
+      obligation: "Annual report",
+      entityFocus: "Corporations, LLCs, LPs, LLPs, and non-profits registered in New Jersey",
+      deadline: "Every year on the last day of the anniversary month",
+      amount: "$75 for for-profit entities and $30 for non-profit corporations"
+    }
+  },
+  {
+    state: "Virginia",
+    route: "/tools/virginia/annual-registration-fee-deadline/",
+    guideLabel: "Virginia annual registration fee and annual report deadline",
+    chipLabel: "Virginia entity split",
+    guideType: "Annual registration and report guide",
+    coverageBucket: "annual-registration-and-tax",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "Separates corporations, LLCs, LPs, business trusts, and LLP continuation reports so Virginia's recurring rules do not get blended together.",
+    directoryCardDescription:
+      "Entity-specific annual report, annual registration fee, and continuation-report rules for Virginia corporations, LLCs, LPs, business trusts, and LLPs.",
+    homeComparison: {
+      focus: "Virginia corporation, LLC, LP, business trust, or LLP",
+      deadline: "Entity-specific; last day of formation month for many entities, July 1 for LLPs",
+      fee: "$50 for LLCs, LPs, business trusts, LLPs, and LLLPs; corporation fee varies",
+      lateRule:
+        "Loss of good standing, revocation, or cancellation depending on entity type"
+    },
+    directoryComparison: {
+      obligation: "Annual report, annual registration fee, or continuation report",
+      entityFocus: "Corporations, LLCs, LPs, business trusts, LLPs, and LLLPs",
+      deadline:
+        "Last day of formation month for corporations and LLCs, October 1 for LPs and business trusts, or July 1 for LLPs and LLLPs",
+      amount: "$50 for most non-corporate recurring filings; corporation fee varies by share count"
+    }
+  },
+  {
+    state: "Colorado",
+    route: "/tools/colorado/periodic-report-deadline/",
+    guideLabel: "Colorado periodic report fee and due date",
+    chipLabel: "Colorado periodic report",
+    guideType: "Periodic report guide",
+    coverageBucket: "recurring-fees-and-statements",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "Periodic report month timing, electronic-only filing, $25 filing fee, and the late-penalty path before delinquency.",
+    directoryCardDescription:
+      "Colorado periodic report timing, $25 filing fee, $50 late penalty, and the noncompliant-to-delinquent sequence.",
+    homeComparison: {
+      focus: "Colorado reporting entity",
+      deadline: "Two months before through the last day of the second month after the report month",
+      fee: "$25 periodic report",
+      lateRule: "$50 late filing penalty, then $100 to cure delinquency"
+    },
+    directoryComparison: {
+      obligation: "Periodic report",
+      entityFocus:
+        "LLCs, corporations, nonprofits, foreign entities, LLPs, LLLPs, and reporting LPs",
+      deadline:
+        "File beginning two months before the periodic report month and no later than the last day of the second month after it",
+      amount: "$25 filing fee, $50 late filing penalty, or $100 statement curing delinquency"
+    }
+  },
+  {
+    state: "Oregon",
+    route: "/tools/oregon/annual-report-deadline/",
+    guideLabel: "Oregon annual report fee and due date",
+    chipLabel: "Oregon annual report",
+    guideType: "Annual report guide",
+    coverageBucket: "annual-reports",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "Anniversary-date renewals, 45-day reminder timing, common domestic versus foreign fee splits, and reinstatement guidance after missed reports.",
+    directoryCardDescription:
+      "Anniversary-date annual reports, Oregon fee splits by entity type, reminder timing, and reinstatement guidance for missed filings.",
+    homeComparison: {
+      focus: "Oregon corporation, LLC, nonprofit, or LP",
+      deadline: "Anniversary date of the original filing",
+      fee: "$100 for many domestic renewals; $275 for many foreign renewals",
+      lateRule: "Administrative dissolution, then reinstatement fee plus missed annual fee(s)"
+    },
+    directoryComparison: {
+      obligation: "Annual report",
+      entityFocus: "Corporations, LLCs, nonprofits, and limited partnerships",
+      deadline: "Annual on the anniversary date of the original filing",
+      amount: "$50 to $275 depending on entity type"
+    }
+  }
+];

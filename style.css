@@ -182,7 +182,6 @@ h3 {
 .stat-card span,
 .state-card p,
 .body-copy,
-.faq-card p,
 .doc-card p,
 .doc-card li,
 .metric-card span,
@@ -228,7 +227,6 @@ h3 {
 .metric-card,
 .mini-card,
 .detail-card,
-.faq-card,
 .summary-panel,
 .state-card,
 .tool-card {
@@ -241,7 +239,6 @@ h3 {
 .metric-card,
 .mini-card,
 .detail-card,
-.faq-card,
 .summary-panel,
 .tool-card {
   padding: 18px;
@@ -296,26 +293,8 @@ h3 {
   box-shadow: 0 14px 28px rgba(111, 39, 16, 0.18);
 }
 
-.button--primary:hover,
-.chip:hover {
+.button--primary:hover {
   transform: translateY(-1px);
-}
-
-.chip-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.chip {
-  border: 1px solid rgba(159, 58, 24, 0.18);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.84);
-  color: var(--accent-dark);
-  cursor: pointer;
-  padding: 8px 14px;
-  font-weight: 600;
 }
 
 .section__head h2 {
@@ -323,8 +302,10 @@ h3 {
 }
 
 .state-grid,
-.faq-grid,
-.detail-grid {
+.detail-grid,
+.insight-grid,
+.trust-grid,
+.flow-grid {
   display: grid;
   gap: 16px;
 }
@@ -337,8 +318,16 @@ h3 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.faq-grid {
+.insight-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.trust-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.flow-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .state-card {
@@ -365,6 +354,104 @@ h3 {
   color: var(--accent-dark);
   font-size: 0.92rem;
   font-weight: 600;
+}
+
+.insight-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), #fffaf3);
+  padding: 18px;
+}
+
+.trust-card,
+.flow-card,
+.action-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), #fffaf3);
+}
+
+.trust-card,
+.flow-card {
+  padding: 18px;
+}
+
+.insight-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.insight-card strong {
+  display: block;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.trust-card span,
+.flow-card p,
+.action-card span,
+.section-note {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.trust-card span,
+.action-label,
+.flow-step {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.trust-card strong,
+.flow-card h3,
+.action-card strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.task-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.action-list {
+  display: grid;
+  gap: 12px;
+}
+
+.action-card {
+  display: block;
+  padding: 18px;
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(159, 58, 24, 0.28);
+  box-shadow: 0 14px 26px rgba(31, 41, 51, 0.08);
+}
+
+.flow-step {
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+}
+
+.section-note {
+  margin: 0;
 }
 
 .table-scroll {
@@ -449,8 +536,7 @@ h3 {
   font-weight: 600;
 }
 
-.detail-card h3,
-.faq-card h3 {
+.detail-card h3 {
   margin-bottom: 10px;
 }
 
@@ -592,8 +678,10 @@ h3 {
   .stat-grid,
   .metric-grid,
   .state-grid,
-  .faq-grid,
   .detail-grid,
+  .insight-grid,
+  .trust-grid,
+  .flow-grid,
   .breakdown-grid {
     grid-template-columns: 1fr;
   }
