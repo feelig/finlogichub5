@@ -68,13 +68,111 @@ function getBadgeToneClass(tone) {
   return tone ? ` badge--${tone}` : "";
 }
 
-function renderActionCards(links) {
-  return links
+function getVerificationTrigger(entry) {
+  const obligation = entry.directoryComparison.obligation.toLowerCase();
+  const deadline = entry.directoryComparison.deadline.toLowerCase();
+
+  if (obligation.includes("franchise tax")) {
+    return "Confirm the report year, tax status, and whether a PIR or OIR is required on the official tax account.";
+  }
+
+  if (
+    obligation.includes("statement") ||
+    obligation.includes("periodic report") ||
+    deadline.includes("anniversary") ||
+    deadline.includes("calendar month") ||
+    deadline.includes("month")
+  ) {
+    return "Check the exact formation, authority, anniversary, or report month on the official state record before paying or filing.";
+  }
+
+  if (deadline.includes("fiscal")) {
+    return "Verify the entity's fiscal year end on the official record before using the due date shown here.";
+  }
+
+  if (obligation.includes("annual tax")) {
+    return "Confirm whether the entity owes an annual tax, an annual report, or both before paying a private notice.";
+  }
+
+  return "Use the official state record to confirm the exact due trigger before filing or paying.";
+}
+
+function getCommonMistake(entry) {
+  const obligation = entry.directoryComparison.obligation.toLowerCase();
+
+  if (obligation.includes("franchise tax")) {
+    return "Do not stop after the tax answer. The related information report can still control whether the filing is complete.";
+  }
+
+  if (obligation.includes("annual report or annual tax")) {
+    return "Do not flatten corporations, foreign entities, and LLCs into one rule when the state treats them differently.";
+  }
+
+  if (obligation.includes("statement")) {
+    return "Do not treat this like a standard annual report if the state uses a filing month or a separate entity-specific cycle.";
+  }
+
+  if (obligation.includes("annual list") || obligation.includes("business license")) {
+    return "Do not forget the second recurring state charge. Some pages combine more than one state fee.";
+  }
+
+  return "Do not rely on a flat fee or deadline if the state separates entity type, filing method, or late-status consequences.";
+}
+
+function renderDecisionCheckSection(entry) {
+  const focus = entry.homeComparison?.focus ?? entry.directoryComparison.entityFocus;
+  const lateRule = entry.homeComparison?.lateRule ??
+    "If the state record or official notice conflicts with this page, follow the state record.";
+
+  const checks = [
+    {
+      label: "Use this page if",
+      title: focus,
+      text: "Start here only if that matches the exact state record you are looking at."
+    },
+    {
+      label: "Verify on the record",
+      title: "Confirm the trigger before you pay",
+      text: getVerificationTrigger(entry)
+    },
+    {
+      label: "Most common mistake",
+      title: "Do not file on autopilot",
+      text: getCommonMistake(entry)
+    },
+    {
+      label: "If you are already late",
+      title: "Use the late-state rule",
+      text: lateRule
+    }
+  ];
+
+  return `        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">Decision checks</p>
+            <h2>Before you rely on the answer above</h2>
+          </div>
+          <div class="mini-grid decision-grid">
+${checks
+  .map(
+    (check) => `            <article class="mini-card">
+              <span>${escapeHtml(check.label)}</span>
+              <strong>${escapeHtml(check.title)}</strong>
+              <p>${escapeHtml(check.text)}</p>
+            </article>`
+  )
+  .join("\n")}
+          </div>
+        </section>`;
+}
+
+function renderActionCards(cards) {
+  return cards
     .map(
-      (link, index) => `            <a class="action-card" href="${escapeHtml(link.href)}">
-              <span class="action-label">${index === 0 ? "Primary official source" : "Supporting official source"}</span>
-              <strong>${escapeHtml(link.label)}</strong>
-              <span>Open the controlling state page before filing or paying.</span>
+      (card) => `            <a class="action-card" href="${escapeHtml(card.href)}">
+              <span class="action-label">${escapeHtml(card.kicker)}</span>
+              <strong>${escapeHtml(card.label)}</strong>
+              <span>${escapeHtml(card.text)}</span>
             </a>`
     )
     .join("\n");
@@ -126,7 +224,26 @@ ${answerCards
 }
 
 function renderCustomerActionSection(page, entry) {
-  const primaryLinks = page.sourceLinks.slice(0, 2);
+  const nextStepCards = [
+    {
+      href: page.sourceLinks[0].href,
+      kicker: "Official filing path",
+      label: page.sourceLinks[0].label,
+      text: "Open the controlling state page or filing portal before filing or paying."
+    },
+    {
+      href: "/states.html",
+      kicker: "Compare live guides",
+      label: "Compare another state or filing label",
+      text: "Use the directory if you are checking another state, entity type, or filing label."
+    },
+    {
+      href: "/filing-help-options.html",
+      kicker: "Help options",
+      label: "Review self-serve and assisted filing paths",
+      text: "Compare the official do-it-yourself path with help options before paying a third-party service."
+    }
+  ];
   const lateRule = entry.homeComparison?.lateRule ??
     "Check the official portal, state record, or official notice for the current late consequence.";
 
@@ -161,15 +278,15 @@ function renderCustomerActionSection(page, entry) {
           </div>
           <div class="surface task-panel">
             <div class="section__head">
-              <p class="eyebrow">Official path</p>
-              <h2>Start with the controlling source</h2>
+              <p class="eyebrow">Next step</p>
+              <h2>Choose the path that fits your situation</h2>
             </div>
             <div class="action-list">
-${renderActionCards(primaryLinks)}
+${renderActionCards(nextStepCards)}
             </div>
             <p class="section-note">
-              If the state filing portal, business record, or official notice conflicts with this
-              summary, follow the official state source and treat this page as the quicker first pass.
+              Supporting official sources stay listed below. If a private notice, service quote, or
+              state record conflicts with this summary, follow the official state source.
             </p>
           </div>
         </section>`;
@@ -251,6 +368,9 @@ function renderPage(page) {
   const directoryEntry = directoryByRoute.get(getPageRoute(page));
   const reviewStatus = getReviewStatus(parseReviewDate(page.lastReviewed), GENERATED_AT);
   const quickAnswerSection = directoryEntry ? `\n${renderQuickAnswers(directoryEntry)}\n` : "\n";
+  const decisionCheckSection = directoryEntry
+    ? `\n${renderDecisionCheckSection(directoryEntry)}\n`
+    : "\n";
   const customerActionSection = directoryEntry
     ? `\n${renderCustomerActionSection(page, directoryEntry)}\n`
     : "\n";
@@ -330,7 +450,7 @@ function renderPage(page) {
 ${renderMetrics(page.metrics)}
             </div>${summaryNote}
           </aside>
-        </section>${quickAnswerSection}${customerActionSection}${trustSnapshotSection}
+        </section>${quickAnswerSection}${decisionCheckSection}${customerActionSection}${trustSnapshotSection}
 ${page.bodyHtml}
 
         <section class="section surface">

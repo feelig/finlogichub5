@@ -215,6 +215,39 @@ function renderSearchPanel(title, description) {
           </div>`;
 }
 
+function renderStartPathCards() {
+  const cards = [
+    {
+      href: "#stateGuideSelect",
+      kicker: "I know the state",
+      label: "Open the right guide fast",
+      text: "Use the quick state lookup when you already know the state and filing label."
+    },
+    {
+      href: DIRECTORY_ROUTE,
+      kicker: "I need to compare",
+      label: "Compare live state guides",
+      text: "Use the directory if you are checking more than one state, entity type, or filing label."
+    },
+    {
+      href: "/filing-help-options.html",
+      kicker: "I need help options",
+      label: "Review self-serve and assisted paths",
+      text: "Compare the official filing path with help options before paying a third-party service."
+    }
+  ];
+
+  return cards
+    .map(
+      (card) => `            <a class="action-card" href="${escapeHtml(card.href)}">
+              <span class="action-label">${escapeHtml(card.kicker)}</span>
+              <strong>${escapeHtml(card.label)}</strong>
+              <span>${escapeHtml(card.text)}</span>
+            </a>`
+    )
+    .join("\n");
+}
+
 function renderHomePage({ entries, latestReviewText, uniqueSourceCount }) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -278,6 +311,20 @@ ${renderSelectOptions(entries)}
               <button class="button button--primary" type="submit">Open guide</button>
             </form>
           </aside>
+        </section>
+
+        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">Start here</p>
+            <h2>Choose the fastest path for what you need</h2>
+            <p>
+              The site is organized for three common jobs: opening the right guide fast, comparing
+              states before filing, or checking help options before paying someone else.
+            </p>
+          </div>
+          <div class="action-list action-list--triple">
+${renderStartPathCards()}
+          </div>
         </section>
 
         <section class="section surface">

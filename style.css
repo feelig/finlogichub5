@@ -426,6 +426,11 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.decision-grid,
+.action-list--triple {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .state-card {
   display: block;
   padding: 20px;
@@ -491,7 +496,8 @@ h3 {
 .trust-card span,
 .flow-card p,
 .action-card span,
-.section-note {
+.section-note,
+.mini-card p {
   color: var(--muted);
   line-height: 1.7;
 }
@@ -750,6 +756,10 @@ h3 {
   line-height: 1.6;
 }
 
+.mini-card p {
+  margin: 0;
+}
+
 .doc-card a {
   color: var(--accent);
   text-decoration: none;
@@ -811,7 +821,9 @@ h3 {
   }
 
   .insight-grid,
-  .source-list {
+  .source-list,
+  .decision-grid,
+  .action-list--triple {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -841,7 +853,9 @@ h3 {
   .insight-grid,
   .trust-grid,
   .flow-grid,
+  .decision-grid,
   .source-list,
+  .action-list--triple,
   .breakdown-grid {
     grid-template-columns: 1fr;
   }
