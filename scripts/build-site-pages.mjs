@@ -200,22 +200,41 @@ function renderGuideTypeOptions(bucketSummaries) {
     .join("\n");
 }
 
-function renderComparisonOptions(entries) {
-  return [...entries]
-    .sort((left, right) => left.state.localeCompare(right.state))
-    .map(
-      (entry) => `                  <option
+function renderComparisonOption(entry) {
+  const metrics = entry.page.metrics ?? [];
+  const metricOne = metrics[0] ?? { label: "", text: "" };
+  const metricTwo = metrics[1] ?? { label: "", text: "" };
+  const metricThree = metrics[2] ?? { label: "", text: "" };
+  const sourceAuthority = entry.page.sourceBadge.replace(/^Source:\s*/u, "");
+
+  return `                  <option
                     value="${escapeHtml(entry.route)}"
                     data-state="${escapeHtml(entry.state)}"
                     data-guide-label="${escapeHtml(entry.guideLabel)}"
                     data-guide-type="${escapeHtml(entry.guideType)}"
+                    data-use-case="${escapeHtml(entry.homeComparison?.focus ?? entry.directoryComparison.entityFocus)}"
                     data-obligation="${escapeHtml(entry.directoryComparison.obligation)}"
                     data-entity-focus="${escapeHtml(entry.directoryComparison.entityFocus)}"
+                    data-summary="${escapeHtml(entry.page.heroSubtitle)}"
                     data-deadline="${escapeHtml(entry.directoryComparison.deadline)}"
                     data-amount="${escapeHtml(entry.directoryComparison.amount)}"
                     data-late-rule="${escapeHtml(entry.homeComparison?.lateRule ?? "See guide for late rule")}"
-                  >${escapeHtml(entry.state)}</option>`
-    )
+                    data-review-date="${escapeHtml(entry.page.lastReviewed)}"
+                    data-source-count="${entry.page.sourceLinks.length}"
+                    data-source-authority="${escapeHtml(sourceAuthority)}"
+                    data-metric-one-label="${escapeHtml(metricOne.label)}"
+                    data-metric-one-text="${escapeHtml(metricOne.text)}"
+                    data-metric-two-label="${escapeHtml(metricTwo.label)}"
+                    data-metric-two-text="${escapeHtml(metricTwo.text)}"
+                    data-metric-three-label="${escapeHtml(metricThree.label)}"
+                    data-metric-three-text="${escapeHtml(metricThree.text)}"
+                  >${escapeHtml(entry.state)}</option>`;
+}
+
+function renderComparisonOptions(entries) {
+  return [...entries]
+    .sort((left, right) => left.state.localeCompare(right.state))
+    .map((entry) => renderComparisonOption(entry))
     .join("\n");
 }
 

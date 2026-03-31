@@ -28,7 +28,6 @@ guideCompareRoots.forEach((root) => {
   const compareStatus = root.querySelector("[data-compare-status]");
   const compareTableWrap = root.querySelector("[data-compare-table-wrap]");
   const compareTable = root.querySelector("[data-compare-table]");
-  const compareSubmit = compareForm?.querySelector("button[type='submit']");
   const compareReset = root.querySelector("[data-compare-reset]");
   const compareResultsSection = compareStatus?.closest(".section");
   let compareMode = "2";
@@ -54,14 +53,29 @@ guideCompareRoots.forEach((root) => {
       return null;
     }
 
+    const quickFacts = [
+      [option.dataset.metricOneLabel, option.dataset.metricOneText],
+      [option.dataset.metricTwoLabel, option.dataset.metricTwoText],
+      [option.dataset.metricThreeLabel, option.dataset.metricThreeText],
+    ]
+      .filter((item) => item[0] && item[1])
+      .map(([label, text]) => `${label}: ${text}`);
+
     return {
       state: option.dataset.state || option.textContent.trim(),
       guideLabel: option.dataset.guideLabel || "",
+      guideType: option.dataset.guideType || "",
+      useCase: option.dataset.useCase || "",
       obligation: option.dataset.obligation || "",
       entityFocus: option.dataset.entityFocus || "",
+      summary: option.dataset.summary || "",
       deadline: option.dataset.deadline || "",
       amount: option.dataset.amount || "",
       lateRule: option.dataset.lateRule || "",
+      reviewDate: option.dataset.reviewDate || "",
+      sourceCount: option.dataset.sourceCount || "",
+      sourceAuthority: option.dataset.sourceAuthority || "",
+      quickFacts,
       route: option.value
     };
   }
@@ -71,38 +85,81 @@ guideCompareRoots.forEach((root) => {
     compareTable.innerHTML = "";
   }
 
+  function focusElement(element) {
+    if (!element) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      element.focus();
+    });
+  }
+
   function getActiveSelects() {
     return compareSelects.slice(0, getRequiredCount());
   }
 
   function getSelectionState() {
-    const selectedEntries = getActiveSelects().map(getSelectedEntry).filter(Boolean);
+    const activeSelects = getActiveSelects();
+    const selectedEntriesWithHoles = activeSelects.map((select) => getSelectedEntry(select));
+    const selectedEntries = selectedEntriesWithHoles.filter(Boolean);
     const uniqueStates = new Set(selectedEntries.map((entry) => entry.state));
+    const missingSelect = activeSelects.find((select, index) => !selectedEntriesWithHoles[index]);
+    const seenStates = new Set();
+    let duplicateSelect = null;
+
+    selectedEntriesWithHoles.forEach((entry, index) => {
+      if (!entry) {
+        return;
+      }
+
+      if (seenStates.has(entry.state) && !duplicateSelect) {
+        duplicateSelect = activeSelects[index];
+        return;
+      }
+
+      seenStates.add(entry.state);
+    });
 
     return {
       requiredCount: getRequiredCount(),
       selectedEntries,
       hasDuplicate: uniqueStates.size !== selectedEntries.length,
+      missingSelect,
+      duplicateSelect,
     };
   }
 
-  function updateCompareSubmitState(selectionState = getSelectionState()) {
-    if (!compareSubmit) {
-      return;
+  function formatChoiceList(entries) {
+    const states = entries.map((entry) => entry.state);
+
+    if (states.length <= 1) {
+      return states[0] || "";
     }
 
-    compareSubmit.disabled =
-      selectionState.selectedEntries.length < selectionState.requiredCount ||
-      selectionState.hasDuplicate;
+    if (states.length === 2) {
+      return `${states[0]} and ${states[1]}`;
+    }
+
+    return `${states.slice(0, -1).join(", ")}, and ${states[states.length - 1]}`;
   }
 
   function setCompareStatus(selectionState = getSelectionState()) {
     const { requiredCount, selectedEntries, hasDuplicate } = selectionState;
 
     if (selectedEntries.length < requiredCount) {
-      compareStatus.textContent = hasDuplicate
-        ? `Choose ${requiredCount} different states and click Compare states.`
-        : `Choose ${requiredCount} states and click Compare states.`;
+      if (hasDuplicate) {
+        compareStatus.textContent = "Choose different states and click Compare states.";
+        return;
+      }
+
+      if (selectedEntries.length === 0) {
+        compareStatus.textContent = `Choose ${requiredCount} states and click Compare states.`;
+        return;
+      }
+
+      const remainingCount = requiredCount - selectedEntries.length;
+      compareStatus.textContent = `Selected ${formatChoiceList(selectedEntries)}. Choose ${remainingCount} more state${remainingCount === 1 ? "" : "s"} and click Compare states.`;
       return;
     }
 
@@ -111,19 +168,45 @@ guideCompareRoots.forEach((root) => {
       return;
     }
 
-    compareStatus.textContent = `Comparing ${selectedEntries
+    compareStatus.textContent = `Ready to compare ${selectedEntries
       .map((entry) => entry.state)
-      .join(" vs ")}.`;
+      .join(" vs ")}. Click Compare states to generate the table.`;
+  }
+
+  function renderStack(items) {
+    const filteredItems = items.filter(Boolean);
+
+    if (filteredItems.length === 0) {
+      return '<span class="compare-cell-empty">See guide</span>';
+    }
+
+    return `<div class="compare-cell-stack">${filteredItems
+      .map((item) => `<span class="compare-cell-item">${escapeHtml(item)}</span>`)
+      .join("")}</div>`;
   }
 
   function renderComparisonTable(entries) {
     const rows = [
       { label: "Guide", key: "guideLabel" },
+      { label: "Guide type", key: "guideType" },
+      { label: "Best for", key: "useCase" },
       { label: "Filing label", key: "obligation" },
-      { label: "Best for", key: "entityFocus" },
-      { label: "Main deadline", key: "deadline" },
-      { label: "Main amount", key: "amount" },
+      { label: "Entity types covered", key: "entityFocus" },
+      { label: "Guide summary", key: "summary" },
+      { label: "Main timing rule", key: "deadline" },
+      { label: "Published amount or threshold", key: "amount" },
       { label: "Late rule", key: "lateRule" },
+      {
+        label: "Quick facts",
+        render: (entry) => renderStack(entry.quickFacts)
+      },
+      { label: "Last reviewed", key: "reviewDate" },
+      {
+        label: "Official sources checked",
+        render: (entry) =>
+          `${escapeHtml(entry.sourceCount)} official source${entry.sourceCount === "1" ? "" : "s"}`
+      },
+      { label: "Lead official source", key: "sourceAuthority" },
       { label: "Open guide", key: "route", isLink: true }
     ];
 
@@ -150,7 +233,11 @@ ${entries
       return `                  <td><a class="inline-link" href="${escapeHtml(entry.route)}">Open guide</a></td>`;
     }
 
-    return `                  <td>${escapeHtml(entry[row.key])}</td>`;
+    if (row.render) {
+      return `                  <td>${row.render(entry)}</td>`;
+    }
+
+    return `                  <td>${escapeHtml(entry[row.key] || "")}</td>`;
   })
   .join("\n")}
                 </tr>`
@@ -198,11 +285,9 @@ ${entries
   }
 
   function renderComparison(entries, { updateUrl = true, replaceUrl = false } = {}) {
-    setCompareStatus({
-      requiredCount: entries.length,
-      selectedEntries: entries,
-      hasDuplicate: false,
-    });
+    compareStatus.textContent = `Comparing ${entries
+      .map((entry) => entry.state)
+      .join(" vs ")}.`;
     renderComparisonTable(entries);
     compareTableWrap.hidden = false;
 
@@ -218,58 +303,34 @@ ${entries
     });
   }
 
-  function syncComparison({
-    autoRender = true,
-    updateUrl = false,
-    replaceUrl = false,
-    scroll = false
-  } = {}) {
-    const selectionState = getSelectionState();
-    const { requiredCount, selectedEntries, hasDuplicate } = selectionState;
+  function setPendingStatus() {
+    setCompareStatus(getSelectionState());
+  }
 
-    updateCompareSubmitState(selectionState);
+  function submitComparison() {
+    const selectionState = getSelectionState();
+    const { requiredCount, selectedEntries, hasDuplicate, missingSelect, duplicateSelect } =
+      selectionState;
 
     if (selectedEntries.length < requiredCount) {
       setCompareStatus(selectionState);
       hideComparisonTable();
-      if (updateUrl) {
-        clearComparisonUrl({ replace: replaceUrl });
-      }
+      focusElement(missingSelect);
+      clearComparisonUrl({ replace: true });
       return false;
     }
 
     if (hasDuplicate) {
       setCompareStatus(selectionState);
       hideComparisonTable();
-      if (updateUrl) {
-        clearComparisonUrl({ replace: replaceUrl });
-      }
+      focusElement(duplicateSelect);
+      clearComparisonUrl({ replace: true });
       return false;
     }
 
-    if (!autoRender) {
-      setCompareStatus(selectionState);
-      hideComparisonTable();
-      return true;
-    }
-
-    renderComparison(selectedEntries, { updateUrl, replaceUrl });
-    if (scroll) {
-      scrollToCompareResults();
-    }
+    renderComparison(selectedEntries);
+    scrollToCompareResults();
     return true;
-  }
-
-  function setPendingStatus() {
-    syncComparison({ autoRender: false });
-  }
-
-  function submitComparison() {
-    return syncComparison({
-      autoRender: true,
-      updateUrl: true,
-      scroll: true,
-    });
   }
 
   function hydrateFromUrl() {
@@ -290,6 +351,7 @@ ${entries
     syncCompareModeUi();
 
     if (!compareFromUrl) {
+      hideComparisonTable();
       setPendingStatus();
       return;
     }
@@ -309,6 +371,7 @@ ${entries
     const { requiredCount, selectedEntries, hasDuplicate } = getSelectionState();
 
     if (hasDuplicate || selectedEntries.length < requiredCount) {
+      hideComparisonTable();
       setPendingStatus();
       return;
     }
@@ -320,19 +383,21 @@ ${entries
     button.addEventListener("click", () => {
       compareMode = button.dataset.mode || "2";
       syncCompareModeUi();
-      syncComparison({ updateUrl: true, replaceUrl: true });
+      clearComparisonUrl({ replace: true });
+      hideComparisonTable();
+      setPendingStatus();
 
       if (compareMode === "3" && compareSelects[2]) {
-        window.requestAnimationFrame(() => {
-          compareSelects[2].focus();
-        });
+        focusElement(compareSelects[2]);
       }
     });
   });
 
   compareSelects.forEach((select) => {
     select.addEventListener("change", () => {
-      syncComparison({ updateUrl: true, replaceUrl: true });
+      clearComparisonUrl({ replace: true });
+      hideComparisonTable();
+      setPendingStatus();
     });
   });
 
@@ -348,6 +413,7 @@ ${entries
     compareMode = "2";
     syncCompareModeUi();
     clearComparisonUrl({ replace: true });
+    hideComparisonTable();
     setPendingStatus();
   });
 

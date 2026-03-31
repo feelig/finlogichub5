@@ -497,6 +497,20 @@ h3 {
   line-height: 1.5;
 }
 
+.compare-cell-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.compare-cell-item {
+  display: block;
+  line-height: 1.55;
+}
+
+.compare-cell-empty {
+  color: var(--muted);
+}
+
 .filter-bar {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
