@@ -166,6 +166,27 @@ export const guideEvidenceByRoute = {
     headlineDueDate: [1, 2],
     mainAmountShown: [1, 5],
     ifAlreadyLate: [4, 5]
+  },
+  "/tools/maine/annual-report-deadline/": {
+    filingLabel: [1, 2],
+    whoShouldUse: [1, 2],
+    headlineDueDate: [1, 2],
+    mainAmountShown: [2],
+    ifAlreadyLate: [2, 4, 5]
+  },
+  "/tools/maryland/annual-report-deadline/": {
+    filingLabel: [1, 2, 3],
+    whoShouldUse: [1, 2, 3],
+    headlineDueDate: [1, 3, 5],
+    mainAmountShown: [3, 4],
+    ifAlreadyLate: [1, 4, 6, 7]
+  },
+  "/tools/wyoming/annual-report-deadline/": {
+    filingLabel: [1, 3],
+    whoShouldUse: [1, 2, 3],
+    headlineDueDate: [1, 2],
+    mainAmountShown: [1, 3],
+    ifAlreadyLate: [1, 4, 5]
   }
 };
 
@@ -1043,6 +1064,180 @@ export const guideDecisionToolByRoute = {
           "Use the Oregon fee schedule and public record before filing.",
         sourceIndexes: [1, 2, 5],
         lateSourceIndexes: [4, 5],
+        confirmSourceIndexes: [1, 5]
+      })
+    ]
+  }),
+  "/tools/maine/annual-report-deadline/": decisionTool({
+    caseLabel: "Which Maine annual report lane fits best?",
+    intro:
+      "Maine is straightforward on deadline and easy to misstate on fees. The safest first split is domestic, foreign, or nonprofit.",
+    cases: [
+      decisionCase({
+        value: "domestic-business",
+        label: "Domestic business entity",
+        deadline: "Between January 1 and June 1 each year",
+        amount: "$85",
+        normalRule:
+          "Domestic Maine business entities use the standard annual report lane with the June 1 deadline and the published $85 fee.",
+        lateRule:
+          "If the report is not received by the deadline, Maine says a late filing penalty is assessed and unpaid penalties can lead to administrative dissolution or revocation.",
+        confirmRule:
+          "Confirm that the entity is domestic and not foreign-qualified or nonprofit before relying on the $85 fee.",
+        nextAction:
+          "Use Maine's annual report filing path through SOSonline.org before paying or mailing the report.",
+        sourceIndexes: [1, 2, 3],
+        lateSourceIndexes: [2, 4, 5],
+        confirmSourceIndexes: [1, 2]
+      }),
+      decisionCase({
+        value: "foreign-business",
+        label: "Foreign-qualified business entity",
+        deadline: "Between January 1 and June 1 each year",
+        amount: "$150",
+        normalRule:
+          "Foreign-qualified Maine business entities stay on the same June 1 deadline but move into the higher published $150 annual report fee lane.",
+        lateRule:
+          "The same late-penalty and dissolution or revocation path applies if the report is not received and the late penalty is left unpaid.",
+        confirmRule:
+          "Confirm that the entity is foreign-qualified before using the $150 answer.",
+        nextAction:
+          "Use Maine's online annual report system or the preprinted paper form linked by the Secretary of State.",
+        sourceIndexes: [1, 2, 3],
+        lateSourceIndexes: [2, 4, 5],
+        confirmSourceIndexes: [1, 2]
+      }),
+      decisionCase({
+        value: "nonprofit-corporation",
+        label: "Domestic or foreign nonprofit corporation",
+        deadline: "Between January 1 and June 1 each year",
+        amount: "$35",
+        normalRule:
+          "Maine nonprofit corporations use the same filing window but the lower $35 annual report fee.",
+        lateRule:
+          "Nonprofits still have to clear the late filing penalty after the deadline to avoid revocation or other status trouble.",
+        confirmRule:
+          "Confirm that the entity is actually a nonprofit corporation before using the $35 fee.",
+        nextAction:
+          "Use the Maine annual report system and keep the filing email current for courtesy reminders.",
+        sourceIndexes: [1, 2, 3],
+        lateSourceIndexes: [2, 4, 5],
+        confirmSourceIndexes: [1, 2]
+      })
+    ]
+  }),
+  "/tools/maryland/annual-report-deadline/": decisionTool({
+    caseLabel: "Which Maryland filing situation fits best?",
+    intro:
+      "Maryland's main trap is assuming every entity has the same fee and the same property-return obligation. Start with the entity type and then confirm whether the personal property section is actually triggered.",
+    cases: [
+      decisionCase({
+        value: "common-form1-filer",
+        label: "Most Form 1 business entities",
+        deadline: "April 15 each year, with a 60-day extension available",
+        amount: "$300",
+        normalRule:
+          "Most Maryland stock corporations, LLCs, LPs, LLPs, REITs, and statutory trusts use Form 1 and the common $300 filing fee.",
+        lateRule:
+          "If the filing is missed, Maryland can treat the business as not in good standing, and the record can continue to show missing annual filings or late fees until the issue is fixed.",
+        confirmRule:
+          "Confirm that the entity is in the Form 1 lane and not a non-stock corporation or certified family farm before relying on the $300 answer.",
+        nextAction:
+          "Use Maryland Business Express or the 2026 Form 1 filing package before filing or paying.",
+        sourceIndexes: [1, 2, 3, 4],
+        lateSourceIndexes: [1, 4, 6, 7],
+        confirmSourceIndexes: [1, 2, 3]
+      }),
+      decisionCase({
+        value: "non-stock-corporation",
+        label: "Non-stock corporation",
+        deadline: "April 15 each year, with a 60-day extension available",
+        amount: "$0",
+        normalRule:
+          "Maryland's 2026 Form 1 fee chart shows that domestic and foreign non-stock corporations still file but do not pay a filing fee.",
+        lateRule:
+          "Even with a zero-dollar filing fee, missing the required filing can still affect good standing and delay certificate or cleanup work.",
+        confirmRule:
+          "Confirm that the entity is actually non-stock before using the zero-dollar filing fee.",
+        nextAction:
+          "Use the current Maryland forms page and the business record before filing.",
+        sourceIndexes: [2, 3, 4],
+        lateSourceIndexes: [1, 6, 7],
+        confirmSourceIndexes: [2, 3]
+      }),
+      decisionCase({
+        value: "property-return-triggered",
+        label: "Annual report plus personal property return",
+        deadline: "April 15 each year unless the extension was requested",
+        amount: "$300 filing fee, plus any personal property tax assessed from the return",
+        normalRule:
+          "For filing years 2023 and after, Maryland says the personal property return is required when the entity owns, leases, or uses Maryland personal property with an original cost of $20,000 or more.",
+        lateRule:
+          "Incomplete or inaccurate annual reports and personal property returns can be rejected and may lead to late filing penalties or continued not-in-good-standing status.",
+        confirmRule:
+          "Use the property threshold, the business record, and the current Form 1 instructions before assuming the personal property section is optional.",
+        nextAction:
+          "Open the current Form 1 and Maryland Business Express, then verify whether the personal property section must be completed.",
+        sourceIndexes: [1, 3, 4, 5],
+        lateSourceIndexes: [1, 4, 6, 7],
+        confirmSourceIndexes: [1, 3, 4]
+      })
+    ]
+  }),
+  "/tools/wyoming/annual-report-deadline/": decisionTool({
+    caseLabel: "Which Wyoming annual report lane fits best?",
+    intro:
+      "Wyoming is all about the right fee lane. Most profit entities use an annual license tax, while nonprofits and certain specialty entities use flat annual report fees.",
+    cases: [
+      decisionCase({
+        value: "profit-entity",
+        label: "LLC, profit corporation, LP, or LLP",
+        deadline: "On or before the first day of the anniversary month",
+        amount: "$60 minimum, or $.0002 of Wyoming assets if higher",
+        normalRule:
+          "Most Wyoming profit entities use the annual license tax schedule and pay $60 or $.0002 of assets located and employed in Wyoming, whichever is greater.",
+        lateRule:
+          "If the report is missed, Wyoming says the entity becomes delinquent and can then be administratively dissolved if the filing is not cleared within 60 days after the due date.",
+        confirmRule:
+          "Confirm that the entity is in the standard profit-entity lane and not a nonprofit, statutory trust, or statutory foundation before using the $60 minimum answer.",
+        nextAction:
+          "Use the Wyoming Annual Report Wizard or business record before filing and paying the annual license tax.",
+        sourceIndexes: [1, 2, 3],
+        lateSourceIndexes: [1, 5],
+        confirmSourceIndexes: [1, 3]
+      }),
+      decisionCase({
+        value: "nonprofit-corporation",
+        label: "Nonprofit corporation",
+        deadline: "On or before the first day of the anniversary month",
+        amount: "$25",
+        normalRule:
+          "Wyoming nonprofits do not use the asset-based annual license tax. They use the flat $25 annual report fee.",
+        lateRule:
+          "The same delinquent-to-dissolved path still applies if the report is missed, even though the annual filing fee is lower.",
+        confirmRule:
+          "Confirm that the entity is a nonprofit corporation before using the $25 answer.",
+        nextAction:
+          "Use the Wyoming FAQ and fee schedule together before filing.",
+        sourceIndexes: [1, 3],
+        lateSourceIndexes: [1, 5],
+        confirmSourceIndexes: [1, 3]
+      }),
+      decisionCase({
+        value: "already-delinquent",
+        label: "Already delinquent or dissolved for missed reports",
+        deadline: "Clear the delinquency as soon as possible",
+        amount: "$100 reinstatement fee plus each delinquent annual report fee",
+        normalRule:
+          "Once Wyoming has already moved the entity out of normal filing status, the annual report answer is no longer enough by itself.",
+        lateRule:
+          "Wyoming's reinstatement form says businesses dissolved for failure to file annual reports must submit each delinquent report, each delinquent report fee, and the separate $100 reinstatement fee.",
+        confirmRule:
+          "Confirm that the entity is only delinquent for annual-report issues and is still within Wyoming's two-year reinstatement window.",
+        nextAction:
+          "Use the Wyoming reinstatement path and gather every delinquent annual report before sending payment.",
+        sourceIndexes: [1, 5],
+        lateSourceIndexes: [1, 5],
         confirmSourceIndexes: [1, 5]
       })
     ]

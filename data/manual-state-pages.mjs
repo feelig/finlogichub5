@@ -16,7 +16,7 @@ export const manualStatePages = [
     ],
     heroTitle: "New Jersey annual report fee and due date",
     heroSubtitle:
-      "New Jersey keeps its recurring business filing rule relatively straightforward: every registered business entity files an annual report, the deadline is tied to the anniversary month of formation or authorization, and the filing fee depends mainly on whether the entity is for-profit or non-profit. The main risk is not a published flat late fee. The bigger risk is losing good standing and eventually losing the authority to do business after repeated missed reports.",
+      "Use this page if you need the New Jersey annual report deadline or fee. Most customers start with the last day of the anniversary month, then confirm whether the entity uses the $75 for-profit fee or the $30 non-profit fee.",
     lastReviewed: "March 17, 2026",
     sourceBadge: "Source: New Jersey Division of Revenue and Enterprise Services",
     summaryTitle: "At a glance",
@@ -83,7 +83,7 @@ export const manualStatePages = [
     ],
     heroTitle: "Virginia annual registration fee and annual report deadline",
     heroSubtitle:
-      "Virginia does not have one single recurring business-filing rule. Corporations file an annual report and also pay an annual registration fee, LLCs pay an annual registration fee, limited partnerships and business trusts use a different annual registration cycle, and LLPs or LLLPs file an annual continuation report. This page keeps those Virginia rules separate so the filing label and due date do not get mixed together.",
+      "Use this page if you need the Virginia recurring filing rule. The first step is matching the entity type, because corporations, LLCs, LPs, business trusts, and LLPs do not all use the same filing label or due date.",
     lastReviewed: "March 17, 2026",
     sourceBadge: "Source: Virginia State Corporation Commission",
     summaryTitle: "At a glance",
@@ -151,7 +151,7 @@ export const manualStatePages = [
     ],
     heroTitle: "Colorado periodic report fee and due date",
     heroSubtitle:
-      "Colorado uses an annual periodic report for many business entities, but the timing is easy to misread because the state talks in terms of a periodic report month rather than a single anniversary date. The safest way to read Colorado's rule is that the report opens two months early, the standard due date lands on the last day of the second month after the report month, and the cost escalates if the filing slides into noncompliant or delinquent status.",
+      "Use this page if you need the Colorado periodic report fee, filing window, or late cost. Start with the $25 filing fee, then use the periodic report month to confirm the filing window and any late charges.",
     lastReviewed: "March 17, 2026",
     sourceBadge: "Source: Colorado Secretary of State",
     summaryTitle: "At a glance",
@@ -215,7 +215,7 @@ export const manualStatePages = [
     ],
     heroTitle: "Oregon annual report fee and due date",
     heroSubtitle:
-      "Oregon keeps the renewal rule fairly clean for most business entities: the annual report is due on the anniversary date of the original filing, and the state sends a renewal notice about 45 days before that date. The harder part is the fee split. Oregon uses different renewal amounts for domestic and foreign entities, and the price also changes for some nonprofit filings. This page keeps the common Oregon entity types separated so the headline fee is not oversimplified.",
+      "Use this page if you need the Oregon annual report deadline or renewal fee. Most businesses start with the anniversary-date rule, then confirm whether the entity uses the domestic or foreign fee.",
     lastReviewed: "March 17, 2026",
     sourceBadge: "Source: Oregon Secretary of State Corporation Division",
     summaryTitle: "At a glance",
@@ -258,6 +258,206 @@ export const manualStatePages = [
       {
         href: "https://sos.oregon.gov/business/Documents/business-registry-forms/br-fee-schedule.pdf",
         label: "Oregon Business Registry Fee Schedule PDF"
+      }
+    ],
+    scriptSrc: null
+  },
+  {
+    filePath: "tools/maine/annual-report-deadline/index.html",
+    titleTag: "Maine Annual Report Fee and Due Date | FinLogic Hub",
+    metaDescription:
+      "Maine annual report fee and due date guidance covering the June 1 deadline, domestic and foreign fee splits, reminder rules, and late-filing consequences using Maine Secretary of State sources.",
+    canonicalUrl: "https://finlogichub5.com/tools/maine/annual-report-deadline/",
+    ogTitle: "Maine Annual Report Fee and Due Date | FinLogic Hub",
+    ogDescription:
+      "Review Maine annual report deadlines, domestic and foreign filing fees, reminder rules, and late-filing consequences using official Maine sources.",
+    state: "Maine",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "States", href: "/states.html" },
+      { label: "Maine annual report", href: null }
+    ],
+    heroTitle: "Maine annual report fee and due date",
+    heroSubtitle:
+      "Use this page if you need the Maine annual report deadline or fee. Most businesses start with the June 1 due date, then confirm whether the entity uses the domestic, foreign, or nonprofit fee.",
+    lastReviewed: "March 30, 2026",
+    sourceBadge: "Source: Maine Secretary of State, Bureau of Corporations, Elections and Commissions",
+    summaryTitle: "At a glance",
+    metrics: [
+      {
+        label: "Legal deadline",
+        text: "Annual report must be delivered between January 1 and June 1."
+      },
+      {
+        label: "Common fee split",
+        text: "$85 for domestic business entities, $150 for foreign business entities, and $35 for domestic or foreign nonprofit corporations."
+      },
+      {
+        label: "Reminder rule",
+        text: "Maine does not mail annual report reminders, but it sends courtesy email reminders to the address on file."
+      }
+    ],
+    summaryNoteHtml: `<p class="table-note">
+              Maine is simple on timing, but the fee answer changes immediately between domestic,
+              foreign, and nonprofit filings. It is also one of the states that expects customers to
+              manage their own filing reminders if the courtesy email is missed.
+            </p>`,
+    sourceLinks: [
+      {
+        href: "https://www.maine.gov/sos/corporations-commissions/filing-an-annual-report",
+        label: "Maine filing an annual report overview"
+      },
+      {
+        href: "https://www.maine.gov/sos/corporations-commissions/incorporating-resources/corporations-commissions/filing-requirement-reminders",
+        label: "Maine filing requirement reminders"
+      },
+      {
+        href: "https://www.maine.gov/sos/about-us/online-services",
+        label: "Maine Secretary of State online services"
+      },
+      {
+        href: "https://www1.maine.gov/online/icrs/late/faq.html",
+        label: "Maine late filing penalties FAQ"
+      },
+      {
+        href: "https://www1.maine.gov/online/icrs/late/index.html",
+        label: "Maine late filing penalties online payment service"
+      }
+    ],
+    scriptSrc: null
+  },
+  {
+    filePath: "tools/maryland/annual-report-deadline/index.html",
+    titleTag: "Maryland Annual Report and Personal Property Return Deadline | FinLogic Hub",
+    metaDescription:
+      "Maryland annual report and personal property return guidance covering the April 15 deadline, common filing fees, property-report triggers, extension timing, and good-standing consequences.",
+    canonicalUrl: "https://finlogichub5.com/tools/maryland/annual-report-deadline/",
+    ogTitle: "Maryland Annual Report and Personal Property Return Deadline | FinLogic Hub",
+    ogDescription:
+      "Review Maryland annual report timing, Form 1 fees, personal property return triggers, extension timing, and good-standing rules using official Maryland sources.",
+    state: "Maryland",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "States", href: "/states.html" },
+      { label: "Maryland annual report", href: null }
+    ],
+    heroTitle: "Maryland annual report and personal property return deadline",
+    heroSubtitle:
+      "Use this page if you need the Maryland annual report deadline, the common filing fee, or the personal property return trigger. Most businesses start with April 15, then confirm whether Form 1 also needs the personal property section.",
+    lastReviewed: "March 30, 2026",
+    sourceBadge: "Source: Maryland Department of Assessments and Taxation",
+    summaryTitle: "At a glance",
+    metrics: [
+      {
+        label: "Main due date",
+        text: "Annual filing is due April 15, with a 60-day extension available if requested."
+      },
+      {
+        label: "Common fee",
+        text: "$300 for most stock corporations, LLCs, LPs, LLPs, REITs, and statutory trusts. Non-stock corporations use a $0 filing fee."
+      },
+      {
+        label: "Property return trigger",
+        text: "For filing years 2023 and after, Maryland says a business personal property return is required when the entity owns, leases, or uses Maryland personal property with an original cost of $20,000 or more."
+      }
+    ],
+    summaryNoteHtml: `<p class="table-note">
+              Maryland is a filing-label state. The annual report is universal for most entities in
+              this lane, but the personal property section only applies when the state says the
+              property threshold or other reporting trigger is met.
+            </p>`,
+    sourceLinks: [
+      {
+        href: "https://businessexpress.maryland.gov/manage/maintain-good-standing-status",
+        label: "Maryland Business Express maintain good standing status"
+      },
+      {
+        href: "https://dat.maryland.gov/Pages/sdatforms.aspx",
+        label: "Maryland Departmental forms and applications"
+      },
+      {
+        href: "https://dat.maryland.gov/SiteAssets/Pages/sdatforms/2026_Form1%20Final%20%286%29.pdf",
+        label: "Maryland 2026 Form 1 annual report and business personal property return"
+      },
+      {
+        href: "https://dat.maryland.gov/SiteAssets/Pages/sdatforms/2026%20Form%201%20Instructions%20%20FINAL.pdf",
+        label: "Maryland 2026 Form 1 instructions"
+      },
+      {
+        href: "https://pprextensions.dat.maryland.gov/temp_defs.aspx",
+        label: "Maryland extension request form and filing glossary"
+      },
+      {
+        href: "https://regs.maryland.gov/us/md/exec/comar/18.04.03.01",
+        label: "Maryland good-standing criteria regulation"
+      },
+      {
+        href: "https://dat.maryland.gov/businesses/pages/internet-certificate-of-status.aspx",
+        label: "Maryland certificate of status guidance"
+      }
+    ],
+    scriptSrc: null
+  },
+  {
+    filePath: "tools/wyoming/annual-report-deadline/index.html",
+    titleTag: "Wyoming Annual Report Fee and Due Date | FinLogic Hub",
+    metaDescription:
+      "Wyoming annual report fee and due date guidance covering the anniversary-month deadline, $60 minimum annual license tax for most profit entities, nonprofit fee rules, reminder emails, and reinstatement basics.",
+    canonicalUrl: "https://finlogichub5.com/tools/wyoming/annual-report-deadline/",
+    ogTitle: "Wyoming Annual Report Fee and Due Date | FinLogic Hub",
+    ogDescription:
+      "Review Wyoming annual report deadlines, annual license tax rules, nonprofit fee treatment, reminder timing, and reinstatement steps using Wyoming Secretary of State sources.",
+    state: "Wyoming",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "States", href: "/states.html" },
+      { label: "Wyoming annual report", href: null }
+    ],
+    heroTitle: "Wyoming annual report fee and due date",
+    heroSubtitle:
+      "Use this page if you need the Wyoming annual report deadline or annual license tax rule. Most customers start with the first day of the anniversary month, then confirm whether the entity uses the $60 minimum license tax or one of Wyoming's flat annual report fees.",
+    lastReviewed: "March 30, 2026",
+    sourceBadge: "Source: Wyoming Secretary of State, Business Division",
+    summaryTitle: "At a glance",
+    metrics: [
+      {
+        label: "Main due date",
+        text: "Annual report is due on or before the first day of the anniversary month, starting in the first anniversary year."
+      },
+      {
+        label: "Most profit entities",
+        text: "Annual license tax is $60 or two-tenths of one mill on the dollar ($.0002) of Wyoming assets, whichever is greater."
+      },
+      {
+        label: "Reminder and late path",
+        text: "Courtesy reminder emails go out 60, 30, and 10 days before the due date. Missing the report makes the entity delinquent and later administratively dissolved."
+      }
+    ],
+    summaryNoteHtml: `<p class="table-note">
+              Wyoming is clean on timing and tricky on price. The due date is easy to remember, but
+              most profit entities are paying an annual license tax tied to Wyoming assets rather
+              than a flat universal filing fee.
+            </p>`,
+    sourceLinks: [
+      {
+        href: "https://sos.wyo.gov/FAQS.aspx?root=BUS",
+        label: "Wyoming Secretary of State business FAQs"
+      },
+      {
+        href: "https://sos.wyo.gov/Forms/WyoBiz/What%27s_Next.pdf",
+        label: "Wyoming What's Next information PDF"
+      },
+      {
+        href: "https://sos.wyo.gov/Business/docs/BusinessFees.pdf",
+        label: "Wyoming business division filing fee schedule"
+      },
+      {
+        href: "https://sos.wyo.gov/business/businessalert.aspx",
+        label: "Wyoming business alert and scam warning"
+      },
+      {
+        href: "https://sos.wyo.gov/Forms/Business/LLC/LLC-CertificateReinstatement.pdf",
+        label: "Wyoming LLC certificate of reinstatement form"
       }
     ],
     scriptSrc: null

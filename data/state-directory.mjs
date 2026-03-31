@@ -431,5 +431,91 @@ export const stateDirectory = [
       deadline: "Annual on the anniversary date of the original filing",
       amount: "$50 to $275 depending on entity type"
     }
+  },
+  {
+    state: "Maine",
+    route: "/tools/maine/annual-report-deadline/",
+    guideLabel: "Maine annual report deadline",
+    chipLabel: "Maine annual report",
+    guideType: "Annual report guide",
+    coverageBucket: "annual-reports",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "June 1 deadline, domestic and foreign fee splits, courtesy email reminders, and late-filing consequences.",
+    directoryCardDescription:
+      "June 1 annual report timing, Maine fee splits by domestic, foreign, and nonprofit status, and the late-filing consequence path.",
+    homeComparison: {
+      focus: "Maine corporation, LLC, LP, LLP, or nonprofit corporation",
+      deadline: "June 1 each year, with the first filing due the year after formation",
+      fee: "$85 domestic business, $150 foreign business, or $35 nonprofit",
+      lateRule:
+        "Late filing penalty is assessed after June 1, and unpaid penalties can lead to administrative dissolution or revocation"
+    },
+    directoryComparison: {
+      obligation: "Annual report",
+      entityFocus: "Corporations, LLCs, LPs, LLPs, and nonprofit corporations",
+      deadline: "First report due the year after filing; then every year between January 1 and June 1",
+      amount:
+        "$85 for domestic business entities, $150 for foreign business entities, and $35 for nonprofit corporations"
+    }
+  },
+  {
+    state: "Maryland",
+    route: "/tools/maryland/annual-report-deadline/",
+    guideLabel: "Maryland annual report and personal property return deadline",
+    chipLabel: "Maryland annual filing",
+    guideType: "Annual report plus personal property return guide",
+    coverageBucket: "annual-registration-and-tax",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "April 15 deadline, common $300 Form 1 fee, current property-return trigger, and good-standing consequences.",
+    directoryCardDescription:
+      "Maryland April 15 filing timing, Form 1 fee split, personal property return trigger, extension path, and good-standing consequences.",
+    homeComparison: {
+      focus: "Maryland corporation, LLC, LLP, LP, REIT, or statutory trust",
+      deadline: "April 15 each year, with a 60-day extension available",
+      fee: "$300 for most entities, $0 for non-stock corporations, or $100 for SDAT certified family farms",
+      lateRule:
+        "Missing the required filing can put the business out of good standing, trigger late fees, and block status cleanup until annual filings are cleared"
+    },
+    directoryComparison: {
+      obligation: "Annual report and, when required, personal property tax return",
+      entityFocus:
+        "Corporations, LLCs, LLPs, LPs, REITs, and statutory trusts registered in Maryland",
+      deadline:
+        "First filing due the year after formation; then every year by April 15 unless an extension is requested",
+      amount:
+        "$300 for most Form 1 filers, $0 for non-stock corporations, and $100 for SDAT certified family farms"
+    }
+  },
+  {
+    state: "Wyoming",
+    route: "/tools/wyoming/annual-report-deadline/",
+    guideLabel: "Wyoming annual report deadline",
+    chipLabel: "Wyoming annual report",
+    guideType: "Annual report and license tax guide",
+    coverageBucket: "annual-registration-and-tax",
+    featuredInHomeNav: false,
+    homeCardDescription:
+      "Anniversary-month deadline, $60 minimum license tax for most profit entities, reminder emails, and delinquency rules.",
+    directoryCardDescription:
+      "Wyoming anniversary-month annual report timing, annual license tax rules, nonprofit fee treatment, and delinquency or reinstatement steps.",
+    homeComparison: {
+      focus: "Wyoming LLC, corporation, LP, LLP, nonprofit, or statutory trust",
+      deadline: "First day of the anniversary month, starting with the first anniversary year",
+      fee:
+        "$60 minimum annual license tax for most profit entities, $25 nonprofits, or $100 statutory trusts and foundations",
+      lateRule:
+        "Missed filings make the entity delinquent, then administratively dissolved; reinstatement requires a $100 fee plus each delinquent annual report fee"
+    },
+    directoryComparison: {
+      obligation: "Annual report and annual license tax",
+      entityFocus:
+        "LLCs, profit corporations, LPs, LLPs, nonprofits, statutory trusts, and statutory foundations",
+      deadline:
+        "Due each year on or before the first day of the anniversary month; report may be filed up to 120 days early",
+      amount:
+        "$60 minimum for most profit entities or .0002 of Wyoming assets, $25 nonprofits, and $100 statutory trusts or foundations"
+    }
   }
 ];

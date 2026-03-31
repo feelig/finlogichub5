@@ -1129,5 +1129,247 @@ export const structuredStateContentByFilePath = {
         ]
       ]
     }
+  ],
+  "tools/maine/annual-report-deadline/index.html": [
+    {
+      type: "table",
+      eyebrow: "Fee table",
+      title: "Maine keeps the deadline simple but splits the fee by filing status",
+      headers: ["Entity lane", "Annual report fee", "What to watch"],
+      rows: [
+        [
+          "Domestic business entity",
+          "$85",
+          "The Maine reminders page lists $85 for domestic business entities using the annual report system."
+        ],
+        [
+          "Foreign business entity",
+          "$150",
+          "Foreign-qualified business entities use the higher $150 annual report fee."
+        ],
+        [
+          "Domestic or foreign nonprofit corporation",
+          "$35",
+          "Nonprofit corporations use a lower $35 annual report fee."
+        ]
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Timing and reminders",
+      title: "Maine expects the filing between January 1 and June 1",
+      headers: ["Question", "Official Maine answer"],
+      rows: [
+        [
+          "When is the first annual report due?",
+          "The first annual report is due between January 1 and June 1 of the year after the entity was incorporated, formed, or qualified."
+        ],
+        [
+          "When are later reports due?",
+          "Subsequent annual reports are due every year between January 1 and June 1."
+        ],
+        [
+          "Will Maine remind you by mail?",
+          "No. Maine says it does not mail annual report reminders, but it sends courtesy email reminders to the address on file."
+        ],
+        [
+          "How do you file?",
+          "Maine directs customers to its online filing system through SOSonline.org, and it also provides preprinted paper annual report forms."
+        ]
+      ]
+    },
+    {
+      type: "detailCards",
+      eyebrow: "If you are late",
+      title: "Why Maine still needs calendar discipline",
+      cards: [
+        {
+          title: "Late filing is not just a warning",
+          text: "Maine says a late filing penalty is assessed if the report is not received by the filing deadline. If the penalty is not paid, the entity can be administratively dissolved or revoked."
+        },
+        {
+          title: "The online late-payment service is separate",
+          text: "Maine's late filing penalty payment service is only for situations where the annual report has already been filed and the remaining late penalty still has to be cleared."
+        },
+        {
+          title: "Courtesy email is not a guarantee",
+          text: "Because Maine does not mail annual report reminders, the safest practice is to keep the filing email current and set an internal reminder before the June 1 deadline."
+        }
+      ]
+    }
+  ],
+  "tools/maryland/annual-report-deadline/index.html": [
+    {
+      type: "table",
+      eyebrow: "Fee table",
+      title: "Maryland's 2026 Form 1 shows the main filing fee split",
+      headers: ["Entity type", "Form 1 filing fee", "What this means"],
+      rows: [
+        [
+          "Domestic or foreign stock corporation",
+          "$300",
+          "Maryland's 2026 Form 1 lists the common $300 filing fee for stock corporations."
+        ],
+        [
+          "Domestic or foreign LLC",
+          "$300",
+          "Maryland LLCs use Form 1 and the same $300 filing fee."
+        ],
+        [
+          "Domestic or foreign LP, LLP, REIT, or statutory trust",
+          "$300",
+          "Limited partnerships, LLPs, REITs, and statutory trusts stay in the main $300 Form 1 lane."
+        ],
+        [
+          "Domestic or foreign non-stock corporation",
+          "$0",
+          "Non-stock corporations still file, but the 2026 Form 1 shows a zero-dollar filing fee."
+        ],
+        [
+          "SDAT certified family farm",
+          "$100",
+          "Maryland's 2026 fee chart includes a reduced $100 filing fee for an SDAT certified family farm."
+        ]
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Timing and scope",
+      title: "The April 15 date is only the first step",
+      headers: ["Question", "Official Maryland answer"],
+      rows: [
+        [
+          "When is the first filing due?",
+          "Maryland Business Express says the first filing is due the year after the business starts, even if the business had no revenue, has not started operating, or only has one employee."
+        ],
+        [
+          "What is the regular deadline?",
+          "Maryland's Form 1 is due April 15."
+        ],
+        [
+          "Is an extension available?",
+          "Yes. Maryland says the entity may request a 60-day extension."
+        ],
+        [
+          "When must Form 1 also include the personal property return?",
+          "For filing years 2023 and after, Maryland says LLCs and corporations must include the personal property return if the business owns, leases, or uses Maryland personal property with an original cost of $20,000 or more."
+        ],
+        [
+          "What if the business has less than $20,000 of Maryland personal property?",
+          "The 2026 Form 1 says that answering No means you are attesting to owning less than $20,000 of Maryland personal property as of January 1, 2026."
+        ]
+      ]
+    },
+    {
+      type: "detailCards",
+      eyebrow: "Good standing risk",
+      title: "Why Maryland annual filings quickly become a status problem",
+      cards: [
+        {
+          title: "Out-of-good-standing is the real pain point",
+          text: "Maryland Business Express says a business falls out of good standing when it has not met the state's criteria, and missing an annual report or personal property return is one of the listed reasons."
+        },
+        {
+          title: "Late filing can block cleanup",
+          text: "Maryland's good-standing pages say the business record will show whether required annual reports were filed and whether late fees are owed. Until those issues are fixed, the business can remain outside good standing."
+        },
+        {
+          title: "Certificate of status depends on cleared filings",
+          text: "Maryland's certificate of status guidance says the state only certifies good standing when all required documents and fees have been received and no other agency has reported a delinquency."
+        }
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Practical notes",
+      title: "Useful Maryland filing details",
+      headers: ["Question", "Maryland answer"],
+      rows: [
+        [
+          "Can every entity file online?",
+          "No. Maryland says some entities still have to use paper forms, including government entities, financial institutions, certain co-operatives, public utilities, and some other specialized filers."
+        ],
+        [
+          "Where is the fastest filing path?",
+          "Maryland Business Express is the state's main online filing path for annual reports, personal property returns, and related status checks."
+        ],
+        [
+          "What should you save after filing?",
+          "Use the business record and certificate-of-status tools to confirm that the annual filing posted and that the entity returned to active and good-standing status if cleanup was needed."
+        ]
+      ]
+    }
+  ],
+  "tools/wyoming/annual-report-deadline/index.html": [
+    {
+      type: "table",
+      eyebrow: "Fee table",
+      title: "Wyoming splits the annual charge between a license-tax lane and flat-fee lanes",
+      headers: ["Entity type", "Annual report fee", "What to watch"],
+      rows: [
+        [
+          "Profit corporation, LLC, LP, or LLP",
+          "$60 or $.0002 of Wyoming assets, whichever is greater",
+          "Most profit entities use Wyoming's annual license tax rather than a flat universal filing fee."
+        ],
+        [
+          "Nonprofit corporation",
+          "$25",
+          "Wyoming treats nonprofits as a flat-fee annual report filing."
+        ],
+        [
+          "Statutory trust or statutory foundation",
+          "$100",
+          "Wyoming's FAQ and fee schedule put statutory trusts and statutory foundations in the $100 flat-fee lane."
+        ]
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Timing and reminders",
+      title: "Wyoming ties the report to the anniversary month, not a single calendar deadline",
+      headers: ["Question", "Official Wyoming answer"],
+      rows: [
+        [
+          "When is the annual report due?",
+          "For most registered entities, Wyoming says the annual report is due on the first day of the anniversary month of formation or qualification."
+        ],
+        [
+          "When is the first report due?",
+          "Wyoming's What's Next guide says the first annual report is not due until the first anniversary year."
+        ],
+        [
+          "Can you file early?",
+          "Yes. Wyoming says the annual report may be filed up to 120 days before the due date."
+        ],
+        [
+          "Will Wyoming remind you?",
+          "Yes. Courtesy email reminders are sent 60, 30, and 10 days before the due date."
+        ],
+        [
+          "Can active entities file online?",
+          "Yes. Wyoming says active registered business entities can use the Annual Report Wizard online, although e-filing is not permitted if the annual report fee is greater than $500."
+        ]
+      ]
+    },
+    {
+      type: "detailCards",
+      eyebrow: "If you are late",
+      title: "Wyoming moves from delinquent to dissolved quickly",
+      cards: [
+        {
+          title: "The delinquent clock starts fast",
+          text: "Wyoming says the entity becomes delinquent on the second day of the month following the due date. If the annual report is still not filed within 60 days after the due date, the entity is administratively dissolved."
+        },
+        {
+          title: "Reinstatement means catching up on more than one fee",
+          text: "Wyoming's reinstatement form says a company dissolved for failure to file annual reports must submit each delinquent annual report, each delinquent annual report fee, and the separate $100 reinstatement fee."
+        },
+        {
+          title: "Watch for scam notices",
+          text: "Wyoming's business alerts and What's Next guide warn customers about fraudulent texts, invoices, and private solicitations that look official but do not come from the Secretary of State."
+        }
+      ]
+    }
   ]
 };
