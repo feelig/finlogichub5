@@ -1,0 +1,42 @@
+name: IndexNow Submit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  submit-indexnow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Submit updated URLs to IndexNow
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] || [ -z "$BEFORE_SHA" ] || [ "$BEFORE_SHA" = "0000000000000000000000000000000000000000" ]; then
+            node scripts/submit-indexnow.mjs --ensure-live-key --all
+            exit 0
+          fi
+
+          mapfile -t changed_files < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+
+          if [ "${#changed_files[@]}" -eq 0 ]; then
+            node scripts/submit-indexnow.mjs --ensure-live-key --all
+            exit 0
+          fi
+
+          node scripts/submit-indexnow.mjs --ensure-live-key "${changed_files[@]}"
