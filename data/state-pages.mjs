@@ -22,7 +22,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "California Statement of Information fee and due date",
-    "heroSubtitle": "California's Statement of Information rules are one of the easiest places to make a filing mistake because the answer depends on entity type. California stock corporations generally file every year in the month of registration, while California LLCs file every two years in the month of registration in the matching odd or even year. The California Secretary of State also publishes a six-month filing window after the initial filing.",
+    "heroSubtitle": "Use this page if you need the California Statement of Information deadline or fee. Most businesses start with the 90-day initial filing rule, then confirm whether the entity follows the corporation schedule or the LLC every-two-years schedule.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: California Secretary of State",
     "summaryTitle": "At a glance",
@@ -92,7 +92,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Connecticut annual report fee and due date",
-    "heroSubtitle": "Connecticut requires annual reports for LLCs, stock corporations, non-stock corporations, LLPs, and LPs. The state guidance focuses on the due-date lookup and reminder process, while the current Connecticut fee pages and filing guide PDF provide the fee table by entity type. Connecticut also makes the consequence of missing the report clear: overdue entities can lose the ability to obtain a certificate of legal existence and may be dissolved.",
+    "heroSubtitle": "Use this page if you need the Connecticut annual report fee, due-date lookup, or missed-report risk. Start with the entity type, then confirm the due date in the state system and the matching fee before you pay.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Connecticut Secretary of the State",
     "summaryTitle": "At a glance",
@@ -166,7 +166,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Delaware annual report deadline and LLC annual tax",
-    "heroSubtitle": "Delaware is a common place for filing confusion because corporations, foreign corporations, and Delaware LLCs do not follow the same rule. This page separates them so the word \"annual report\" does not accidentally get applied to Delaware LLC annual tax.",
+    "heroSubtitle": "Use this page if you need the right Delaware recurring filing. Corporations and Delaware LLCs do not use the same rule, so this page separates the corporation report deadline from the Delaware LLC annual tax.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Delaware Division of Corporations",
     "summaryTitle": "At a glance",
@@ -232,7 +232,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Florida annual report fee and due date",
-    "heroSubtitle": "Florida requires annual reports for profit corporations, non-profit corporations, limited liability companies, limited partnerships, and limited liability limited partnerships. The Florida Department of State makes the timeline unusually clear: annual reports are filed each year between January 1 and May 1, a $400 late fee applies to most for-profit entities after May 1, and businesses that still do not file by the third Friday in September face administrative dissolution or revocation.",
+    "heroSubtitle": "Use this page if you need the Florida annual report fee, May 1 deadline, or late-fee rule. Most customers start with the filing window, the entity-specific fee, and the $400 late fee that applies to most for-profit entities after May 1.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Florida Department of State",
     "summaryTitle": "At a glance",
@@ -302,7 +302,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Georgia annual registration deadline",
-    "heroSubtitle": "Georgia uses annual registration instead of a traditional annual report label for many entities. The current Georgia Secretary of State guidance points to a January 1 to April 1 filing window, a common $60 online total for many profit entities, lower totals for some nonprofits and domestic LLPs, and a published $25 late penalty.",
+    "heroSubtitle": "Use this page if you need the Georgia annual registration deadline or fee. Most customers start with the January 1 to April 1 window, the common $60 online total for many profit entities, and the $25 late penalty.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Georgia Secretary of State",
     "summaryTitle": "At a glance",
@@ -368,7 +368,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Kansas information report deadline and LLC filing fee",
-    "heroSubtitle": "Kansas now describes this recurring filing as an information report, not a standard annual report page. The Kansas Secretary of State says businesses file biennially based on the year they were formed. For-profit businesses are due by April 15 in the matching odd or even year, and not-for-profit businesses are due by June 15 in the matching odd or even year.",
+    "heroSubtitle": "Use this page if you need the Kansas information report deadline or LLC filing fee. Start with whether the business files in an odd or even year, then confirm the due date and the fee that matches the entity.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Kansas Secretary of State",
     "summaryTitle": "At a glance",
@@ -430,7 +430,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Nevada annual fee calculator",
-    "heroSubtitle": "Nevada entities typically deal with two recurring state charges at the annual filing stage: the annual list fee and the state business license renewal fee. This calculator combines the published amounts for LLCs and corporations and shows the basic late penalties published in the statutes used for this page.",
+    "heroSubtitle": "Use this page if you need the recurring Nevada state total for an LLC or corporation. The calculator combines the annual list fee, the state business license renewal fee, and the published late penalties.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Nevada Revised Statutes",
     "summaryTitle": "At a glance",
@@ -496,7 +496,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "New York biennial statement fee and due date",
-    "heroSubtitle": "New York does not use one fixed biennial-statement deadline for every business. Most corporations and LLCs need to file every two years during the calendar month tied to the entity's original formation or authority date, using the state's $9 filing process.",
+    "heroSubtitle": "Use this page if you need the New York biennial statement due month or $9 filing fee. The key rule is that the filing is tied to the formation or authority month, not one fixed statewide deadline.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: New York Department of State",
     "summaryTitle": "At a glance",
@@ -562,7 +562,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "North Carolina annual report deadline for LLCs and corporations",
-    "heroSubtitle": "The North Carolina Secretary of State publishes different annual report timing and fee rules by entity type. LLCs and L3Cs use a fixed April 15 deadline with a $200 filing fee plus a small electronic fee, while business corporations follow the 15th day of the fourth month after fiscal year end and use a much lower annual report fee.",
+    "heroSubtitle": "Use this page if you need the North Carolina annual report deadline or filing fee. The first split to make is entity type: LLCs and L3Cs usually use April 15, while corporations use a fiscal-year deadline.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: NC Secretary of State",
     "summaryTitle": "At a glance",
@@ -628,7 +628,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Pennsylvania annual report deadline",
-    "heroSubtitle": "Pennsylvania restarted annual reports in 2025, but the filing window changes by association type. This page keeps the first answers simple: which entity window applies, when most businesses use the standard $7 filing fee, and when missed reports start to matter.",
+    "heroSubtitle": "Use this page if you need the Pennsylvania annual report window or standard filing fee. Start with the entity type, because the filing window changes across corporations, LLCs, and other associations.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Pennsylvania Department of State and Business Filing Services",
     "summaryTitle": "At a glance",
@@ -694,7 +694,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Texas franchise tax due date and information report rules",
-    "heroSubtitle": "Texas annual compliance usually centers on the franchise tax report due each May 15, plus the matching Public Information Report or Ownership Information Report. This page is built to answer the first practical questions fast: whether the entity is in the franchise-tax system, whether the current no-tax-due threshold matters, and which information report goes with the filing.",
+    "heroSubtitle": "Use this page if you need the Texas franchise tax deadline, the no-tax-due threshold, or the matching information report rule. Most businesses start with May 15, then confirm whether a PIR or OIR is still required.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Texas Comptroller of Public Accounts",
     "summaryTitle": "At a glance",
@@ -764,7 +764,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Washington annual report fee and deadline",
-    "heroSubtitle": "Washington requires an annual report for registered businesses, and the state guidance for for-profit entities is clearer than many third-party summaries suggest. The annual report is due each year by the end of the anniversary month, many businesses can file up to 180 days early, the for-profit annual report fee is $70, and delinquent filings move to a $95 total.",
+    "heroSubtitle": "Use this page if you need the Washington annual report deadline or late total. Most for-profit businesses start with the end of the anniversary month, the $70 filing fee, and the $95 delinquent total.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Washington Secretary of State",
     "summaryTitle": "At a glance",

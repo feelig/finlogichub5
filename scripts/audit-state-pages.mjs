@@ -52,7 +52,8 @@ function extractSourceUrls(html) {
 
 function parsePage(file, html) {
   const title = extractFirst(/<h1>([\s\S]*?)<\/h1>/i, html);
-  const reviewDate = extractFirst(/Last reviewed:\s*([^<]+)/i, html);
+  const reviewDate =
+    extractFirst(/Checked:\s*([^<]+)/i, html) ?? extractFirst(/Last reviewed:\s*([^<]+)/i, html);
   const canonical = extractFirst(/<link rel="canonical" href="([^"]+)"/i, html);
   const contentModel = extractFirst(/<main class="page" data-content-model="([^"]+)"/i, html);
   const sourceUrls = extractSourceUrls(html);
@@ -64,15 +65,11 @@ function parsePage(file, html) {
     canonical,
     contentModel,
     sourceUrls,
-    hasQuickAnswer: /What most readers need first/i.test(html),
-    hasEvidenceChain: /data-evidence-chain/i.test(html),
-    hasDecisionTool: /data-decision-tool-root/i.test(html),
-    hasCustomerTask: /What to do before you file or pay/i.test(html),
-    hasTrustSnapshot: /Why this page is safer to rely on/i.test(html),
-    hasSourcesHeading: /Sources used for this page/i.test(html),
+    hasQuickAnswer: /What to know first/i.test(html),
+    hasMainRules: /What to check before you file in/i.test(html) || /data-nevada-calculator/i.test(html),
+    hasSourcesHeading: /Where this page data comes from/i.test(html),
     hasFooterNav: /<nav class="footer-nav" aria-label="Footer">/i.test(html),
-    hasSummaryTable: /class="summary-table"/i.test(html),
-    hasDetailGrid: /class="detail-grid"/i.test(html),
+    hasMainContent: /class="summary-table"/i.test(html) || /data-nevada-calculator/i.test(html),
   };
 }
 
@@ -83,11 +80,9 @@ function findStructureProblems(page) {
   if (!page.reviewDate) problems.push("missing-review-date");
   if (!page.canonical) problems.push("missing-canonical");
   if (!page.hasQuickAnswer) problems.push("missing-quick-answer");
-  if (!page.hasEvidenceChain) problems.push("missing-evidence-chain");
-  if (!page.hasDecisionTool) problems.push("missing-decision-tool");
-  if (!page.hasCustomerTask) problems.push("missing-customer-task");
-  if (!page.hasTrustSnapshot) problems.push("missing-trust-snapshot");
+  if (!page.hasMainRules) problems.push("missing-main-rules");
   if (!page.hasSourcesHeading) problems.push("missing-sources-heading");
+  if (!page.hasMainContent) problems.push("missing-main-content");
   if (page.sourceUrls.length === 0) problems.push("missing-source-links");
   if (!page.hasFooterNav) problems.push("missing-footer-nav");
 

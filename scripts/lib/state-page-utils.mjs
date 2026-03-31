@@ -70,7 +70,7 @@ export function getReviewStatus(
   if (ageInDays > staleReviewDays) {
     return {
       tone: "overdue",
-      label: "Manual review overdue",
+      label: "Needs fresh review",
       detail: "Refresh this page against official sources now.",
       ageInDays,
       nextReviewDate
@@ -80,7 +80,7 @@ export function getReviewStatus(
   if (ageInDays >= reviewSoonDays) {
     return {
       tone: "soon",
-      label: "Priority refresh soon",
+      label: "Check again soon",
       detail: "Review the official sources again before this page ages out.",
       ageInDays,
       nextReviewDate
@@ -89,7 +89,7 @@ export function getReviewStatus(
 
   return {
     tone: "fresh",
-    label: "Fresh manual review",
+    label: "Recently checked",
     detail: "This page is still within the current review window.",
     ageInDays,
     nextReviewDate
