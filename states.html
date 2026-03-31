@@ -6,7 +6,7 @@
     <title>State Filing Guides | FinLogic Hub</title>
     <meta
       name="description"
-      content="Browse official-state-source guides for annual report deadlines, franchise tax due dates, annual taxes, recurring business fees, and late-payment rules by state."
+      content="Browse state filing guides for annual report deadlines, franchise tax due dates, annual taxes, recurring business fees, and late-payment rules by state."
     />
     <link rel="canonical" href="https://finlogichub5.com/states.html" />
     <meta property="og:title" content="State Filing Guides | FinLogic Hub" />
@@ -43,7 +43,7 @@
         </nav>
       </header>
 
-      <main class="page">
+      <main class="page" data-guide-directory-root>
         <section class="hero hero--page">
           <div class="hero__copy surface">
             <div class="breadcrumbs">
@@ -51,313 +51,136 @@
               <span>/</span>
               <span>State filing guides</span>
             </div>
-            <p class="eyebrow">State directory</p>
-            <h1>Pick the right live state guide quickly</h1>
+            <p class="eyebrow">State guides</p>
+            <h1>Find the right state guide</h1>
             <p class="hero__subtitle">
-              This directory is intentionally selective. A state appears here only after we can tie
-              the key deadline, fee, and filing rule back to official state sources and add a manual
-              review stamp.
+              Search by state, filing name, or entity type, then open the matching guide.
             </p>
             <div class="badge-row">
-              <span class="badge">16 live guides</span>
-              <span class="badge">Latest manual review: March 17, 2026</span>
+              <span class="badge">16 state guides</span>
+              <span class="badge">Checked March 17, 2026</span>
               <span class="badge">Daily source scan enabled</span>
             </div>
           </div>
 
           <aside class="summary-panel surface">
-            <h2>Coverage pattern</h2>
-            <div class="metric-grid">
-              <div class="metric-card">
-                <strong>Annual report guides (7)</strong>
-                <span>Recurring annual-report pages where the state publishes a recognizable report cycle and fee structure.</span>
-              </div>
-              <div class="metric-card">
-                <strong>Annual registration and annual tax guides (3)</strong>
-                <span>States where the recurring compliance item is not just an annual report and the filing label changes by entity type.</span>
-              </div>
-              <div class="metric-card">
-                <strong>Recurring fee and statement tools (6)</strong>
-                <span>Statement, biennial, information-report, annual-list, and franchise-tax pages that need tighter entity-level breakdowns.</span>
-              </div>
-            </div>
+            <h2>Search states</h2>
+            <p>Filter by state, filing name, or entity type.</p>
+            <label class="field field--search">
+              <span>Search guides</span>
+              <input
+                type="search"
+                placeholder="State, filing type, or entity"
+                data-guide-search-input
+              />
+            </label>
+            <label class="field" for="guideTypeFilter">
+              <span>Guide type</span>
+              <select id="guideTypeFilter" data-guide-bucket-select>
+                <option value="">All guide types</option>
+                <option value="annual-reports">Annual report guides (7)</option>
+                <option value="annual-registration-and-tax">Annual registration and annual tax guides (3)</option>
+                <option value="recurring-fees-and-statements">Recurring fee and statement tools (6)</option>
+              </select>
+            </label>
+            <p class="results-count" data-guide-results-count aria-live="polite">
+              Showing all 16 guides.
+            </p>
+            <p class="panel-note">If you do not know the filing label, use <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
           </aside>
         </section>
 
         <section class="section surface">
           <div class="section__head">
-            <p class="eyebrow">Live guides</p>
-            <h2>Current state coverage</h2>
-            <p>
-              Each card below links to a live page with official-source links, a review date, and a
-              narrow scope. If a state treats entity types differently, the page should keep those
-              rules separate instead of compressing them.
-            </p>
+            <p class="eyebrow">All guides</p>
+            <h2>All state guides</h2>
           </div>
-          <div class="filter-bar">
-            <div>
-              <strong>Search the directory</strong>
-              <span>Filter the live guides by state, filing label, or the entity type you care about.</span>
-            </div>
-            <label class="field field--search">
-              <span>Search live guides</span>
-              <input
-                type="search"
-                placeholder="Type a state, filing type, or entity"
-                data-guide-search-input
-              />
-            </label>
-          </div>
-          <div class="state-grid">
-            <a class="state-card" href="/tools/north-carolina/annual-report-deadline/" data-guide-card data-search="north carolina north carolina annual report deadline annual report guide annual report llcs, l3cs, corporations, partnerships llc, l3c, and corporation timing with the current online and paper filing-fee split.">
+          <div class="state-grid state-grid--directory">
+            <a class="state-card state-card--compact" href="/tools/north-carolina/annual-report-deadline/" data-guide-card data-guide-bucket="annual-reports" data-search="north carolina north carolina annual report deadline annual report guide annual report llcs, l3cs, corporations, partnerships llc, l3c, and corporation timing with the current online and paper filing-fee split.">
               <h3>North Carolina annual report deadline</h3>
-              <p>LLC, L3C, and corporation timing with the current online and paper filing-fee split.</p>
-              <span>Reviewed March 17, 2026 | 5 official sources</span>
+
+              <span>Checked March 17, 2026 | 5 official sources</span>
             </a>
-            <a class="state-card" href="/tools/georgia/annual-report-deadline/" data-guide-card data-search="georgia georgia annual registration deadline annual registration guide annual registration business entities using the annual registration portal january 1 to april 1 timing, common $60 online total for many profit entities, and the published $25 late penalty.">
+            <a class="state-card state-card--compact" href="/tools/georgia/annual-report-deadline/" data-guide-card data-guide-bucket="annual-registration-and-tax" data-search="georgia georgia annual registration deadline annual registration guide annual registration business entities using the annual registration portal january 1 to april 1 timing, common $60 online total for many profit entities, and the published $25 late penalty.">
               <h3>Georgia annual registration deadline</h3>
-              <p>January 1 to April 1 timing, common $60 online total for many profit entities, and the published $25 late penalty.</p>
-              <span>Reviewed March 17, 2026 | 5 official sources</span>
+
+              <span>Checked March 17, 2026 | 5 official sources</span>
             </a>
-            <a class="state-card" href="/tools/pennsylvania/annual-report-deadline/" data-guide-card data-search="pennsylvania pennsylvania annual report deadline annual report guide annual report corporations, llcs, lps, llps 2025 launch rules, $7 filing fee, and the delayed enforcement window that begins with reports due in 2027.">
+            <a class="state-card state-card--compact" href="/tools/pennsylvania/annual-report-deadline/" data-guide-card data-guide-bucket="annual-reports" data-search="pennsylvania pennsylvania annual report deadline annual report guide annual report corporations, llcs, lps, llps, and similar associations 2025 launch rules, $7 filing fee, and the delayed enforcement window that begins with reports due in 2027.">
               <h3>Pennsylvania annual report deadline</h3>
-              <p>2025 launch rules, $7 filing fee, and the delayed enforcement window that begins with reports due in 2027.</p>
-              <span>Reviewed March 17, 2026 | 5 official sources</span>
+
+              <span>Checked March 17, 2026 | 5 official sources</span>
             </a>
-            <a class="state-card" href="/tools/delaware/annual-report-deadline/" data-guide-card data-search="delaware delaware annual report and annual tax deadline annual report plus annual tax guide annual report or annual tax domestic corporations, foreign corporations, llcs, lps, gps separates domestic corporations, foreign corporations, and the june 1 delaware llc annual tax.">
+            <a class="state-card state-card--compact" href="/tools/delaware/annual-report-deadline/" data-guide-card data-guide-bucket="annual-registration-and-tax" data-search="delaware delaware annual report and annual tax deadline annual report plus annual tax guide annual report or annual tax domestic corporations, foreign corporations, llcs, lps, gps separates domestic corporations, foreign corporations, and the june 1 delaware llc annual tax.">
               <h3>Delaware annual report and annual tax deadline</h3>
-              <p>Separates domestic corporations, foreign corporations, and the June 1 Delaware LLC annual tax.</p>
-              <span>Reviewed March 17, 2026 | 5 official sources</span>
+
+              <span>Checked March 17, 2026 | 5 official sources</span>
             </a>
-            <a class="state-card" href="/tools/florida/annual-report-deadline/" data-guide-card data-search="florida florida annual report fee and deadline annual report guide annual report profit and non-profit corporations, llcs, lps, and lllps may 1 deadline, $400 late-fee rules, september dissolution timing, and separate fee schedules for corporations, llcs, and partnerships.">
+            <a class="state-card state-card--compact" href="/tools/florida/annual-report-deadline/" data-guide-card data-guide-bucket="annual-reports" data-search="florida florida annual report fee and deadline annual report guide annual report profit and non-profit corporations, llcs, lps, and lllps may 1 deadline, $400 late-fee rules, september dissolution timing, and separate fee schedules for corporations, llcs, and partnerships.">
               <h3>Florida annual report fee and deadline</h3>
-              <p>May 1 deadline, $400 late-fee rules, September dissolution timing, and separate fee schedules for corporations, LLCs, and partnerships.</p>
-              <span>Reviewed March 17, 2026 | 6 official sources</span>
+
+              <span>Checked March 17, 2026 | 6 official sources</span>
             </a>
-            <a class="state-card" href="/tools/nevada/annual-fee-calculator/" data-guide-card data-search="nevada nevada annual fee calculator interactive recurring-fee guide annual list and business license renewal llcs and corporations annual list fees, business license renewals, and published late penalties for llcs and corporations.">
+            <a class="state-card state-card--compact" href="/tools/nevada/annual-fee-calculator/" data-guide-card data-guide-bucket="recurring-fees-and-statements" data-search="nevada nevada annual fee calculator interactive recurring-fee guide annual list and business license renewal llcs and corporations annual list fees, business license renewals, and published late penalties for llcs and corporations.">
               <h3>Nevada annual fee calculator</h3>
-              <p>Annual list fees, business license renewals, and published late penalties for LLCs and corporations.</p>
-              <span>Reviewed March 17, 2026 | 5 official sources</span>
+
+              <span>Checked March 17, 2026 | 5 official sources</span>
             </a>
-            <a class="state-card" href="/tools/texas/franchise-tax-deadline/" data-guide-card data-search="texas texas franchise tax deadline franchise tax guide franchise tax report and information report taxable entities filing pir or oir may 15 filing timing, 2026 no-tax-due threshold, information-report rules, and late-report penalties.">
+            <a class="state-card state-card--compact" href="/tools/texas/franchise-tax-deadline/" data-guide-card data-guide-bucket="recurring-fees-and-statements" data-search="texas texas franchise tax deadline franchise tax guide franchise tax report plus pir or oir taxable entities that must file a texas franchise tax return may 15 filing timing, 2026 no-tax-due threshold, information-report rules, and late-report penalties.">
               <h3>Texas franchise tax deadline</h3>
-              <p>May 15 filing timing, 2026 no-tax-due threshold, information-report rules, and late-report penalties.</p>
-              <span>Reviewed March 17, 2026 | 6 official sources</span>
+
+              <span>Checked March 17, 2026 | 6 official sources</span>
             </a>
-            <a class="state-card" href="/tools/kansas/information-report-deadline/" data-guide-card data-search="kansas kansas information report deadline information report guide biennial information report for-profit and not-for-profit businesses on file with the secretary of state biennial filing timing, april 15 or june 15 due dates, three-month delinquency window, and confirmed kansas llc filing fees.">
+            <a class="state-card state-card--compact" href="/tools/kansas/information-report-deadline/" data-guide-card data-guide-bucket="recurring-fees-and-statements" data-search="kansas kansas information report deadline information report guide biennial information report for-profit and not-for-profit businesses on file with the secretary of state biennial filing timing, april 15 or june 15 due dates, three-month delinquency window, and confirmed kansas llc filing fees.">
               <h3>Kansas information report deadline</h3>
-              <p>Biennial filing timing, April 15 or June 15 due dates, three-month delinquency window, and confirmed Kansas LLC filing fees.</p>
-              <span>Reviewed March 17, 2026 | 5 official sources</span>
+
+              <span>Checked March 17, 2026 | 5 official sources</span>
             </a>
-            <a class="state-card" href="/tools/new-york/biennial-statement-deadline/" data-guide-card data-search="new york new york biennial statement deadline biennial statement guide biennial statement business corporations and llcs $9 filing fee, due-month filing rule, no expedited handling, and the official past-due status consequences for corporations and llcs.">
+            <a class="state-card state-card--compact" href="/tools/new-york/biennial-statement-deadline/" data-guide-card data-guide-bucket="recurring-fees-and-statements" data-search="new york new york biennial statement deadline biennial statement guide biennial statement domestic and foreign business corporations and llcs $9 filing fee, due-month filing rule, no expedited handling, and the official past-due status consequences for corporations and llcs.">
               <h3>New York biennial statement deadline</h3>
-              <p>$9 filing fee, due-month filing rule, no expedited handling, and the official past-due status consequences for corporations and LLCs.</p>
-              <span>Reviewed March 17, 2026 | 5 official sources</span>
+
+              <span>Checked March 17, 2026 | 5 official sources</span>
             </a>
-            <a class="state-card" href="/tools/california/statement-of-information-deadline/" data-guide-card data-search="california california statement of information deadline statement of information guide statement of information stock corporations and llcs $25 stock corporation fee, $20 california llc fee, six-month filing window, and official delinquency and suspension language.">
+            <a class="state-card state-card--compact" href="/tools/california/statement-of-information-deadline/" data-guide-card data-guide-bucket="recurring-fees-and-statements" data-search="california california statement of information deadline statement of information guide statement of information stock corporations and llcs $25 stock corporation fee, $20 california llc fee, six-month filing window, and official delinquency and suspension language.">
               <h3>California Statement of Information deadline</h3>
-              <p>$25 stock corporation fee, $20 California LLC fee, six-month filing window, and official delinquency and suspension language.</p>
-              <span>Reviewed March 17, 2026 | 6 official sources</span>
+
+              <span>Checked March 17, 2026 | 6 official sources</span>
             </a>
-            <a class="state-card" href="/tools/washington/annual-report-deadline-guide/" data-guide-card data-search="washington washington annual report fee and deadline annual report guide annual report for-profit business entities $70 for-profit filing fee, $95 delinquent total, end-of-anniversary-month deadline, and the official delinquency or dissolution sequence.">
+            <a class="state-card state-card--compact" href="/tools/washington/annual-report-deadline-guide/" data-guide-card data-guide-bucket="annual-reports" data-search="washington washington annual report fee and deadline annual report guide annual report for-profit business entities $70 for-profit filing fee, $95 delinquent total, end-of-anniversary-month deadline, and the official delinquency or dissolution sequence.">
               <h3>Washington annual report fee and deadline</h3>
-              <p>$70 for-profit filing fee, $95 delinquent total, end-of-anniversary-month deadline, and the official delinquency or dissolution sequence.</p>
-              <span>Reviewed March 17, 2026 | 6 official sources</span>
+
+              <span>Checked March 17, 2026 | 6 official sources</span>
             </a>
-            <a class="state-card" href="/tools/connecticut/annual-report-deadline/" data-guide-card data-search="connecticut connecticut annual report fee and deadline annual report guide annual report llcs, stock and non-stock corporations, llps, and lps llc, corporation, llp, and lp fees, reminder timing, overdue consequences, and certificate-of-legal-existence limits.">
+            <a class="state-card state-card--compact" href="/tools/connecticut/annual-report-deadline/" data-guide-card data-guide-bucket="annual-reports" data-search="connecticut connecticut annual report fee and deadline annual report guide annual report llcs, stock and non-stock corporations, llps, and lps llc, corporation, llp, and lp fees, reminder timing, overdue consequences, and certificate-of-legal-existence limits.">
               <h3>Connecticut annual report fee and deadline</h3>
-              <p>LLC, corporation, LLP, and LP fees, reminder timing, overdue consequences, and certificate-of-legal-existence limits.</p>
-              <span>Reviewed March 17, 2026 | 7 official sources</span>
+
+              <span>Checked March 17, 2026 | 7 official sources</span>
             </a>
-            <a class="state-card" href="/tools/new-jersey/annual-report-deadline/" data-guide-card data-search="new jersey new jersey annual report fee and deadline annual report guide annual report corporations, llcs, lps, llps, and non-profits registered in new jersey annual report timing tied to the anniversary month, clear fee split by profit status, and repeated non-filing consequences.">
+            <a class="state-card state-card--compact" href="/tools/new-jersey/annual-report-deadline/" data-guide-card data-guide-bucket="annual-reports" data-search="new jersey new jersey annual report fee and deadline annual report guide annual report corporations, llcs, lps, llps, and non-profits registered in new jersey annual report timing tied to the anniversary month, clear fee split by profit status, and repeated non-filing consequences.">
               <h3>New Jersey annual report fee and deadline</h3>
-              <p>Annual report timing tied to the anniversary month, clear fee split by profit status, and repeated non-filing consequences.</p>
-              <span>Reviewed March 17, 2026 | 6 official sources</span>
+
+              <span>Checked March 17, 2026 | 6 official sources</span>
             </a>
-            <a class="state-card" href="/tools/virginia/annual-registration-fee-deadline/" data-guide-card data-search="virginia virginia annual registration fee and annual report deadline annual registration and report guide annual report, annual registration fee, or continuation report corporations, llcs, lps, business trusts, llps, and lllps entity-specific annual report, annual registration fee, and continuation-report rules for virginia corporations, llcs, lps, business trusts, and llps.">
+            <a class="state-card state-card--compact" href="/tools/virginia/annual-registration-fee-deadline/" data-guide-card data-guide-bucket="annual-registration-and-tax" data-search="virginia virginia annual registration fee and annual report deadline annual registration and report guide annual report, annual registration fee, or continuation report corporations, llcs, lps, business trusts, llps, and lllps entity-specific annual report, annual registration fee, and continuation-report rules for virginia corporations, llcs, lps, business trusts, and llps.">
               <h3>Virginia annual registration fee and annual report deadline</h3>
-              <p>Entity-specific annual report, annual registration fee, and continuation-report rules for Virginia corporations, LLCs, LPs, business trusts, and LLPs.</p>
-              <span>Reviewed March 17, 2026 | 6 official sources</span>
+
+              <span>Checked March 17, 2026 | 6 official sources</span>
             </a>
-            <a class="state-card" href="/tools/colorado/periodic-report-deadline/" data-guide-card data-search="colorado colorado periodic report fee and due date periodic report guide periodic report llcs, corporations, nonprofits, foreign entities, llps, lllps, and reporting lps colorado periodic report timing, $25 filing fee, $50 late penalty, and the noncompliant-to-delinquent sequence.">
+            <a class="state-card state-card--compact" href="/tools/colorado/periodic-report-deadline/" data-guide-card data-guide-bucket="recurring-fees-and-statements" data-search="colorado colorado periodic report fee and due date periodic report guide periodic report llcs, corporations, nonprofits, foreign entities, llps, lllps, and reporting lps colorado periodic report timing, $25 filing fee, $50 late penalty, and the noncompliant-to-delinquent sequence.">
               <h3>Colorado periodic report fee and due date</h3>
-              <p>Colorado periodic report timing, $25 filing fee, $50 late penalty, and the noncompliant-to-delinquent sequence.</p>
-              <span>Reviewed March 17, 2026 | 5 official sources</span>
+
+              <span>Checked March 17, 2026 | 5 official sources</span>
             </a>
-            <a class="state-card" href="/tools/oregon/annual-report-deadline/" data-guide-card data-search="oregon oregon annual report fee and due date annual report guide annual report corporations, llcs, nonprofits, and limited partnerships anniversary-date annual reports, oregon fee splits by entity type, reminder timing, and reinstatement guidance for missed filings.">
+            <a class="state-card state-card--compact" href="/tools/oregon/annual-report-deadline/" data-guide-card data-guide-bucket="annual-reports" data-search="oregon oregon annual report fee and due date annual report guide annual report corporations, llcs, nonprofits, and limited partnerships anniversary-date annual reports, oregon fee splits by entity type, reminder timing, and reinstatement guidance for missed filings.">
               <h3>Oregon annual report fee and due date</h3>
-              <p>Anniversary-date annual reports, Oregon fee splits by entity type, reminder timing, and reinstatement guidance for missed filings.</p>
-              <span>Reviewed March 17, 2026 | 5 official sources</span>
+
+              <span>Checked March 17, 2026 | 5 official sources</span>
             </a>
           </div>
-          <p class="empty-state" hidden data-guide-empty>No matching live guide yet. Try a state, obligation, or entity type.</p>
-        </section>
-
-        <section class="section surface">
-          <div class="section__head">
-            <p class="eyebrow">Comparison snapshot</p>
-            <h2>Fast comparison of the live states</h2>
-            <p>
-              This is a directory aid. Use the detailed state page before filing, paying, or
-              choosing a compliance service.
-            </p>
-          </div>
-          <div class="table-scroll">
-            <table class="summary-table">
-              <thead>
-                <tr>
-                  <th>State</th>
-                  <th>Main obligation covered</th>
-                  <th>Entity focus</th>
-                  <th>Headline due date</th>
-                  <th>Main published amount shown</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>North Carolina</td>
-                  <td>Annual report</td>
-                  <td>LLCs, L3Cs, corporations, partnerships</td>
-                  <td>April 15 for LLCs; fiscal-year-based for corporations</td>
-                  <td>$202-$203 online or $200 paper for LLCs</td>
-                </tr>
-                <tr>
-                  <td>Georgia</td>
-                  <td>Annual registration</td>
-                  <td>Business entities using the annual registration portal</td>
-                  <td>April 1</td>
-                  <td>Varies by entity type; common $60 online total</td>
-                </tr>
-                <tr>
-                  <td>Pennsylvania</td>
-                  <td>Annual report</td>
-                  <td>Corporations, LLCs, LPs, LLPs</td>
-                  <td>Varies by association type</td>
-                  <td>$7 for most business entities</td>
-                </tr>
-                <tr>
-                  <td>Delaware</td>
-                  <td>Annual report or annual tax</td>
-                  <td>Domestic corporations, foreign corporations, LLCs, LPs, GPs</td>
-                  <td>March 1, June 1, or June 30 depending on entity type</td>
-                  <td>$50 annual report fee or $300 LLC annual tax</td>
-                </tr>
-                <tr>
-                  <td>Florida</td>
-                  <td>Annual report</td>
-                  <td>Profit and non-profit corporations, LLCs, LPs, and LLLPs</td>
-                  <td>January 1 to May 1, then September dissolution cutoff</td>
-                  <td>$61.25 to $500.00 depending on entity type, plus a $400 late fee for most for-profit entities after May 1</td>
-                </tr>
-                <tr>
-                  <td>Nevada</td>
-                  <td>Annual list and business license renewal</td>
-                  <td>LLCs and corporations</td>
-                  <td>Last day of anniversary month</td>
-                  <td>$350 recurring LLC state total before late penalties</td>
-                </tr>
-                <tr>
-                  <td>Texas</td>
-                  <td>Franchise tax report and information report</td>
-                  <td>Taxable entities filing PIR or OIR</td>
-                  <td>May 15</td>
-                  <td>$2,650,000 no-tax-due threshold for 2026 reports</td>
-                </tr>
-                <tr>
-                  <td>Kansas</td>
-                  <td>Biennial information report</td>
-                  <td>For-profit and not-for-profit businesses on file with the Secretary of State</td>
-                  <td>April 15 or June 15 depending on business type and formation-year parity</td>
-                  <td>$53 online or $55 paper for Kansas LLCs</td>
-                </tr>
-                <tr>
-                  <td>New York</td>
-                  <td>Biennial Statement</td>
-                  <td>Business corporations and LLCs</td>
-                  <td>Calendar month of formation or authority, every two years</td>
-                  <td>$9</td>
-                </tr>
-                <tr>
-                  <td>California</td>
-                  <td>Statement of Information</td>
-                  <td>Stock corporations and LLCs</td>
-                  <td>Annual for stock corporations; every two years for LLCs, with an official six-month filing window</td>
-                  <td>$25 for stock corporations and $20 for LLCs</td>
-                </tr>
-                <tr>
-                  <td>Washington</td>
-                  <td>Annual report</td>
-                  <td>For-profit business entities</td>
-                  <td>End of the anniversary month</td>
-                  <td>$70 annual report or $95 with delinquency fee</td>
-                </tr>
-                <tr>
-                  <td>Connecticut</td>
-                  <td>Annual report</td>
-                  <td>LLCs, stock and non-stock corporations, LLPs, and LPs</td>
-                  <td>Annual; due date shown in the state filing system and reminder notices</td>
-                  <td>$80 to $435 depending on entity type</td>
-                </tr>
-                <tr>
-                  <td>New Jersey</td>
-                  <td>Annual report</td>
-                  <td>Corporations, LLCs, LPs, LLPs, and non-profits registered in New Jersey</td>
-                  <td>Every year on the last day of the anniversary month</td>
-                  <td>$75 for for-profit entities and $30 for non-profit corporations</td>
-                </tr>
-                <tr>
-                  <td>Virginia</td>
-                  <td>Annual report, annual registration fee, or continuation report</td>
-                  <td>Corporations, LLCs, LPs, business trusts, LLPs, and LLLPs</td>
-                  <td>Last day of formation month for corporations and LLCs, October 1 for LPs and business trusts, or July 1 for LLPs and LLLPs</td>
-                  <td>$50 for most non-corporate recurring filings; corporation fee varies by share count</td>
-                </tr>
-                <tr>
-                  <td>Colorado</td>
-                  <td>Periodic report</td>
-                  <td>LLCs, corporations, nonprofits, foreign entities, LLPs, LLLPs, and reporting LPs</td>
-                  <td>File beginning two months before the periodic report month and no later than the last day of the second month after it</td>
-                  <td>$25 filing fee, $50 late filing penalty, or $100 statement curing delinquency</td>
-                </tr>
-                <tr>
-                  <td>Oregon</td>
-                  <td>Annual report</td>
-                  <td>Corporations, LLCs, nonprofits, and limited partnerships</td>
-                  <td>Annual on the anniversary date of the original filing</td>
-                  <td>$50 to $275 depending on entity type</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="section section--split">
-          <div class="surface">
-            <div class="section__head">
-              <p class="eyebrow">Publishing rule</p>
-              <h2>What counts as a live page</h2>
-            </div>
-            <ul class="checklist">
-              <li>The page starts from an official state source or statute.</li>
-              <li>The page shows a clear review date.</li>
-              <li>The page avoids inventing a flat late fee when the source does not publish one.</li>
-              <li>The page separates entity types when the state treats them differently.</li>
-              <li>The page keeps a direct path back to the controlling filing page, portal, or statute.</li>
-            </ul>
-          </div>
-          <div class="surface">
-            <div class="section__head">
-              <p class="eyebrow">Daily monitoring</p>
-              <h2>How updates are handled</h2>
-            </div>
-            <ul class="checklist">
-              <li>Every live guide targets at least five official state sources.</li>
-              <li>Automated scans check official source links every day.</li>
-              <li>The scan also flags pages whose manual review date has gone stale.</li>
-              <li>Broken links trigger a report instead of silently leaving bad data live.</li>
-              <li>Live copy still changes only after a human source review.</li>
-            </ul>
-          </div>
+          <p class="empty-state" hidden data-guide-empty>
+            No match yet. Try a state, filing name, or entity type. If you are unsure about the
+            filing label, start with <a class="inline-link" href="/filing-basics.html">Filing basics</a>.
+          </p>
         </section>
       </main>
 
@@ -372,7 +195,7 @@
           <a href="/contact.html">Contact</a>
           <a href="/terms.html">Terms</a>
         </nav>
-        <p>&copy; 2026 FinLogic Hub. Informational only. Official state sources control.</p>
+        <p>&copy; 2026 FinLogic Hub. For planning only. Confirm on the official state site before you file.</p>
       </footer>
     </div>
     <script src="/script.js"></script>

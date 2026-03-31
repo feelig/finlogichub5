@@ -15,6 +15,11 @@ const ROOT = process.cwd();
 const DIRECTORY_ROUTE = "/states.html";
 const OPERATIONS_ROUTE = "/operations.html";
 const OPERATIONS_REPORT = path.join(ROOT, "reports", "daily-source-scan.json");
+const homeLookupGroupLabels = {
+  "annual-reports": "年度报告指南",
+  "annual-registration-and-tax": "年度注册和年度税务指南",
+  "recurring-fees-and-statements": "定期费用和报表工具"
+};
 
 function escapeHtml(value) {
   return String(value)
@@ -75,6 +80,25 @@ function renderHeader() {
       </header>`;
 }
 
+function renderHomeHeader() {
+  return `      <header class="site-header">
+        <a class="brand" href="/">
+          <span class="brand__mark">FH</span>
+          <span>
+            <strong>FinLogic Hub</strong>
+            <small>各州备案费指南</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/">首页</a>
+          <a href="${DIRECTORY_ROUTE}">各州</a>
+          <a href="/filing-basics.html">文件归档基础知识</a>
+          <a href="/filing-help-options.html">帮助选项</a>
+          <a href="/about.html">关于</a>
+        </nav>
+      </header>`;
+}
+
 function renderFooter() {
   return `      <footer class="site-footer">
         <nav class="footer-nav" aria-label="Footer">
@@ -87,12 +111,12 @@ function renderFooter() {
           <a href="/contact.html">Contact</a>
           <a href="/terms.html">Terms</a>
         </nav>
-        <p>&copy; 2026 FinLogic Hub. Informational only. Official state sources control.</p>
+        <p>&copy; 2026 FinLogic Hub. For planning only. Confirm on the official state site before you file.</p>
       </footer>`;
 }
 
 function renderCardMeta(entry) {
-  return `Reviewed ${entry.page.lastReviewed} | ${entry.page.sourceLinks.length} official ${pluralize(
+  return `Checked ${entry.page.lastReviewed} | ${entry.page.sourceLinks.length} official ${pluralize(
     entry.page.sourceLinks.length,
     "source"
   )}`;
@@ -103,6 +127,7 @@ function renderStateCards(entries, mode) {
     .map((entry) => {
       const description =
         mode === "home" ? entry.homeCardDescription : entry.directoryCardDescription;
+      const compactDirectory = mode === "directory";
       const searchText = [
         entry.state,
         entry.guideLabel,
@@ -114,24 +139,60 @@ function renderStateCards(entries, mode) {
         .join(" ")
         .toLowerCase();
 
-      return `            <a class="state-card" href="${escapeHtml(entry.route)}" data-guide-card data-search="${escapeHtml(searchText)}">
+      return `            <a class="state-card${compactDirectory ? " state-card--compact" : ""}" href="${escapeHtml(entry.route)}" data-guide-card data-guide-bucket="${escapeHtml(entry.coverageBucket)}" data-search="${escapeHtml(searchText)}">
               <h3>${escapeHtml(entry.guideLabel)}</h3>
-              <p>${escapeHtml(description)}</p>
+${compactDirectory ? "" : `              <p>${escapeHtml(description)}</p>\n`}
               <span>${escapeHtml(renderCardMeta(entry))}</span>
             </a>`;
     })
     .join("\n");
 }
 
-function renderSelectOptions(entries) {
-  return entries
+function buildBucketSummaries(entries) {
+  return coverageBuckets.map((bucket) => ({
+    bucket,
+    entries: entries.filter((entry) => entry.coverageBucket === bucket.key)
+  }));
+}
+
+function renderLookupOptions(bucketSummaries, groupLabels = {}) {
+  return bucketSummaries
     .map(
-      (entry) =>
-        `                  <option value="${escapeHtml(entry.route)}">${escapeHtml(
-          entry.guideLabel
+      ({ bucket, entries }) => `                  <optgroup label="${escapeHtml(groupLabels[bucket.key] ?? bucket.label)}">
+${entries
+  .map(
+    (entry) =>
+      `                    <option value="${escapeHtml(entry.route)}">${escapeHtml(
+        entry.guideLabel
+      )}</option>`
+  )
+  .join("\n")}
+                  </optgroup>`
+    )
+    .join("\n");
+}
+
+function renderGuideTypeOptions(bucketSummaries) {
+  return bucketSummaries
+    .map(
+      ({ bucket, entries }) =>
+        `                <option value="${escapeHtml(bucket.key)}">${escapeHtml(
+          `${bucket.label} (${entries.length})`
         )}</option>`
     )
     .join("\n");
+}
+
+function renderProofStrip(items) {
+  return `            <div class="proof-strip">
+${items
+  .map(
+    (item) => `              <span class="proof-pill">
+                <strong>${escapeHtml(item.label)}</strong>${item.text ? `\n                <span>${escapeHtml(item.text)}</span>` : ""}
+              </span>`
+  )
+  .join("\n")}
+            </div>`;
 }
 
 function renderHomeComparisonRows(entries) {
@@ -215,7 +276,7 @@ function renderSearchPanel(title, description) {
               <span>${escapeHtml(description)}</span>
             </div>
             <label class="field field--search">
-              <span>Search live guides</span>
+              <span>Search guides</span>
               <input
                 type="search"
                 placeholder="Type a state, filing type, or entity"
@@ -533,20 +594,20 @@ function renderStartPathCards() {
     {
       href: "#stateGuideSelect",
       kicker: "I know the state",
-      label: "Open the right guide fast",
-      text: "Use the quick state lookup when you already know the state and filing label."
+      label: "Open one guide fast",
+      text: "Choose the state guide when you already know the state and filing label."
     },
     {
       href: DIRECTORY_ROUTE,
       kicker: "I need to compare",
-      label: "Compare live state guides",
-      text: "Use the directory if you are checking more than one state, entity type, or filing label."
+      label: "Browse all live states",
+      text: "Use the full directory if you need to compare more than one state or filing rule."
     },
     {
-      href: "/filing-help-options.html",
-      kicker: "I need help options",
-      label: "Review self-serve and assisted paths",
-      text: "Compare the official filing path with help options before paying a third-party service."
+      href: "/filing-basics.html",
+      kicker: "I am not sure yet",
+      label: "Read the filing basics",
+      text: "Start there if you need help understanding the filing label before opening a guide."
     }
   ];
 
@@ -719,174 +780,73 @@ ${renderFooter()}
 `;
 }
 
-function renderHomePage({ entries, latestReviewText, uniqueSourceCount }) {
+function renderHomePage({
+  entries,
+  latestReviewChineseText,
+  uniqueSourceCount,
+  bucketSummaries
+}) {
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
 ${renderSiteHead({
   title: "State Filing Deadlines and Recurring Business Fees | FinLogic Hub",
   description:
-    "Official-state-source guides for annual report deadlines, franchise tax due dates, recurring filing fees, and late-payment rules for selected U.S. business entities.",
+    "State filing guides for annual report deadlines, franchise tax due dates, recurring filing fees, and late-payment rules.",
   canonical: "https://finlogichub5.com/",
   ogTitle: "State Filing Deadlines and Recurring Business Fees | FinLogic Hub",
   ogDescription:
-    "Official state guidance summaries for filing deadlines, fee tables, annual taxes, and late-payment rules for selected U.S. business entities."
+    "Customer-friendly state filing guides with official-source links for deadlines, fees, annual taxes, and late-payment rules."
 })}
   </head>
   <body>
     <div class="site-shell">
-${renderHeader()}
+${renderHomeHeader()}
 
       <main class="page">
         <section class="hero hero--home">
           <div class="hero__copy surface">
-            <p class="eyebrow">Official-state-source guides</p>
-            <h1>Find the state filing deadline, annual fee, or recurring tax that applies to your business.</h1>
+            <p class="eyebrow">官方州来源指南</p>
+            <h1>查找适用于您企业的州申报截止日期、年费或定期税款。</h1>
             <p class="hero__subtitle">
-              Each live guide is manually reviewed, tied to official state sources, and checked by
-              a daily source-health scan. Start with the state and filing label you need, then use
-              the linked official portal before you file or pay.
+              每份在线指南均经过人工审核，并与官方州政府信息来源关联，且每日进行来源健康检查。请选择您需要的州和申报标签，然后在提交或付款前使用链接的官方门户网站。
             </p>
             <div class="notice-bar">
-              <strong>Important:</strong>
-              <span>Use this site to narrow the answer fast. Official state instructions and filing portals still control.</span>
+              <strong>重要的:</strong>
+              <span>使用此网站可以快速缩小答案范围。官方州政府的指示和申报门户网站仍然具有决定性意义。</span>
             </div>
             <div class="stat-grid">
               <div class="stat-card">
-                <strong>${entries.length} live state guides</strong>
-                <span>Pages for annual reports, fee schedules, statements, and recurring tax filings.</span>
+                <strong>${entries.length} 个实时州指南</strong>
+                <span>用于年度报告、费用表、报表和定期税务申报的页面。</span>
               </div>
               <div class="stat-card">
-                <strong>Latest manual review: ${escapeHtml(latestReviewText)}</strong>
-                <span>Every live guide shows a visible review date.</span>
+                <strong>最新人工审核日期: ${latestReviewChineseText}</strong>
+                <span>每个在线指南都会显示可见的审核日期。</span>
               </div>
               <div class="stat-card">
-                <strong>${uniqueSourceCount} official source links monitored</strong>
-                <span>Daily scans flag broken links and pages that may need a fresh check.</span>
+                <strong>监测到 ${uniqueSourceCount} 个官方来源链接</strong>
+                <span>每日扫描会标记出失效链接和可能需要重新检查的页面。</span>
               </div>
             </div>
           </div>
 
           <aside class="hero__panel surface">
-            <h2>Quick state lookup</h2>
-            <p>Choose the guide that matches your state and filing type.</p>
+            <h2>快速查找指南</h2>
+            <p>选择与您所在州和申报类型相符的指南。</p>
             <form class="lookup-form" data-state-lookup>
               <label class="field" for="stateGuideSelect">
-                <span>Select a state guide</span>
+                <span>选择州指南</span>
                 <select id="stateGuideSelect" name="state-guide">
-                  <option value="">Select a guide</option>
-${renderSelectOptions(entries)}
+                  <option value="">选择一份指南</option>
+${renderLookupOptions(bucketSummaries, homeLookupGroupLabels)}
                 </select>
               </label>
-              <button class="button button--primary" type="submit">Open guide</button>
+              <button class="button button--primary" type="submit">打开指南</button>
             </form>
           </aside>
         </section>
-
-        <section class="section surface">
-          <div class="section__head">
-            <p class="eyebrow">Start here</p>
-            <h2>Choose the fastest path for what you need</h2>
-            <p>
-              The site is organized for three common jobs: opening the right guide fast, comparing
-              states before filing, or checking help options before paying someone else.
-            </p>
-          </div>
-          <div class="action-list action-list--triple">
-${renderStartPathCards()}
-          </div>
-        </section>
-
-        <section class="section surface">
-          <div class="section__head">
-            <p class="eyebrow">Customer path</p>
-            <h2>What most visitors need in the first minute</h2>
-            <p>
-              The site is built to answer the same decision sequence every time, so customers can
-              move from confusion to the official filing source quickly.
-            </p>
-          </div>
-          <div class="flow-grid">
-${renderCustomerFlow()}
-          </div>
-        </section>
-
-        <section class="section surface">
-          <div class="section__head">
-            <p class="eyebrow">Live guides</p>
-            <h2>Current state coverage</h2>
-            <p>
-              Each card below is a live guide designed to answer the first customer questions:
-              what is due, when it is due, what the published amount is, and which official source
-              backs the answer.
-            </p>
-          </div>
-${renderSearchPanel(
-  "Start with the closest match",
-  "Search by state, filing label, or entity type before scanning the full grid."
-)}
-          <div class="state-grid">
-${renderStateCards(entries, "home")}
-          </div>
-          <p class="empty-state" hidden data-guide-empty>No matching live guide yet. Try a state name, entity type, or filing label.</p>
-        </section>
-
-        <section class="section surface">
-          <div class="section__head">
-            <p class="eyebrow">Comparison snapshot</p>
-            <h2>Fast comparison of the live states</h2>
-            <p>
-              Use this table to spot the right guide quickly. If a state splits by entity type, use
-              the detailed page before filing or paying.
-            </p>
-          </div>
-          <div class="table-scroll">
-            <table class="summary-table">
-              <thead>
-                <tr>
-                  <th>State</th>
-                  <th>Main entity covered here</th>
-                  <th>Deadline</th>
-                  <th>Published fee</th>
-                  <th>Late rule shown on live page</th>
-                </tr>
-              </thead>
-              <tbody>
-${renderHomeComparisonRows(entries)}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="section section--split">
-          <div class="surface">
-            <div class="section__head">
-              <p class="eyebrow">How to use this site</p>
-              <h2>What a customer should do first</h2>
-            </div>
-            <ul class="checklist">
-              <li>Choose the state guide that matches the filing label, not just the state name.</li>
-              <li>Check whether the page is separating LLC, corporation, partnership, or foreign-entity rules.</li>
-              <li>Use the quick summary first, then the detailed table if the state has split rules.</li>
-              <li>Finish by confirming on the official state link shown on the page.</li>
-            </ul>
-          </div>
-          <div class="surface">
-            <div class="section__head">
-              <p class="eyebrow">Trust signals</p>
-              <h2>Why these pages stay cleaner and more credible</h2>
-            </div>
-            <ul class="checklist">
-              <li>Official state sources only for deadlines, fees, and penalty math.</li>
-              <li>Every live guide shows a specific manual review date.</li>
-              <li>Entity-type differences stay separated instead of being blended into one answer.</li>
-              <li>Daily source-health scans catch broken links and stale review cycles.</li>
-            </ul>
-          </div>
-        </section>
       </main>
-
-${renderFooter()}
     </div>
     <script src="/script.js"></script>
   </body>
@@ -901,7 +861,7 @@ function renderStatesPage({ entries, latestReviewText, bucketSummaries }) {
 ${renderSiteHead({
   title: "State Filing Guides | FinLogic Hub",
   description:
-    "Browse official-state-source guides for annual report deadlines, franchise tax due dates, annual taxes, recurring business fees, and late-payment rules by state.",
+    "Browse state filing guides for annual report deadlines, franchise tax due dates, annual taxes, recurring business fees, and late-payment rules by state.",
   canonical: `https://finlogichub5.com${DIRECTORY_ROUTE}`,
   ogTitle: "State Filing Guides | FinLogic Hub",
   ogDescription:
@@ -912,7 +872,7 @@ ${renderSiteHead({
     <div class="site-shell">
 ${renderHeader()}
 
-      <main class="page">
+      <main class="page" data-guide-directory-root>
         <section class="hero hero--page">
           <div class="hero__copy surface">
             <div class="breadcrumbs">
@@ -920,102 +880,55 @@ ${renderHeader()}
               <span>/</span>
               <span>State filing guides</span>
             </div>
-            <p class="eyebrow">State directory</p>
-            <h1>Pick the right live state guide quickly</h1>
+            <p class="eyebrow">State guides</p>
+            <h1>Find the right state guide</h1>
             <p class="hero__subtitle">
-              This directory is intentionally selective. A state appears here only after we can tie
-              the key deadline, fee, and filing rule back to official state sources and add a manual
-              review stamp.
+              Search by state, filing name, or entity type, then open the matching guide.
             </p>
             <div class="badge-row">
-              <span class="badge">${entries.length} live guides</span>
-              <span class="badge">Latest manual review: ${escapeHtml(latestReviewText)}</span>
+              <span class="badge">${entries.length} state guides</span>
+              <span class="badge">Checked ${escapeHtml(latestReviewText)}</span>
               <span class="badge">Daily source scan enabled</span>
             </div>
           </div>
 
           <aside class="summary-panel surface">
-            <h2>Coverage pattern</h2>
-            <div class="metric-grid">
-${renderCoverageMetrics(bucketSummaries)}
-            </div>
+            <h2>Search states</h2>
+            <p>Filter by state, filing name, or entity type.</p>
+            <label class="field field--search">
+              <span>Search guides</span>
+              <input
+                type="search"
+                placeholder="State, filing type, or entity"
+                data-guide-search-input
+              />
+            </label>
+            <label class="field" for="guideTypeFilter">
+              <span>Guide type</span>
+              <select id="guideTypeFilter" data-guide-bucket-select>
+                <option value="">All guide types</option>
+${renderGuideTypeOptions(bucketSummaries)}
+              </select>
+            </label>
+            <p class="results-count" data-guide-results-count aria-live="polite">
+              Showing all ${entries.length} guides.
+            </p>
+            <p class="panel-note">If you do not know the filing label, use <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
           </aside>
         </section>
 
         <section class="section surface">
           <div class="section__head">
-            <p class="eyebrow">Live guides</p>
-            <h2>Current state coverage</h2>
-            <p>
-              Each card below links to a live page with official-source links, a review date, and a
-              narrow scope. If a state treats entity types differently, the page should keep those
-              rules separate instead of compressing them.
-            </p>
+            <p class="eyebrow">All guides</p>
+            <h2>All state guides</h2>
           </div>
-${renderSearchPanel(
-  "Search the directory",
-  "Filter the live guides by state, filing label, or the entity type you care about."
-)}
-          <div class="state-grid">
+          <div class="state-grid state-grid--directory">
 ${renderStateCards(entries, "directory")}
           </div>
-          <p class="empty-state" hidden data-guide-empty>No matching live guide yet. Try a state, obligation, or entity type.</p>
-        </section>
-
-        <section class="section surface">
-          <div class="section__head">
-            <p class="eyebrow">Comparison snapshot</p>
-            <h2>Fast comparison of the live states</h2>
-            <p>
-              This is a directory aid. Use the detailed state page before filing, paying, or
-              choosing a compliance service.
-            </p>
-          </div>
-          <div class="table-scroll">
-            <table class="summary-table">
-              <thead>
-                <tr>
-                  <th>State</th>
-                  <th>Main obligation covered</th>
-                  <th>Entity focus</th>
-                  <th>Headline due date</th>
-                  <th>Main published amount shown</th>
-                </tr>
-              </thead>
-              <tbody>
-${renderDirectoryComparisonRows(entries)}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="section section--split">
-          <div class="surface">
-            <div class="section__head">
-              <p class="eyebrow">Publishing rule</p>
-              <h2>What counts as a live page</h2>
-            </div>
-            <ul class="checklist">
-              <li>The page starts from an official state source or statute.</li>
-              <li>The page shows a clear review date.</li>
-              <li>The page avoids inventing a flat late fee when the source does not publish one.</li>
-              <li>The page separates entity types when the state treats them differently.</li>
-              <li>The page keeps a direct path back to the controlling filing page, portal, or statute.</li>
-            </ul>
-          </div>
-          <div class="surface">
-            <div class="section__head">
-              <p class="eyebrow">Daily monitoring</p>
-              <h2>How updates are handled</h2>
-            </div>
-            <ul class="checklist">
-              <li>Every live guide targets at least five official state sources.</li>
-              <li>Automated scans check official source links every day.</li>
-              <li>The scan also flags pages whose manual review date has gone stale.</li>
-              <li>Broken links trigger a report instead of silently leaving bad data live.</li>
-              <li>Live copy still changes only after a human source review.</li>
-            </ul>
-          </div>
+          <p class="empty-state" hidden data-guide-empty>
+            No match yet. Try a state, filing name, or entity type. If you are unsure about the
+            filing label, start with <a class="inline-link" href="/filing-basics.html">Filing basics</a>.
+          </p>
         </section>
       </main>
 
@@ -1046,19 +959,22 @@ const latestReviewDate = new Date(
   Math.max(...entries.map((entry) => parseReviewDate(entry.page.lastReviewed).getTime()))
 );
 const latestReviewText = formatLongDate(latestReviewDate);
+const latestReviewChineseText = `${latestReviewDate.getUTCFullYear()}年${latestReviewDate.getUTCMonth() + 1}月${latestReviewDate.getUTCDate()}日`;
 const uniqueSourceCount = new Set(
   entries.flatMap((entry) => entry.page.sourceLinks.map((link) => link.href))
 ).size;
-const bucketSummaries = coverageBuckets.map((bucket) => ({
-  bucket,
-  entries: entries.filter((entry) => entry.coverageBucket === bucket.key)
-}));
+const bucketSummaries = buildBucketSummaries(entries);
 const operationsSnapshot = await loadOperationsSnapshot(entries);
 const operationsModel = buildOperationsModel(entries, operationsSnapshot);
 
 await fs.writeFile(
   path.join(ROOT, "index.html"),
-  renderHomePage({ entries, latestReviewText, uniqueSourceCount })
+  renderHomePage({
+    entries,
+    latestReviewChineseText,
+    uniqueSourceCount,
+    bucketSummaries
+  })
 );
 
 await fs.writeFile(

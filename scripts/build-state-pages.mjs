@@ -247,6 +247,39 @@ function renderStructuredRawHtmlSection(section) {
   return section.html.trim();
 }
 
+function normalizeStructuredHeaders(headers = []) {
+  return headers.map((header) => {
+    if (
+      /official rule used on this page|official detail used on this page|official answer used here|answer from the official guidance|current georgia answer used on this page/i.test(
+        header
+      )
+    ) {
+      return "What to know";
+    }
+
+    if (/^item$/i.test(header) || /^rule$/i.test(header)) {
+      return "Topic";
+    }
+
+    return header;
+  });
+}
+
+function personalizePrimaryStructuredSection(section, page) {
+  if (!section || section.type === "rawHtml") {
+    return section;
+  }
+
+  return {
+    ...section,
+    eyebrow: "Main rules",
+    title: `What to check before you file in ${page.state}`,
+    headers: Array.isArray(section.headers)
+      ? normalizeStructuredHeaders(section.headers)
+      : section.headers
+  };
+}
+
 function renderStructuredBody(sections) {
   return sections
     .map((section) => {
@@ -265,6 +298,14 @@ function renderStructuredBody(sections) {
       throw new Error(`Unsupported structured section type: ${section.type}`);
     })
     .join("\n\n");
+}
+
+function getPrimaryStructuredSections(sections, page) {
+  if (!sections || sections.length === 0) {
+    return [];
+  }
+
+  return [personalizePrimaryStructuredSection(sections[0], page)];
 }
 
 function renderSectionNav() {
@@ -484,52 +525,6 @@ ${claims
 ${renderProofChips(page, sourceIndexes)}
             </article>`;
   })
-  .join("\n")}
-          </div>
-        </section>`;
-}
-
-function renderQuickAnswers(entry) {
-  const answerCards = [
-    {
-      label: "Filing label",
-      text: entry.directoryComparison.obligation
-    },
-    {
-      label: "Who should use this page",
-      text: entry.directoryComparison.entityFocus
-    },
-    {
-      label: "Headline due date",
-      text: entry.directoryComparison.deadline
-    },
-    {
-      label: "Main amount shown",
-      text: entry.directoryComparison.amount
-    }
-  ];
-
-  if (entry.homeComparison?.lateRule) {
-    answerCards.push({
-      label: "If already late",
-      text: entry.homeComparison.lateRule
-    });
-  }
-
-  return `        <section class="section surface">
-          <div id="quick-answer"></div>
-          <div class="section__head">
-            <p class="eyebrow">Quick answer</p>
-            <h2>What most readers need first</h2>
-          </div>
-          <div class="insight-grid">
-${answerCards
-  .map(
-    (card) => `            <article class="insight-card">
-              <span class="insight-label">${escapeHtml(card.label)}</span>
-              <strong>${escapeHtml(card.text)}</strong>
-            </article>`
-  )
   .join("\n")}
           </div>
         </section>`;
@@ -808,30 +803,11 @@ function renderStructuredData(page) {
 
 function renderPage(page) {
   const scriptTag = page.scriptSrc ? `\n    <script src="${escapeHtml(page.scriptSrc)}"></script>` : "";
-  const summaryNote = page.summaryNoteHtml ? `\n${page.summaryNoteHtml}` : "";
+  const summaryNote = "";
   const route = getPageRoute(page);
-  const directoryEntry = directoryByRoute.get(route);
-  const evidenceConfig = evidenceByRoute.get(route);
-  const decisionTool = decisionToolByRoute.get(route);
   const structuredSections = structuredBodyByFilePath.get(page.filePath);
-  const pageBody = renderStructuredBody(structuredSections);
+  const pageBody = renderStructuredBody(getPrimaryStructuredSections(structuredSections, page));
   const reviewStatus = getReviewStatus(parseReviewDate(page.lastReviewed), GENERATED_AT);
-  const sectionNav = directoryEntry ? `\n${renderSectionNav()}\n` : "\n";
-  const quickAnswerSection = directoryEntry ? `\n${renderQuickAnswers(directoryEntry)}\n` : "\n";
-  const evidenceChainSection =
-    directoryEntry && evidenceConfig ? `\n${renderEvidenceChainSection(page, directoryEntry, evidenceConfig)}\n` : "\n";
-  const decisionToolSection =
-    decisionTool ? `\n${renderDecisionToolSection(page, decisionTool)}\n` : "\n";
-  const decisionCheckSection = directoryEntry
-    ? `\n${renderDecisionCheckSection(directoryEntry)}\n`
-    : "\n";
-  const customerActionSection = directoryEntry
-    ? `\n${renderCustomerActionSection(page, directoryEntry)}\n`
-    : "\n";
-  const trustSnapshotSection = directoryEntry
-    ? `\n${renderTrustSnapshot(page, directoryEntry)}\n`
-    : "\n";
-  const detailIntroSection = directoryEntry ? `\n${renderDetailIntro(directoryEntry)}\n` : "\n";
   const structuredData = renderStructuredData(page);
 
   return `<!DOCTYPE html>
@@ -892,8 +868,7 @@ function renderPage(page) {
             </p>
             <div class="badge-row">
               <span class="badge${getBadgeToneClass(reviewStatus.tone)}">${escapeHtml(reviewStatus.label)}</span>
-              <span class="badge">Last reviewed: ${escapeHtml(page.lastReviewed)}</span>
-              <span class="badge">Target refresh by ${escapeHtml(formatLongDate(reviewStatus.nextReviewDate))}</span>
+              <span class="badge">Checked: ${escapeHtml(page.lastReviewed)}</span>
               <span class="badge">${page.sourceLinks.length} official ${pluralize(page.sourceLinks.length, "source")}</span>
               <span class="badge">${escapeHtml(page.sourceBadge)}</span>
             </div>
@@ -905,13 +880,13 @@ function renderPage(page) {
 ${renderMetrics(page.metrics)}
             </div>${summaryNote}
           </aside>
-        </section>${sectionNav}${quickAnswerSection}${evidenceChainSection}${decisionToolSection}${decisionCheckSection}${customerActionSection}${trustSnapshotSection}${detailIntroSection}
+        </section>
 ${pageBody}
 
-        <section class="section surface" id="sources">
+        <section class="section surface" id="official-sources">
           <div class="section__head">
-            <p class="eyebrow">Official links</p>
-            <h2>Sources used for this page</h2>
+            <p class="eyebrow">Official sources</p>
+            <h2>Where this page data comes from</h2>
           </div>
           <ul class="source-list">
 ${renderSourceLinks(page.sourceLinks)}
@@ -930,7 +905,7 @@ ${renderSourceLinks(page.sourceLinks)}
           <a href="/contact.html">Contact</a>
           <a href="/terms.html">Terms</a>
         </nav>
-        <p>&copy; 2026 FinLogic Hub. Informational only. Official state sources control.</p>
+        <p>&copy; 2026 FinLogic Hub. For planning only. Confirm on the official state site before you file.</p>
       </footer>
     </div>${scriptTag}
   </body>
