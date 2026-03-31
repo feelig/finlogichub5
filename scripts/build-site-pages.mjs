@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { createHash } from "node:crypto";
 
 import { liveStatePages } from "../data/live-state-pages.mjs";
 import { coverageBuckets, stateDirectory } from "../data/state-directory.mjs";
@@ -15,11 +16,27 @@ const ROOT = process.cwd();
 const DIRECTORY_ROUTE = "/states.html";
 const OPERATIONS_ROUTE = "/operations.html";
 const OPERATIONS_REPORT = path.join(ROOT, "reports", "daily-source-scan.json");
+const ASSET_VERSION = await buildAssetVersion();
+const STYLE_ASSET_PATH = `/style.css?v=${ASSET_VERSION}`;
+const SCRIPT_ASSET_PATH = `/script.js?v=${ASSET_VERSION}`;
 const homeLookupGroupLabels = {
   "annual-reports": "年度报告指南",
   "annual-registration-and-tax": "年度注册和年度税务指南",
   "recurring-fees-and-statements": "定期费用和报表工具"
 };
+
+async function buildAssetVersion() {
+  const [scriptContent, styleContent] = await Promise.all([
+    fs.readFile(path.join(ROOT, "script.js")),
+    fs.readFile(path.join(ROOT, "style.css"))
+  ]);
+
+  return createHash("sha1")
+    .update(scriptContent)
+    .update(styleContent)
+    .digest("hex")
+    .slice(0, 10);
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -58,7 +75,7 @@ function renderSiteHead({
       href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:wght@600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/style.css" />`;
+    <link rel="stylesheet" href="${STYLE_ASSET_PATH}" />`;
 }
 
 function renderHeader() {
@@ -793,7 +810,7 @@ ${renderIssueLogRows(issueRows)}
 
 ${renderFooter()}
     </div>
-    <script src="/script.js"></script>
+    <script src="${SCRIPT_ASSET_PATH}"></script>
   </body>
 </html>
 `;
@@ -867,7 +884,7 @@ ${renderLookupOptions(bucketSummaries, homeLookupGroupLabels)}
         </section>
       </main>
     </div>
-    <script src="/script.js"></script>
+    <script src="${SCRIPT_ASSET_PATH}"></script>
   </body>
 </html>
 `;
@@ -1001,7 +1018,7 @@ ${renderStateCards(entries, "directory")}
 
 ${renderFooter()}
     </div>
-    <script src="/script.js"></script>
+    <script src="${SCRIPT_ASSET_PATH}"></script>
   </body>
 </html>
 `;

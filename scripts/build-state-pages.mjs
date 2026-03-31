@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { createHash } from "node:crypto";
 
 import {
   guideDecisionToolByRoute,
@@ -19,10 +20,26 @@ import {
 const ROOT = process.cwd();
 const SITE_ORIGIN = "https://finlogichub5.com";
 const GENERATED_AT = new Date();
+const ASSET_VERSION = await buildAssetVersion();
+const STYLE_ASSET_PATH = `/style.css?v=${ASSET_VERSION}`;
+const SCRIPT_ASSET_PATH = `/script.js?v=${ASSET_VERSION}`;
 const directoryByRoute = new Map(stateDirectory.map((entry) => [entry.route, entry]));
 const decisionToolByRoute = new Map(Object.entries(guideDecisionToolByRoute));
 const evidenceByRoute = new Map(Object.entries(guideEvidenceByRoute));
 const structuredBodyByFilePath = new Map(Object.entries(structuredStateContentByFilePath));
+
+async function buildAssetVersion() {
+  const [scriptContent, styleContent] = await Promise.all([
+    fs.readFile(path.join(ROOT, "script.js")),
+    fs.readFile(path.join(ROOT, "style.css"))
+  ]);
+
+  return createHash("sha1")
+    .update(scriptContent)
+    .update(styleContent)
+    .digest("hex")
+    .slice(0, 10);
+}
 
 function validateStructuredBodyCoverage() {
   const liveFilePaths = new Set(liveStatePages.map((page) => page.filePath));
@@ -802,7 +819,9 @@ function renderStructuredData(page) {
 }
 
 function renderPage(page) {
-  const scriptTag = page.scriptSrc ? `\n    <script src="${escapeHtml(page.scriptSrc)}"></script>` : "";
+  const scriptSrc =
+    page.scriptSrc === "/script.js" ? SCRIPT_ASSET_PATH : page.scriptSrc;
+  const scriptTag = scriptSrc ? `\n    <script src="${escapeHtml(scriptSrc)}"></script>` : "";
   const summaryNote = "";
   const route = getPageRoute(page);
   const structuredSections = structuredBodyByFilePath.get(page.filePath);
@@ -834,7 +853,7 @@ function renderPage(page) {
       href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:wght@600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/style.css" />${structuredData}
+    <link rel="stylesheet" href="${STYLE_ASSET_PATH}" />${structuredData}
   </head>
   <body>
     <div class="site-shell">
