@@ -36,6 +36,10 @@ body {
   overflow-x: hidden;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 a {
   color: inherit;
 }
