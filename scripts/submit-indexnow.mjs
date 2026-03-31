@@ -3,8 +3,13 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const SITEMAP_FILE = path.join(ROOT, "sitemap.xml");
-const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 const KEY_NAME_PATTERN = /^[A-Za-z0-9-]{8,128}$/;
+const INDEXNOW_ENDPOINTS = [
+  "https://api.indexnow.org/indexnow",
+  "https://www.bing.com/indexnow",
+  "https://yandex.com/indexnow",
+  "https://search.seznam.cz/indexnow"
+];
 
 function sleep(ms) {
   return new Promise((resolve) => {
@@ -136,29 +141,46 @@ async function waitForLiveKey(origin, keyFile, timeoutMs) {
 }
 
 async function submitIndexNow({ host, key, keyLocation, urlList }) {
-  const response = await fetch(INDEXNOW_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json; charset=utf-8"
-    },
-    body: JSON.stringify({
-      host,
-      key,
-      keyLocation,
-      urlList
-    })
+  const payload = JSON.stringify({
+    host,
+    key,
+    keyLocation,
+    urlList
   });
+  const failures = [];
+  let successCount = 0;
 
-  const body = await response.text();
+  for (const endpoint of INDEXNOW_ENDPOINTS) {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json; charset=utf-8"
+      },
+      body: payload
+    });
+    const body = await response.text();
 
-  if (!response.ok) {
-    throw new Error(`IndexNow submission failed (${response.status}): ${body || "No response body"}`);
+    if (response.ok) {
+      successCount += 1;
+      console.log(`Submitted ${urlList.length} URL(s) to ${endpoint}. Status: ${response.status}`);
+
+      if (body.trim()) {
+        console.log(body.trim());
+      }
+
+      continue;
+    }
+
+    failures.push(`${endpoint} -> ${response.status}: ${body || "No response body"}`);
   }
 
-  console.log(`Submitted ${urlList.length} URL(s) to IndexNow. Status: ${response.status}`);
+  if (!successCount) {
+    throw new Error(`IndexNow submission failed on every endpoint.\n${failures.join("\n")}`);
+  }
 
-  if (body.trim()) {
-    console.log(body.trim());
+  if (failures.length) {
+    console.log("Some IndexNow endpoints failed, but at least one accepted the submission:");
+    console.log(failures.join("\n"));
   }
 }
 
