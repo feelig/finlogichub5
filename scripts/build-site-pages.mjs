@@ -183,6 +183,25 @@ function renderGuideTypeOptions(bucketSummaries) {
     .join("\n");
 }
 
+function renderComparisonOptions(entries) {
+  return [...entries]
+    .sort((left, right) => left.state.localeCompare(right.state))
+    .map(
+      (entry) => `                  <option
+                    value="${escapeHtml(entry.route)}"
+                    data-state="${escapeHtml(entry.state)}"
+                    data-guide-label="${escapeHtml(entry.guideLabel)}"
+                    data-guide-type="${escapeHtml(entry.guideType)}"
+                    data-obligation="${escapeHtml(entry.directoryComparison.obligation)}"
+                    data-entity-focus="${escapeHtml(entry.directoryComparison.entityFocus)}"
+                    data-deadline="${escapeHtml(entry.directoryComparison.deadline)}"
+                    data-amount="${escapeHtml(entry.directoryComparison.amount)}"
+                    data-late-rule="${escapeHtml(entry.homeComparison?.lateRule ?? "See guide for late rule")}"
+                  >${escapeHtml(entry.state)}</option>`
+    )
+    .join("\n");
+}
+
 function renderProofStrip(items) {
   return `            <div class="proof-strip">
 ${items
@@ -894,47 +913,86 @@ ${renderHeader()}
           </div>
 
           <aside class="summary-panel surface">
-            <div class="panel-block">
-              <h2>Open one guide fast</h2>
-              <p>If you already know the state or filing page, use the dropdown.</p>
-              <form class="lookup-form" data-state-lookup>
-                <label class="field" for="directoryStateGuideSelect">
-                  <span>State guide</span>
-                  <select id="directoryStateGuideSelect" name="state-guide">
-                    <option value="">Choose a guide</option>
-${renderLookupOptions(bucketSummaries)}
-                  </select>
-                </label>
-                <button class="button button--primary" type="submit">Open guide</button>
-              </form>
-            </div>
-
-            <div class="panel-divider" aria-hidden="true"></div>
-
-            <div class="panel-block">
-              <h2>Compare and filter</h2>
-              <p>Search by state, filing name, or entity type.</p>
-              <label class="field field--search">
-                <span>Search guides</span>
-                <input
-                  type="search"
-                  placeholder="State, filing type, or entity"
-                  data-guide-search-input
-                />
-              </label>
-              <label class="field" for="guideTypeFilter">
-                <span>Guide type</span>
-                <select id="guideTypeFilter" data-guide-bucket-select>
-                  <option value="">All guide types</option>
+            <h2>Filter all guides</h2>
+            <p>Search by state, filing name, or entity type.</p>
+            <label class="field field--search">
+              <span>Search guides</span>
+              <input
+                type="search"
+                placeholder="State, filing type, or entity"
+                data-guide-search-input
+              />
+            </label>
+            <label class="field" for="guideTypeFilter">
+              <span>Guide type</span>
+              <select id="guideTypeFilter" data-guide-bucket-select>
+                <option value="">All guide types</option>
 ${renderGuideTypeOptions(bucketSummaries)}
-                </select>
-              </label>
-              <p class="results-count" data-guide-results-count aria-live="polite">
-                Showing all ${entries.length} guides.
-              </p>
-              <p class="panel-note">Use this page when you need to compare states or filing labels. If you do not know the filing label, start with <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
-            </div>
+              </select>
+            </label>
+            <p class="results-count" data-guide-results-count aria-live="polite">
+              Showing all ${entries.length} guides.
+            </p>
+            <p class="panel-note">Use the compare bar below for side-by-side comparison. If you do not know the filing label, start with <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
           </aside>
+        </section>
+
+        <section class="section surface" data-guide-compare-root>
+          <div class="section__head">
+            <p class="eyebrow">Compare states</p>
+            <h2>Compare 2 or 3 states side by side</h2>
+            <p>
+              Pick two or three states to compare the filing label, deadline, amount, and late
+              rule before you open a guide.
+            </p>
+          </div>
+          <div class="compare-toolbar">
+            <div class="compare-mode-group" role="group" aria-label="Compare mode">
+              <button
+                class="button button--secondary compare-mode-button is-active"
+                type="button"
+                data-compare-mode-button
+                data-mode="2"
+                aria-pressed="true"
+              >
+                2 states
+              </button>
+              <button
+                class="button button--secondary compare-mode-button"
+                type="button"
+                data-compare-mode-button
+                data-mode="3"
+                aria-pressed="false"
+              >
+                3 states
+              </button>
+            </div>
+            <label class="field" for="compareStateOne">
+              <span>State 1</span>
+              <select id="compareStateOne" data-compare-select>
+                <option value="">Choose a state</option>
+${renderComparisonOptions(entries)}
+              </select>
+            </label>
+            <label class="field" for="compareStateTwo">
+              <span>State 2</span>
+              <select id="compareStateTwo" data-compare-select>
+                <option value="">Choose a state</option>
+${renderComparisonOptions(entries)}
+              </select>
+            </label>
+            <label class="field" for="compareStateThree" data-compare-third-field hidden>
+              <span>State 3</span>
+              <select id="compareStateThree" data-compare-select>
+                <option value="">Choose a state</option>
+${renderComparisonOptions(entries)}
+              </select>
+            </label>
+          </div>
+          <p class="compare-status" data-compare-status>Choose 2 states to compare.</p>
+          <div class="table-scroll" hidden data-compare-table-wrap>
+            <table class="summary-table compare-table" data-compare-table></table>
+          </div>
         </section>
 
         <section class="section surface">

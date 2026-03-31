@@ -10,6 +10,149 @@ lookupForms.forEach((lookupForm) => {
   });
 });
 
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+const guideCompareRoots = document.querySelectorAll("[data-guide-compare-root]");
+
+guideCompareRoots.forEach((root) => {
+  const modeButtons = Array.from(root.querySelectorAll("[data-compare-mode-button]"));
+  const compareSelects = Array.from(root.querySelectorAll("[data-compare-select]"));
+  const thirdField = root.querySelector("[data-compare-third-field]");
+  const compareStatus = root.querySelector("[data-compare-status]");
+  const compareTableWrap = root.querySelector("[data-compare-table-wrap]");
+  const compareTable = root.querySelector("[data-compare-table]");
+  let compareMode = "2";
+
+  if (compareSelects.length < 2 || !compareStatus || !compareTableWrap || !compareTable) {
+    return;
+  }
+
+  function getSelectedEntry(select) {
+    const option = select.options[select.selectedIndex];
+
+    if (!option || !option.value) {
+      return null;
+    }
+
+    return {
+      state: option.dataset.state || option.textContent.trim(),
+      guideLabel: option.dataset.guideLabel || "",
+      obligation: option.dataset.obligation || "",
+      entityFocus: option.dataset.entityFocus || "",
+      deadline: option.dataset.deadline || "",
+      amount: option.dataset.amount || "",
+      lateRule: option.dataset.lateRule || "",
+      route: option.value
+    };
+  }
+
+  function renderComparisonTable(entries) {
+    const rows = [
+      { label: "Guide", key: "guideLabel" },
+      { label: "Filing label", key: "obligation" },
+      { label: "Best for", key: "entityFocus" },
+      { label: "Main deadline", key: "deadline" },
+      { label: "Main amount", key: "amount" },
+      { label: "Late rule", key: "lateRule" },
+      { label: "Open guide", key: "route", isLink: true }
+    ];
+
+    compareTable.innerHTML = `              <thead>
+                <tr>
+                  <th>Compare item</th>
+${entries
+  .map(
+    (entry) => `                  <th>${escapeHtml(entry.state)}<span class="compare-col-note">${escapeHtml(
+      entry.guideLabel
+    )}</span></th>`
+  )
+  .join("\n")}
+                </tr>
+              </thead>
+              <tbody>
+${rows
+  .map(
+    (row) => `                <tr>
+                  <th>${escapeHtml(row.label)}</th>
+${entries
+  .map((entry) => {
+    if (row.isLink) {
+      return `                  <td><a class="inline-link" href="${escapeHtml(entry.route)}">Open guide</a></td>`;
+    }
+
+    return `                  <td>${escapeHtml(entry[row.key])}</td>`;
+  })
+  .join("\n")}
+                </tr>`
+  )
+  .join("\n")}
+              </tbody>`;
+  }
+
+  function updateCompareModeButtons() {
+    modeButtons.forEach((button) => {
+      const isActive = button.dataset.mode === compareMode;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+  }
+
+  function updateComparison() {
+    const requiredCount = compareMode === "3" ? 3 : 2;
+    const activeSelects = compareSelects.slice(0, requiredCount);
+    const selectedEntries = activeSelects.map(getSelectedEntry).filter(Boolean);
+
+    if (thirdField) {
+      thirdField.hidden = compareMode !== "3";
+    }
+
+    if (compareMode !== "3" && compareSelects[2]) {
+      compareSelects[2].value = "";
+    }
+
+    updateCompareModeButtons();
+
+    if (selectedEntries.length < requiredCount) {
+      compareStatus.textContent = `Choose ${requiredCount} states to compare.`;
+      compareTableWrap.hidden = true;
+      compareTable.innerHTML = "";
+      return;
+    }
+
+    if (new Set(selectedEntries.map((entry) => entry.state)).size !== selectedEntries.length) {
+      compareStatus.textContent = "Choose different states to compare.";
+      compareTableWrap.hidden = true;
+      compareTable.innerHTML = "";
+      return;
+    }
+
+    compareStatus.textContent = `Comparing ${selectedEntries
+      .map((entry) => entry.state)
+      .join(" vs ")}.`;
+    renderComparisonTable(selectedEntries);
+    compareTableWrap.hidden = false;
+  }
+
+  modeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      compareMode = button.dataset.mode || "2";
+      updateComparison();
+    });
+  });
+
+  compareSelects.forEach((select) => {
+    select.addEventListener("change", updateComparison);
+  });
+
+  updateComparison();
+});
+
 const nevadaConfig = {
   llc: {
     title: "Nevada LLC",

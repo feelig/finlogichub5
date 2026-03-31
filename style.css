@@ -321,26 +321,6 @@ h3 {
   gap: 12px;
 }
 
-.panel-block {
-  display: grid;
-  gap: 12px;
-}
-
-.panel-block p {
-  margin: 0;
-}
-
-.panel-divider {
-  height: 1px;
-  margin: 2px 0;
-  background: linear-gradient(
-    90deg,
-    rgba(15, 79, 130, 0.08),
-    rgba(15, 79, 130, 0.24),
-    rgba(15, 79, 130, 0.08)
-  );
-}
-
 .stat-card strong,
 .metric-card strong,
 .mini-card strong,
@@ -442,6 +422,45 @@ h3 {
 
 .section__head h2 {
   margin-bottom: 8px;
+}
+
+.compare-toolbar {
+  display: grid;
+  grid-template-columns: minmax(190px, 220px) repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: end;
+}
+
+.compare-mode-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.compare-mode-group .button {
+  flex: 1 1 120px;
+}
+
+.compare-mode-button.is-active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(10, 53, 88, 0.18);
+}
+
+.compare-status {
+  margin: 18px 0 0;
+  color: var(--accent-dark);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.compare-col-note {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .filter-bar {
@@ -1115,7 +1134,8 @@ h3 {
   .hero--page,
   .section--split,
   .decision-tool-layout,
-  .filter-bar {
+  .filter-bar,
+  .compare-toolbar {
     grid-template-columns: 1fr;
   }
 
