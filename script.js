@@ -28,7 +28,9 @@ guideCompareRoots.forEach((root) => {
   const compareStatus = root.querySelector("[data-compare-status]");
   const compareTableWrap = root.querySelector("[data-compare-table-wrap]");
   const compareTable = root.querySelector("[data-compare-table]");
+  const compareSubmit = compareForm?.querySelector("button[type='submit']");
   const compareReset = root.querySelector("[data-compare-reset]");
+  const compareResultsSection = compareStatus?.closest(".section");
   let compareMode = "2";
 
   if (
@@ -84,27 +86,34 @@ guideCompareRoots.forEach((root) => {
     };
   }
 
-  function setPendingStatus() {
-    const { requiredCount, selectedEntries, hasDuplicate } = getSelectionState();
+  function updateCompareSubmitState(selectionState = getSelectionState()) {
+    if (!compareSubmit) {
+      return;
+    }
+
+    compareSubmit.disabled =
+      selectionState.selectedEntries.length < selectionState.requiredCount ||
+      selectionState.hasDuplicate;
+  }
+
+  function setCompareStatus(selectionState = getSelectionState()) {
+    const { requiredCount, selectedEntries, hasDuplicate } = selectionState;
 
     if (selectedEntries.length < requiredCount) {
       compareStatus.textContent = hasDuplicate
         ? `Choose ${requiredCount} different states and click Compare states.`
         : `Choose ${requiredCount} states and click Compare states.`;
-      hideComparisonTable();
       return;
     }
 
     if (hasDuplicate) {
       compareStatus.textContent = "Choose different states to compare.";
-      hideComparisonTable();
       return;
     }
 
-    compareStatus.textContent = `Ready to compare ${selectedEntries
+    compareStatus.textContent = `Comparing ${selectedEntries
       .map((entry) => entry.state)
-      .join(" vs ")}. Click Compare states.`;
-    hideComparisonTable();
+      .join(" vs ")}.`;
   }
 
   function renderComparisonTable(entries) {
@@ -150,20 +159,22 @@ ${entries
               </tbody>`;
   }
 
-  function updateComparisonUrl(entries) {
+  function updateComparisonUrl(entries, { replace = false } = {}) {
     const url = new URL(window.location.href);
     const routeList = entries.map((entry) => entry.route).join(",");
 
     url.searchParams.set("compareMode", compareMode);
     url.searchParams.set("compare", routeList);
-    window.history.pushState({}, "", url);
+    const historyMethod = replace ? "replaceState" : "pushState";
+    window.history[historyMethod]({}, "", url);
   }
 
-  function clearComparisonUrl() {
+  function clearComparisonUrl({ replace = false } = {}) {
     const url = new URL(window.location.href);
     url.searchParams.delete("compareMode");
     url.searchParams.delete("compare");
-    window.history.pushState({}, "", url);
+    const historyMethod = replace ? "replaceState" : "pushState";
+    window.history[historyMethod]({}, "", url);
   }
 
   function updateCompareModeButtons() {
@@ -186,37 +197,79 @@ ${entries
     updateCompareModeButtons();
   }
 
-  function renderComparison(entries, { updateUrl = true } = {}) {
-    compareStatus.textContent = `Comparing ${entries
-      .map((entry) => entry.state)
-      .join(" vs ")}.`;
+  function renderComparison(entries, { updateUrl = true, replaceUrl = false } = {}) {
+    setCompareStatus({
+      requiredCount: entries.length,
+      selectedEntries: entries,
+      hasDuplicate: false,
+    });
     renderComparisonTable(entries);
     compareTableWrap.hidden = false;
 
     if (updateUrl) {
-      updateComparisonUrl(entries);
+      updateComparisonUrl(entries, { replace: replaceUrl });
     }
   }
 
-  function submitComparison() {
-    const { requiredCount, selectedEntries, hasDuplicate } = getSelectionState();
+  function scrollToCompareResults() {
+    compareResultsSection?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+
+  function syncComparison({
+    autoRender = true,
+    updateUrl = false,
+    replaceUrl = false,
+    scroll = false
+  } = {}) {
+    const selectionState = getSelectionState();
+    const { requiredCount, selectedEntries, hasDuplicate } = selectionState;
+
+    updateCompareSubmitState(selectionState);
 
     if (selectedEntries.length < requiredCount) {
-      compareStatus.textContent = hasDuplicate
-        ? `Choose ${requiredCount} different states and click Compare states.`
-        : `Choose ${requiredCount} states and click Compare states.`;
+      setCompareStatus(selectionState);
       hideComparisonTable();
+      if (updateUrl) {
+        clearComparisonUrl({ replace: replaceUrl });
+      }
       return false;
     }
 
     if (hasDuplicate) {
-      compareStatus.textContent = "Choose different states to compare.";
+      setCompareStatus(selectionState);
       hideComparisonTable();
+      if (updateUrl) {
+        clearComparisonUrl({ replace: replaceUrl });
+      }
       return false;
     }
 
-    renderComparison(selectedEntries);
+    if (!autoRender) {
+      setCompareStatus(selectionState);
+      hideComparisonTable();
+      return true;
+    }
+
+    renderComparison(selectedEntries, { updateUrl, replaceUrl });
+    if (scroll) {
+      scrollToCompareResults();
+    }
     return true;
+  }
+
+  function setPendingStatus() {
+    syncComparison({ autoRender: false });
+  }
+
+  function submitComparison() {
+    return syncComparison({
+      autoRender: true,
+      updateUrl: true,
+      scroll: true,
+    });
   }
 
   function hydrateFromUrl() {
@@ -267,12 +320,20 @@ ${entries
     button.addEventListener("click", () => {
       compareMode = button.dataset.mode || "2";
       syncCompareModeUi();
-      setPendingStatus();
+      syncComparison({ updateUrl: true, replaceUrl: true });
+
+      if (compareMode === "3" && compareSelects[2]) {
+        window.requestAnimationFrame(() => {
+          compareSelects[2].focus();
+        });
+      }
     });
   });
 
   compareSelects.forEach((select) => {
-    select.addEventListener("change", setPendingStatus);
+    select.addEventListener("change", () => {
+      syncComparison({ updateUrl: true, replaceUrl: true });
+    });
   });
 
   compareForm.addEventListener("submit", (event) => {
@@ -286,7 +347,7 @@ ${entries
     });
     compareMode = "2";
     syncCompareModeUi();
-    clearComparisonUrl();
+    clearComparisonUrl({ replace: true });
     setPendingStatus();
   });
 

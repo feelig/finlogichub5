@@ -424,6 +424,13 @@ h3 {
   background: #e6eef8;
 }
 
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  box-shadow: none;
+  transform: none;
+}
+
 .section__head h2 {
   margin-bottom: 8px;
 }
