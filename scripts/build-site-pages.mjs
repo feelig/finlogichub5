@@ -81,6 +81,38 @@ const STATES_FAQ_ITEMS = [
       "Start with Filing basics first, then come back to the guide directory once you know whether you need an annual report, annual registration, annual tax, or franchise tax page."
   }
 ];
+const POPULAR_GUIDE_CARDS = [
+  {
+    href: "/tools/north-carolina/annual-report-deadline/",
+    kicker: "High-impression guide",
+    label: "North Carolina annual report fee and deadline",
+    text: "Use this guide for the April 15 LLC deadline and the current online vs paper fee split."
+  },
+  {
+    href: "/tools/georgia/annual-report-deadline/",
+    kicker: "High-impression guide",
+    label: "Georgia annual report and registration",
+    text: "Open this when you need the April 1 deadline, common online total, and late-penalty rule."
+  },
+  {
+    href: "/tools/oregon/annual-report-deadline/",
+    kicker: "High-impression guide",
+    label: "Oregon annual report fee and due date",
+    text: "Best for anniversary-date renewals and domestic vs foreign fee checks."
+  },
+  {
+    href: "/tools/pennsylvania/annual-report-deadline/",
+    kicker: "High-impression guide",
+    label: "Pennsylvania annual report fee and deadline",
+    text: "Use this guide for the filing window and the standard $7 annual report fee."
+  },
+  {
+    href: "/tools/nevada/annual-fee-calculator/",
+    kicker: "High-impression guide",
+    label: "Nevada annual fee calculator",
+    text: "Start here when you need the annual list and business-license fee estimate."
+  }
+];
 
 async function buildAssetVersion() {
   const [scriptContent, styleContent] = await Promise.all([
@@ -859,6 +891,16 @@ function renderStartPathCards() {
     .join("\n");
 }
 
+function renderPopularGuideCards() {
+  return POPULAR_GUIDE_CARDS.map(
+    (card) => `            <a class="action-card" href="${escapeHtml(card.href)}">
+              <span class="action-label">${escapeHtml(card.kicker)}</span>
+              <strong>${escapeHtml(card.label)}</strong>
+              <span>${escapeHtml(card.text)}</span>
+            </a>`
+  ).join("\n");
+}
+
 function renderOperationsPage({
   latestReviewText,
   snapshot,
@@ -1105,6 +1147,19 @@ ${renderStartPathCards()}
             </div>
             <div class="mini-grid">
 ${renderFaqCards(HOME_FAQ_ITEMS)}
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="surface">
+            <div class="section__head">
+              <p class="eyebrow">Popular state guides</p>
+              <h2>Open the pages most visitors need first</h2>
+              <p>These are the state guides people most often need when they are checking deadlines, fees, or recurring filing rules.</p>
+            </div>
+            <div class="action-list action-list--triple">
+${renderPopularGuideCards()}
             </div>
           </div>
         </section>

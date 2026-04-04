@@ -281,11 +281,11 @@ export const statePages = [
   },
   {
     "filePath": "tools/georgia/annual-report-deadline/index.html",
-    "titleTag": "Georgia Annual Registration Deadline | FinLogic Hub",
-    "metaDescription": "Georgia annual registration deadline guidance for business entities, including the January 1 to April 1 filing window, common $60 online total, and the published $25 late penalty.",
+    "titleTag": "Georgia Annual Report and Registration Deadline | FinLogic Hub",
+    "metaDescription": "Georgia annual report and annual registration deadline guidance, including the January 1 to April 1 filing window, the common $60 online total, and the published $25 late penalty.",
     "canonicalUrl": "https://finlogichub5.com/tools/georgia/annual-report-deadline/",
-    "ogTitle": "Georgia Annual Registration Deadline | FinLogic Hub",
-    "ogDescription": "Review Georgia annual registration timing, common online totals, and the published late-penalty rule using Georgia Secretary of State guidance.",
+    "ogTitle": "Georgia Annual Report and Registration Deadline | FinLogic Hub",
+    "ogDescription": "Review Georgia annual report and annual registration timing, common online totals, and the published late-penalty rule using Georgia Secretary of State guidance.",
     "state": "Georgia",
     "breadcrumbs": [
       {
@@ -301,8 +301,8 @@ export const statePages = [
         "href": null
       }
     ],
-    "heroTitle": "Georgia annual registration deadline",
-    "heroSubtitle": "Use this page if you need the Georgia annual registration deadline or fee. Most customers start with the January 1 to April 1 window, the common $60 online total for many profit entities, and the $25 late penalty.",
+    "heroTitle": "Georgia annual report and annual registration deadline",
+    "heroSubtitle": "Georgia calls this filing an annual registration. Use this page if you need the Georgia annual report deadline or fee. Most customers start with the January 1 to April 1 window, the common $60 online total for many profit entities, and the $25 late penalty.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Georgia Secretary of State",
     "summaryTitle": "At a glance",
@@ -541,11 +541,11 @@ export const statePages = [
   },
   {
     "filePath": "tools/north-carolina/annual-report-deadline/index.html",
-    "titleTag": "North Carolina Annual Report Deadline for LLCs and Corporations | FinLogic Hub",
-    "metaDescription": "North Carolina annual report deadlines for LLCs, L3Cs, and corporations, including the current online and paper filing fees from the Secretary of State.",
+    "titleTag": "North Carolina Annual Report Fee and Deadline | FinLogic Hub",
+    "metaDescription": "North Carolina annual report fee and deadline guidance for LLCs, L3Cs, and corporations, including the $203 online LLC fee, the $200 paper fee, and the main Secretary of State deadlines.",
     "canonicalUrl": "https://finlogichub5.com/tools/north-carolina/annual-report-deadline/",
-    "ogTitle": "North Carolina Annual Report Deadline | FinLogic Hub",
-    "ogDescription": "Review North Carolina LLC and corporation annual report deadlines and filing fees using the current Secretary of State guidance.",
+    "ogTitle": "North Carolina Annual Report Fee and Deadline | FinLogic Hub",
+    "ogDescription": "Review North Carolina LLC and corporation annual report fees, deadlines, and filing paths using the current Secretary of State guidance.",
     "state": "North Carolina",
     "breadcrumbs": [
       {
@@ -561,8 +561,8 @@ export const statePages = [
         "href": null
       }
     ],
-    "heroTitle": "North Carolina annual report deadline for LLCs and corporations",
-    "heroSubtitle": "Use this page if you need the North Carolina annual report deadline or filing fee. The first split to make is entity type: LLCs and L3Cs usually use April 15, while corporations use a fiscal-year deadline.",
+    "heroTitle": "North Carolina annual report fee and deadline for LLCs and corporations",
+    "heroSubtitle": "Use this page if you need the North Carolina annual report fee or deadline. LLCs and L3Cs usually file by April 15 with a $203 online fee or $200 paper fee, while corporations use a fiscal-year deadline.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: NC Secretary of State",
     "summaryTitle": "At a glance",
@@ -607,11 +607,11 @@ export const statePages = [
   },
   {
     "filePath": "tools/pennsylvania/annual-report-deadline/index.html",
-    "titleTag": "Pennsylvania Annual Report Deadline | FinLogic Hub",
-    "metaDescription": "Pennsylvania annual report deadlines, $7 filing fees, and the 2027 enforcement timeline for corporations, LLCs, and other filing associations.",
+    "titleTag": "Pennsylvania Annual Report Fee and Deadline | FinLogic Hub",
+    "metaDescription": "Pennsylvania annual report fee and deadline guidance, including the $7 filing fee and the filing windows for corporations, LLCs, and other associations.",
     "canonicalUrl": "https://finlogichub5.com/tools/pennsylvania/annual-report-deadline/",
-    "ogTitle": "Pennsylvania Annual Report Deadline | FinLogic Hub",
-    "ogDescription": "Review Pennsylvania annual report timing, filing fees, and administrative-enforcement timing based on the Department of State guidance.",
+    "ogTitle": "Pennsylvania Annual Report Fee and Deadline | FinLogic Hub",
+    "ogDescription": "Review Pennsylvania annual report timing, the standard $7 filing fee, and enforcement timing based on Department of State guidance.",
     "state": "Pennsylvania",
     "breadcrumbs": [
       {
@@ -627,8 +627,8 @@ export const statePages = [
         "href": null
       }
     ],
-    "heroTitle": "Pennsylvania annual report deadline",
-    "heroSubtitle": "Use this page if you need the Pennsylvania annual report window or standard filing fee. Start with the entity type, because the filing window changes across corporations, LLCs, and other associations.",
+    "heroTitle": "Pennsylvania annual report fee and deadline",
+    "heroSubtitle": "Use this page if you need the Pennsylvania annual report window or the standard $7 filing fee. Start with the entity type, because the filing window changes across corporations, LLCs, and other associations.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Pennsylvania Department of State and Business Filing Services",
     "summaryTitle": "At a glance",
