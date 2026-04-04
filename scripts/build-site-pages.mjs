@@ -37,6 +37,50 @@ const homeLookupGroupLabels = {
   "annual-registration-and-tax": "Annual registration and tax guides",
   "recurring-fees-and-statements": "Recurring fee and statement tools"
 };
+const HOME_FAQ_ITEMS = [
+  {
+    question: "Is FinLogic Hub an official state website?",
+    answer:
+      "No. FinLogic Hub is a research and comparison site that links to official state filing pages, fee schedules, and filing portals."
+  },
+  {
+    question: "What does each guide show?",
+    answer:
+      "Each guide focuses on the filing label, main due date, amount, late-rule starting point, and the official sources used for the summary."
+  },
+  {
+    question: "When should I use State compare?",
+    answer:
+      "Use State compare when you need to check two or three states side by side before opening the full state guide."
+  },
+  {
+    question: "What if a state notice or portal says something different?",
+    answer:
+      "Use the official state notice, filing portal, and fee schedule as the final authority if they conflict with this site."
+  }
+];
+const STATES_FAQ_ITEMS = [
+  {
+    question: "What can I compare on the State compare page?",
+    answer:
+      "You can compare the filing label, deadline, amount, and late-rule starting point across two or three live state guides."
+  },
+  {
+    question: "Can I file directly from the comparison table?",
+    answer:
+      "No. The comparison table is a shortcut for narrowing the answer. You should still open the full guide and then use the official state source before filing or paying."
+  },
+  {
+    question: "What if the rule changes by entity type?",
+    answer:
+      "Open the full guide and match the exact entity type because LLCs, corporations, nonprofits, and foreign entities are often treated differently."
+  },
+  {
+    question: "Where should I start if I do not know the filing label?",
+    answer:
+      "Start with Filing basics first, then come back to the guide directory once you know whether you need an annual report, annual registration, annual tax, or franchise tax page."
+  }
+];
 
 async function buildAssetVersion() {
   const [scriptContent, styleContent] = await Promise.all([
@@ -102,6 +146,21 @@ function buildWebSiteStructuredData() {
     publisher: {
       "@id": ORGANIZATION_ID
     }
+  };
+}
+
+function buildFaqStructuredData(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
   };
 }
 
@@ -189,16 +248,17 @@ function buildHomeStructuredData() {
       "@context": "https://schema.org",
       "@type": "WebPage",
       url: toSiteUrl(HOME_ROUTE),
-      name: "State Filing Deadlines and Recurring Business Fees | FinLogic Hub",
+      name: "State Filing Deadlines, Fees, and Annual Report Guides | FinLogic Hub",
       description:
-        "State filing guides for annual report deadlines, franchise tax due dates, recurring filing fees, and late-payment rules.",
+        "Check annual report deadlines, state filing fees, franchise tax due dates, and official filing links by state.",
       isPartOf: {
         "@id": WEBSITE_ID
       },
       about: {
         "@id": ORGANIZATION_ID
       }
-    }
+    },
+    buildFaqStructuredData(HOME_FAQ_ITEMS)
   ];
 }
 
@@ -210,17 +270,42 @@ function buildStatesStructuredData() {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       url: toSiteUrl(DIRECTORY_ROUTE),
-      name: "State Filing Guides | FinLogic Hub",
+      name: "Compare State Filing Deadlines and Fees | FinLogic Hub",
       description:
-        "Browse state filing guides for annual report deadlines, franchise tax due dates, annual taxes, recurring business fees, and late-payment rules by state.",
+        "Compare annual report deadlines, filing fees, late rules, and recurring state filing requirements across live guides.",
       isPartOf: {
         "@id": WEBSITE_ID
       },
       about: {
         "@id": ORGANIZATION_ID
       }
-    }
+    },
+    buildFaqStructuredData(STATES_FAQ_ITEMS)
   ];
+}
+
+function renderFaqCards(items) {
+  return items
+    .map(
+      (item) => `            <article class="mini-card">
+              <span>Question</span>
+              <strong>${escapeHtml(item.question)}</strong>
+              <p>${escapeHtml(item.answer)}</p>
+            </article>`
+    )
+    .join("\n");
+}
+
+function renderFaqSection({ eyebrow, title, intro = "", items }) {
+  return `        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">${escapeHtml(eyebrow)}</p>
+            <h2>${escapeHtml(title)}</h2>${intro ? `\n            <p>${escapeHtml(intro)}</p>` : ""}
+          </div>
+          <div class="mini-grid">
+${renderFaqCards(items)}
+          </div>
+        </section>`;
 }
 
 function renderCardMeta(entry) {
@@ -740,20 +825,26 @@ function renderStartPathCards() {
     {
       href: "#stateGuideSelect",
       kicker: "I know the state",
-      label: "Open one guide fast",
-      text: "Choose the state guide when you already know the state and filing label."
+      label: "Open one guide",
+      text: "Use the lookup when you already know the state and likely filing label."
     },
     {
       href: DIRECTORY_ROUTE,
       kicker: "I need to compare",
-      label: "Browse all live states",
-      text: "Use the full directory if you need to compare more than one state or filing rule."
+      label: "Compare states",
+      text: "Use the directory and comparison tool when you are checking more than one state."
     },
     {
       href: FILING_BASICS_ROUTE,
       kicker: "I am not sure yet",
-      label: "Read the filing basics",
-      text: "Start there if you need help understanding the filing label before opening a guide."
+      label: "Learn the filing label",
+      text: "Start there if you need to tell an annual report from an annual tax or franchise tax page."
+    },
+    {
+      href: FILING_HELP_OPTIONS_ROUTE,
+      kicker: "I may need help",
+      label: "Review help options",
+      text: "Use this page if you are deciding between DIY filing, a service, or professional help."
     }
   ];
 
@@ -936,13 +1027,13 @@ function renderHomePage({
 <html lang="en">
   <head>
 ${renderSiteHead({
-  title: "State Filing Deadlines and Recurring Business Fees | FinLogic Hub",
+  title: "State Filing Deadlines, Fees, and Annual Report Guides | FinLogic Hub",
   description:
-    "State filing guides for annual report deadlines, franchise tax due dates, recurring filing fees, and late-payment rules.",
+    "Check annual report deadlines, state filing fees, franchise tax due dates, and official filing links by state.",
   canonical: toSiteUrl(HOME_ROUTE),
-  ogTitle: "State Filing Deadlines and Recurring Business Fees | FinLogic Hub",
+  ogTitle: "State Filing Deadlines, Fees, and Annual Report Guides | FinLogic Hub",
   ogDescription:
-    "Customer-friendly state filing guides with official-source links for deadlines, fees, annual taxes, and late-payment rules.",
+    "Check state filing deadlines, fees, and official filing links faster before you open the state portal.",
   structuredData: buildHomeStructuredData()
 })}
   </head>
@@ -954,33 +1045,33 @@ ${renderHomeHeader()}
         <section class="hero hero--home">
           <div class="hero__copy surface">
             <p class="eyebrow">Official-source filing guides</p>
-            <h1>Find the state filing deadline, annual fee, or recurring tax your business needs to handle.</h1>
+            <h1>Check state filing deadlines and fees faster.</h1>
             <p class="hero__subtitle">
-              Every live guide is manually reviewed, linked to the responsible state source, and checked daily for source health. Choose the state and filing topic you need, then confirm the final instruction on the linked state portal before you file or pay.
+              Start with a reviewed guide, match the filing label and entity type, then confirm the final rule on the linked official state source before you file or pay.
             </p>
             <div class="notice-bar">
-              <strong>Important:</strong>
-              <span>This site helps you narrow the answer quickly, but the official state filing instructions and payment portal are still the final authority.</span>
+              <strong>Not official:</strong>
+              <span>Use the linked state filing page or payment portal as the final authority.</span>
             </div>
             <div class="stat-grid">
               <div class="stat-card">
                 <strong>${entries.length} live state guides</strong>
-                <span>Coverage for annual reports, recurring fees, required statements, and recurring tax filings.</span>
+                <span>Annual reports, recurring fees, statements, and franchise-tax filings.</span>
               </div>
               <div class="stat-card">
                 <strong>Latest manual review: ${latestReviewText}</strong>
-                <span>Every live guide shows its review date directly on the page.</span>
+                <span>Every live guide shows its review date on the page.</span>
               </div>
               <div class="stat-card">
                 <strong>${uniqueSourceCount} official source links monitored</strong>
-                <span>Daily scans flag broken links and guides that may need a fresh review.</span>
+                <span>Daily scans flag broken links and pages that may need a refresh.</span>
               </div>
             </div>
           </div>
 
           <aside class="hero__panel surface">
-            <h2>Quick guide lookup</h2>
-            <p>Select the guide that matches your state and filing requirement.</p>
+            <h2>Find a guide fast</h2>
+            <p>Select the state guide that matches your filing requirement.</p>
             <form class="lookup-form" data-state-lookup>
               <label class="field" for="stateGuideSelect">
                 <span>Select a state guide</span>
@@ -991,7 +1082,31 @@ ${renderLookupOptions(bucketSummaries, homeLookupGroupLabels)}
               </label>
               <button class="button button--primary" type="submit">Open guide</button>
             </form>
+            <p class="panel-note">Need a side-by-side check instead? Use <a class="inline-link" href="${DIRECTORY_ROUTE}">State compare</a>.</p>
           </aside>
+        </section>
+
+        <section class="section section--split">
+          <div class="surface">
+            <div class="section__head">
+              <p class="eyebrow">Start here</p>
+              <h2>Choose the shortest path</h2>
+              <p>Use the route that gets you to the right answer fastest.</p>
+            </div>
+            <div class="action-list action-list--triple">
+${renderStartPathCards()}
+            </div>
+          </div>
+          <div class="surface">
+            <div class="section__head">
+              <p class="eyebrow">Quick questions</p>
+              <h2>What most visitors need to know first</h2>
+              <p>These answers keep the page useful without adding more clutter.</p>
+            </div>
+            <div class="mini-grid">
+${renderFaqCards(HOME_FAQ_ITEMS)}
+            </div>
+          </div>
         </section>
       </main>
     </div>
@@ -1006,13 +1121,13 @@ function renderStatesPage({ entries, latestReviewText, bucketSummaries }) {
 <html lang="en">
   <head>
 ${renderSiteHead({
-  title: "State Filing Guides | FinLogic Hub",
+  title: "Compare State Filing Deadlines and Fees | FinLogic Hub",
   description:
-    "Browse state filing guides for annual report deadlines, franchise tax due dates, annual taxes, recurring business fees, and late-payment rules by state.",
+    "Compare annual report deadlines, filing fees, late rules, and recurring state filing requirements across live guides.",
   canonical: toSiteUrl(DIRECTORY_ROUTE),
-  ogTitle: "State Filing Guides | FinLogic Hub",
+  ogTitle: "Compare State Filing Deadlines and Fees | FinLogic Hub",
   ogDescription:
-    "State-by-state filing guides covering annual reports, franchise tax due dates, annual taxes, recurring fees, and official filing links.",
+    "Compare deadlines, fees, and late rules across live state filing guides before you open the full page.",
   structuredData: buildStatesStructuredData()
 })}
   </head>
@@ -1029,10 +1144,9 @@ ${renderHeader()}
               <span>State compare</span>
             </div>
             <p class="eyebrow">State compare</p>
-            <h1>Compare states</h1>
+            <h1>Compare state filing rules</h1>
             <p class="hero__subtitle">
-              Choose 2 or 3 states, submit the comparison, and review the filing label, deadline,
-              amount, and late rule below.
+              Choose 2 or 3 states to compare the filing label, deadline, amount, and late-rule starting point before you open the full guide.
             </p>
             <div class="badge-row">
               <span class="badge">${entries.length} state guides</span>
@@ -1121,11 +1235,19 @@ ${renderComparisonOptions(entries)}
           <div class="section__head">
             <p class="eyebrow">All guides</p>
             <h2>All state guides</h2>
+            <p>Open the full guide once you know which state and filing label you need.</p>
           </div>
           <div class="state-grid state-grid--directory">
 ${renderStateCards(entries, "directory")}
           </div>
         </section>
+
+${renderFaqSection({
+  eyebrow: "Quick questions",
+  title: "Use the comparison table the right way",
+  intro: "The table is a shortcut, not the filing step itself.",
+  items: STATES_FAQ_ITEMS
+})}
       </main>
 
 ${renderFooter()}

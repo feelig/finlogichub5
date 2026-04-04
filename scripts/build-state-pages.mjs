@@ -855,11 +855,100 @@ function renderTrustSnapshot(page, entry) {
         </section>`;
 }
 
+function buildStateFaqItems(page, entry) {
+  const lateAnswer = entry.homeComparison?.lateRule
+    ? `${entry.homeComparison.lateRule}. Confirm the current status and amount on the official state record before you pay or file.`
+    : "Check the official state notice, filing portal, or business record before you pay because late penalties and reinstatement steps can change the answer.";
+
+  return [
+    {
+      question: `Who should use this ${page.state} guide?`,
+      answer: `Use this page for ${entry.directoryComparison.entityFocus}. Match the entity type on the official state record before you rely on the summary.`
+    },
+    {
+      question: `What due date should I start with for ${page.state}?`,
+      answer: `Start with ${entry.directoryComparison.deadline}. If the state uses anniversary, report-month, or fiscal-year timing, the official state record still controls.`
+    },
+    {
+      question: `What fee or amount does this page show?`,
+      answer: `This page starts with ${entry.directoryComparison.amount}. If the amount changes by entity type, filing method, or status, confirm it on the official state source before paying.`
+    },
+    {
+      question: "What if I am already late?",
+      answer: lateAnswer
+    }
+  ];
+}
+
+function renderStateFaqSection(page, entry) {
+  const items = buildStateFaqItems(page, entry);
+
+  return `        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">Quick questions</p>
+            <h2>What most filers need to know first</h2>
+            <p>These answers keep the page short while still covering the questions people ask before they file.</p>
+          </div>
+          <div class="mini-grid">
+${items
+  .map(
+    (item) => `            <article class="mini-card">
+              <span>Question</span>
+              <strong>${escapeHtml(item.question)}</strong>
+              <p>${escapeHtml(item.answer)}</p>
+            </article>`
+  )
+  .join("\n")}
+          </div>
+        </section>`;
+}
+
+function renderStateNextStepsSection() {
+  const cards = [
+    {
+      href: DIRECTORY_ROUTE,
+      kicker: "Compare states",
+      label: "Check another state or filing rule",
+      text: "Use the directory and comparison table when you need a side-by-side check."
+    },
+    {
+      href: FILING_BASICS_ROUTE,
+      kicker: "Filing basics",
+      label: "Confirm the filing label first",
+      text: "Use this page if you still need to separate an annual report from an annual tax, registration, or franchise-tax filing."
+    },
+    {
+      href: FILING_HELP_OPTIONS_ROUTE,
+      kicker: "Help options",
+      label: "Decide whether to DIY or use help",
+      text: "Review when a simple self-serve filing is enough and when a service or advisor may be worth it."
+    }
+  ];
+
+  return `        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">Next step</p>
+            <h2>Keep moving without leaving the site map</h2>
+          </div>
+          <div class="action-list action-list--triple">
+${cards
+  .map(
+    (card) => `            <a class="action-card" href="${escapeHtml(card.href)}">
+              <span class="action-label">${escapeHtml(card.kicker)}</span>
+              <strong>${escapeHtml(card.label)}</strong>
+              <span>${escapeHtml(card.text)}</span>
+            </a>`
+  )
+  .join("\n")}
+          </div>
+        </section>`;
+}
+
 function serializeJsonLd(value) {
   return JSON.stringify(value).replaceAll("<", "\\u003c");
 }
 
-function renderStructuredData(page) {
+function renderStructuredData(page, entry) {
   const breadcrumbData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -909,7 +998,20 @@ function renderStructuredData(page) {
     }
   };
 
-  return `\n    <script type="application/ld+json">${serializeJsonLd(buildOrganizationStructuredData())}</script>\n    <script type="application/ld+json">${serializeJsonLd(buildWebSiteStructuredData())}</script>\n    <script type="application/ld+json">${serializeJsonLd(breadcrumbData)}</script>\n    <script type="application/ld+json">${serializeJsonLd(webPageData)}</script>\n    <script type="application/ld+json">${serializeJsonLd(articleData)}</script>`;
+  const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: buildStateFaqItems(page, entry).map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  };
+
+  return `\n    <script type="application/ld+json">${serializeJsonLd(buildOrganizationStructuredData())}</script>\n    <script type="application/ld+json">${serializeJsonLd(buildWebSiteStructuredData())}</script>\n    <script type="application/ld+json">${serializeJsonLd(breadcrumbData)}</script>\n    <script type="application/ld+json">${serializeJsonLd(webPageData)}</script>\n    <script type="application/ld+json">${serializeJsonLd(articleData)}</script>\n    <script type="application/ld+json">${serializeJsonLd(faqData)}</script>`;
 }
 
 function renderPage(page) {
@@ -918,10 +1020,16 @@ function renderPage(page) {
   const scriptTag = scriptSrc ? `\n    <script src="${escapeHtml(scriptSrc)}"></script>` : "";
   const summaryNote = "";
   const route = getPageRoute(page);
+  const entry = directoryByRoute.get(route);
+
+  if (!entry) {
+    throw new Error(`Missing state directory entry for route: ${route}`);
+  }
+
   const structuredSections = structuredBodyByFilePath.get(page.filePath);
   const pageBody = renderStructuredBody(getPrimaryStructuredSections(structuredSections, page));
   const reviewStatus = getReviewStatus(parseReviewDate(page.lastReviewed), GENERATED_AT);
-  const structuredData = renderStructuredData(page);
+  const structuredData = renderStructuredData(page, entry);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -998,6 +1106,10 @@ ${renderMetrics(page.metrics)}
           </aside>
         </section>
 ${pageBody}
+
+${renderStateFaqSection(page, entry)}
+
+${renderStateNextStepsSection()}
 
         <section class="section surface" id="official-sources">
           <div class="section__head">
