@@ -28,6 +28,7 @@ const ASSET_VERSION = await buildAssetVersion();
 const STYLE_ASSET_PATH = `/style.css?v=${ASSET_VERSION}`;
 const SCRIPT_ASSET_PATH = `/script.js?v=${ASSET_VERSION}`;
 const YANDEX_VERIFICATION_TOKEN = "ee96a1c002059a3e";
+const BING_VERIFICATION_TOKEN = "15DD1222784CB4D486572468F3F4C785";
 const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
 const CONTACT_EMAIL = "feeligfeelig@gmail.com";
@@ -122,6 +123,7 @@ function renderSiteHead({
     />
     <link rel="canonical" href="${escapeHtml(canonical)}" />
     <meta name="yandex-verification" content="${YANDEX_VERIFICATION_TOKEN}" />
+    <meta name="msvalidate.01" content="${BING_VERIFICATION_TOKEN}" />
     <meta property="og:title" content="${escapeHtml(ogTitle)}" />
     <meta
       property="og:description"
