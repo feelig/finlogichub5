@@ -12,6 +12,7 @@
     "indexnow:submit:all": "node scripts/submit-indexnow.mjs --all",
     "audit:indexing": "node scripts/audit-indexing.mjs",
     "audit:legacy-cleanup": "node scripts/audit-legacy-cleanup.mjs",
+    "audit:live-routing": "node scripts/audit-live-routing.mjs",
     "audit:source-scan": "node scripts/audit-source-scan.mjs",
     "audit:state-pages": "node scripts/audit-state-pages.mjs",
     "audit:state-pages:links": "node scripts/audit-state-pages.mjs --check-links",
