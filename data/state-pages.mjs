@@ -286,11 +286,11 @@ const baseStatePages = [
   },
   {
     "filePath": "tools/georgia/annual-report-deadline/index.html",
-    "titleTag": "Georgia Annual Report and Registration Deadline | FinLogic Hub",
-    "metaDescription": "Georgia annual report and annual registration deadline guidance, including the January 1 to April 1 filing window, the common $60 online total, and the published $25 late penalty.",
+    "titleTag": "Georgia Annual Registration Fee and Deadline | FinLogic Hub",
+    "metaDescription": "Georgia annual registration fee and deadline guidance covering the April 1 filing deadline, common online totals, the published $25 late penalty, and the annual report term many customers still search for.",
     "canonicalUrl": "https://finlogichub5.com/tools/georgia/annual-report-deadline/",
-    "ogTitle": "Georgia Annual Report and Registration Deadline | FinLogic Hub",
-    "ogDescription": "Review Georgia annual report and annual registration timing, common online totals, and the published late-penalty rule using Georgia Secretary of State guidance.",
+    "ogTitle": "Georgia Annual Registration Fee and Deadline | FinLogic Hub",
+    "ogDescription": "Review Georgia annual registration timing, common online totals, and the published late-penalty rule, with annual report search wording mapped to Georgia Secretary of State guidance.",
     "state": "Georgia",
     "breadcrumbs": [
       {
@@ -302,12 +302,12 @@ const baseStatePages = [
         "href": "/states.html"
       },
       {
-        "label": "Georgia annual report and registration deadline",
+        "label": "Georgia annual registration fee and deadline",
         "href": null
       }
     ],
-    "heroTitle": "Georgia annual report and annual registration deadline",
-    "heroSubtitle": "Georgia calls this filing an annual registration. Use this page if you need the Georgia annual report deadline or fee. Most customers start with the January 1 to April 1 window, the common $60 online total for many profit entities, and the $25 late penalty.",
+    "heroTitle": "Georgia annual registration fee and deadline",
+    "heroSubtitle": "Georgia calls this filing an annual registration, even though many customers still search for Georgia annual report deadlines. Start with the April 1 deadline, the common $60 online total for many profit entities, and the published $25 late penalty.",
     "heroActions": [
       {
         "href": "https://sos.ga.gov/how-to-guide/how-file-annual-registration",

@@ -55,22 +55,22 @@ function decisionTool({ caseLabel, intro, cases }) {
 export const expansionStatePages = [
   {
     filePath: "tools/arizona/annual-report-deadline/index.html",
-    titleTag: "Arizona Annual Report Fee and Deadline | FinLogic Hub",
+    titleTag: "Arizona Corporation Annual Report Fee and Deadline | FinLogic Hub",
     metaDescription:
-      "Arizona corporation annual report due date and fee guidance covering the $45 for-profit fee, $10 nonprofit fee, six-month extension option, and delinquency timeline.",
+      "Arizona corporation annual report due date and fee guidance covering Arizona Corporation Commission filing, the $45 for-profit fee, $10 nonprofit fee, six-month extension option, and delinquency timing.",
     canonicalUrl: "https://finlogichub5.com/tools/arizona/annual-report-deadline/",
-    ogTitle: "Arizona Annual Report Fee and Deadline | FinLogic Hub",
+    ogTitle: "Arizona Corporation Annual Report Fee and Deadline | FinLogic Hub",
     ogDescription:
-      "Review Arizona corporation annual report due dates, fees, extension rules, courtesy reminders, and delinquency timing from Arizona Corporation Commission guidance.",
+      "Review Arizona Corporation Commission annual report due dates, fees, extension rules, courtesy reminders, and delinquency timing for Arizona corporations.",
     state: "Arizona",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Arizona annual report", href: null }
+      { label: "Arizona corporation annual report", href: null }
     ],
-    heroTitle: "Arizona annual report fee and deadline",
+    heroTitle: "Arizona corporation annual report fee and deadline",
     heroSubtitle:
-      "Use this page if you need the Arizona corporation annual report due date, fee, or extension rule. Start by confirming the record is a corporation, because Arizona LLCs do not file annual reports with the Arizona Corporation Commission.",
+      "Use this page if you need the Arizona Corporation Commission annual report due date, filing fee, or extension rule for a corporation. Start by confirming the record is a corporation, because Arizona LLCs do not file annual reports with the Arizona Corporation Commission.",
     lastReviewed: "May 17, 2026",
     sourceBadge: "Source: Arizona Corporation Commission",
     summaryTitle: "At a glance",
@@ -419,22 +419,22 @@ export const expansionStatePages = [
   },
   {
     filePath: "tools/utah/annual-renewal-deadline/index.html",
-    titleTag: "Utah Annual Renewal Fee and Deadline | FinLogic Hub",
+    titleTag: "Utah Annual Renewal Fee, Deadline, and Reinstatement Rules | FinLogic Hub",
     metaDescription:
-      "Utah annual renewal due date guidance covering anniversary-date timing, $18 renewal fees for most entities, the $10 late renewal fee, and reinstatement limits for foreign entities.",
+      "Utah annual renewal due date guidance covering anniversary-date timing, $18 renewal fees for most entities, the $10 late renewal fee, Utah LLC reinstatement questions, and reinstatement limits for foreign entities.",
     canonicalUrl: "https://finlogichub5.com/tools/utah/annual-renewal-deadline/",
-    ogTitle: "Utah Annual Renewal Fee and Deadline | FinLogic Hub",
+    ogTitle: "Utah Annual Renewal Fee, Deadline, and Reinstatement Rules | FinLogic Hub",
     ogDescription:
-      "Review Utah annual report or renewal due dates, current fee schedule, late renewal fees, reinstatement limits, and official renewal warnings from Utah Division of Corporations guidance.",
+      "Review Utah annual report or renewal due dates, current fee schedules, Utah LLC reinstatement questions, late renewal fees, and reinstatement limits from Utah Division of Corporations guidance.",
     state: "Utah",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Utah annual renewal", href: null }
+      { label: "Utah annual renewal and reinstatement rules", href: null }
     ],
-    heroTitle: "Utah annual renewal fee and deadline",
+    heroTitle: "Utah annual renewal fee, deadline, and reinstatement rules",
     heroSubtitle:
-      "Use this page if you need the Utah annual report or renewal due date. Start with the anniversary date and then confirm whether the entity is domestic or foreign before you rely on the reinstatement path.",
+      "Use this page if you need the Utah annual report or renewal due date, or if you are trying to sort out a Utah LLC reinstatement question after a lapse. Start with the anniversary date and then confirm whether the entity is domestic or foreign before you rely on the reinstatement path.",
     lastReviewed: "May 17, 2026",
     sourceBadge: "Source: Utah Division of Corporations and Commercial Code",
     summaryTitle: "At a glance",
@@ -516,15 +516,15 @@ export const expansionStateDirectory = [
   {
     state: "Arizona",
     route: "/tools/arizona/annual-report-deadline/",
-    guideLabel: "Arizona annual report fee and deadline",
+    guideLabel: "Arizona corporation annual report fee and deadline",
     chipLabel: "Arizona corporation report",
     guideType: "Annual report guide",
     coverageBucket: "annual-reports",
     featuredInHomeNav: false,
     homeCardDescription:
-      "Corporation-only annual report rules, $45 or $10 fees, six-month extension option, and published delinquency timing.",
+      "Arizona Corporation Commission annual report rules for corporations, $45 or $10 fees, six-month extension options, and published delinquency timing.",
     directoryCardDescription:
-      "Arizona corporation annual report timing, fee split, extension rule, and for-profit late-penalty path.",
+      "Arizona Corporation Commission annual report timing for corporations, fee splits, extension rules, and the for-profit late-penalty path.",
     homeComparison: {
       focus: "Arizona for-profit or nonprofit corporation",
       deadline: "Each year by the designated due date on the ACC record, with a six-month extension available",
@@ -625,15 +625,15 @@ export const expansionStateDirectory = [
   {
     state: "Utah",
     route: "/tools/utah/annual-renewal-deadline/",
-    guideLabel: "Utah annual renewal fee and deadline",
+    guideLabel: "Utah annual renewal fee, deadline, and reinstatement rules",
     chipLabel: "Utah renewal",
     guideType: "Annual renewal guide",
     coverageBucket: "annual-registration-and-tax",
     featuredInHomeNav: false,
     homeCardDescription:
-      "Anniversary-date renewal timing, $18 standard fee lane, $10 late fee, and reinstatement limits for foreign entities.",
+      "Anniversary-date renewal timing, $18 standard fee lanes, Utah LLC reinstatement questions, and reinstatement limits for foreign entities.",
     directoryCardDescription:
-      "Utah annual renewal timing, current fee schedule, late renewal fee, and domestic-versus-foreign reinstatement split.",
+      "Utah annual renewal timing, current fee schedules, late renewal fees, and the domestic-versus-foreign reinstatement split that matters after a lapse.",
     homeComparison: {
       focus: "Utah domestic or foreign corporation, nonprofit, LLC, LP, or LLP",
       deadline: "One year from registration and annually thereafter",

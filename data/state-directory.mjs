@@ -53,15 +53,15 @@ const baseStateDirectory = [
   {
     state: "Georgia",
     route: "/tools/georgia/annual-report-deadline/",
-    guideLabel: "Georgia annual report and registration deadline",
+    guideLabel: "Georgia annual registration fee and deadline",
     chipLabel: "Georgia registration",
     guideType: "Annual registration guide",
     coverageBucket: "annual-registration-and-tax",
     featuredInHomeNav: false,
     homeCardDescription:
-      "January 1 to April 1 timing, common $60 online total, and the published $25 late penalty.",
+      "Georgia annual registration timing, common online totals, and the published $25 late penalty, with annual report search wording mapped clearly.",
     directoryCardDescription:
-      "January 1 to April 1 timing, common $60 online total for many profit entities, and the published $25 late penalty.",
+      "Georgia annual registration timing, common online totals for many profit entities, and the published $25 late penalty.",
     homeComparison: {
       focus: "Profit corporation or LLC",
       deadline: "April 1",
@@ -415,15 +415,15 @@ const baseStateDirectory = [
   {
     state: "Oregon",
     route: "/tools/oregon/annual-report-deadline/",
-    guideLabel: "Oregon annual report fee and due date",
+    guideLabel: "Oregon annual report filing fee and due date",
     chipLabel: "Oregon annual report",
     guideType: "Annual report guide",
     coverageBucket: "annual-reports",
     featuredInHomeNav: false,
     homeCardDescription:
-      "Anniversary-date renewals, 45-day reminder timing, common domestic versus foreign fee splits, and reinstatement guidance after missed reports.",
+      "How to file an Oregon annual report, the anniversary-date renewal rule, 45-day reminders, domestic-versus-foreign fee splits, and reinstatement guidance.",
     directoryCardDescription:
-      "Anniversary-date annual reports, Oregon fee splits by entity type, reminder timing, and reinstatement guidance for missed filings.",
+      "Oregon annual report filing timing, fee splits by entity type, reminder timing, and reinstatement guidance for missed filings.",
     homeComparison: {
       focus: "Oregon corporation, LLC, nonprofit, or LP",
       deadline: "Anniversary date of the original filing",
