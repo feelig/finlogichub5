@@ -136,7 +136,7 @@ const baseStructuredStateContentByFilePath = {
     {
       type: "table",
       eyebrow: "Entity split",
-      title: "Do not collapse these Delaware rules into one number",
+      title: "Do not collapse Delaware annual reports and LLC annual tax into one rule",
       headers: ["Entity type", "Deadline", "Published filing fee or tax", "Late consequence"],
       rows: [
         [
@@ -168,7 +168,7 @@ const baseStructuredStateContentByFilePath = {
     {
       type: "detailCards",
       eyebrow: "Why Delaware confuses people",
-      title: "The important distinction is report versus annual tax",
+      title: "The important distinction is Delaware annual report versus annual tax",
       cards: [
         {
           title: "Why the old LLC annual-report phrasing was wrong",
@@ -310,7 +310,7 @@ const baseStructuredStateContentByFilePath = {
     {
       type: "table",
       eyebrow: "Fee and deadline table",
-      title: "What the North Carolina guidance says",
+      title: "What the North Carolina annual report guidance says",
       headers: ["Entity type", "Published due date", "Online fee", "Paper fee"],
       rows: [
         [
@@ -336,7 +336,7 @@ const baseStructuredStateContentByFilePath = {
     {
       type: "detailCards",
       eyebrow: "How to read the rule",
-      title: "North Carolina gets easier once you separate entity type from payment method",
+      title: "North Carolina annual report questions get easier once you separate entity type from payment method",
       cards: [
         {
           title: "How to read the deadline correctly",
@@ -520,7 +520,7 @@ const baseStructuredStateContentByFilePath = {
     {
       type: "table",
       eyebrow: "Georgia core rules",
-      title: "What the Georgia Secretary of State says now",
+      title: "What the Georgia Secretary of State says about annual registration, often searched as annual report",
       headers: ["Question", "Current Georgia answer used on this page"],
       rows: [
         [
@@ -1075,7 +1075,7 @@ const baseStructuredStateContentByFilePath = {
     {
       type: "table",
       eyebrow: "Timing",
-      title: "Oregon ties the annual report to the original filing anniversary",
+      title: "How to file an Oregon annual report on the original filing anniversary",
       headers: ["Question", "Official guidance used here"],
       rows: [
         [

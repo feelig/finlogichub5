@@ -883,11 +883,11 @@ function buildStateFaqItems(page, entry) {
     },
     {
       question: `What due date should I start with for ${page.state}?`,
-      answer: `Start with ${entry.directoryComparison.deadline}. If the state uses anniversary, report-month, or fiscal-year timing, the official state record still controls.`
+      answer: `The main due date on this page is ${entry.directoryComparison.deadline}. If the state uses anniversary, report-month, or fiscal-year timing, the official state record still controls.`
     },
     {
       question: `What fee or amount does this page show?`,
-      answer: `This page starts with ${entry.directoryComparison.amount}. If the amount changes by entity type, filing method, or status, confirm it on the official state source before paying.`
+      answer: `The main amount on this page is ${entry.directoryComparison.amount}. If the amount changes by entity type, filing method, or status, confirm it on the official state source before paying.`
     },
     {
       question: "What if I am already late?",

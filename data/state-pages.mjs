@@ -151,11 +151,11 @@ const baseStatePages = [
   },
   {
     "filePath": "tools/delaware/annual-report-deadline/index.html",
-    "titleTag": "Delaware Annual Report Deadline and LLC Annual Tax | FinLogic Hub",
-    "metaDescription": "Delaware annual report deadlines for domestic and foreign corporations, plus the separate June 1 annual tax rule for Delaware LLCs, LPs, and GPs.",
+    "titleTag": "Delaware Annual Report Deadline for Corporations and LLC Annual Tax | FinLogic Hub",
+    "metaDescription": "Delaware annual report deadline guidance for domestic and foreign corporations, plus the separate June 1 Delaware LLC annual tax rule for LLCs, LPs, and GPs.",
     "canonicalUrl": "https://finlogichub5.com/tools/delaware/annual-report-deadline/",
-    "ogTitle": "Delaware Annual Report Deadline | FinLogic Hub",
-    "ogDescription": "Separate Delaware corporation annual reports from Delaware LLC annual tax using the current Division of Corporations guidance.",
+    "ogTitle": "Delaware Annual Report Deadline for Corporations and LLC Annual Tax | FinLogic Hub",
+    "ogDescription": "Review Delaware annual report deadlines for corporations and the separate Delaware LLC annual tax rule using Division of Corporations guidance.",
     "state": "Delaware",
     "breadcrumbs": [
       {
@@ -167,12 +167,12 @@ const baseStatePages = [
         "href": "/states.html"
       },
       {
-        "label": "Delaware annual report deadline",
+        "label": "Delaware annual report and LLC annual tax",
         "href": null
       }
     ],
-    "heroTitle": "Delaware annual report deadline and LLC annual tax",
-    "heroSubtitle": "Use this page if you need the right Delaware recurring filing. Corporations and Delaware LLCs do not use the same rule, so this page separates the corporation report deadline from the Delaware LLC annual tax.",
+    "heroTitle": "Delaware annual report deadline for corporations and LLC annual tax",
+    "heroSubtitle": "If you searched Delaware annual report, start with the entity type. Domestic corporations file annual reports by March 1, foreign corporations by June 30, and Delaware LLCs do not file annual reports because they pay a $300 annual tax by June 1.",
     "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Delaware Division of Corporations",
     "summaryTitle": "At a glance",
@@ -287,11 +287,11 @@ const baseStatePages = [
   },
   {
     "filePath": "tools/georgia/annual-report-deadline/index.html",
-    "titleTag": "Georgia Annual Registration Fee and Deadline | FinLogic Hub",
-    "metaDescription": "Georgia annual registration fee and deadline guidance covering the April 1 filing deadline, common online totals, the published $25 late penalty, and the annual report term many customers still search for.",
+    "titleTag": "Georgia Annual Report Deadline and Annual Registration Fee | FinLogic Hub",
+    "metaDescription": "Georgia annual report deadline and annual registration fee guidance covering the April 1 filing deadline, common online totals, the published $25 late penalty, and Georgia's official filing label.",
     "canonicalUrl": "https://finlogichub5.com/tools/georgia/annual-report-deadline/",
-    "ogTitle": "Georgia Annual Registration Fee and Deadline | FinLogic Hub",
-    "ogDescription": "Review Georgia annual registration timing, common online totals, and the published late-penalty rule, with annual report search wording mapped to Georgia Secretary of State guidance.",
+    "ogTitle": "Georgia Annual Report Deadline and Annual Registration Fee | FinLogic Hub",
+    "ogDescription": "Review Georgia annual report timing, Georgia annual registration rules, common online totals, and the published late-penalty rule using Georgia Secretary of State guidance.",
     "state": "Georgia",
     "breadcrumbs": [
       {
@@ -303,12 +303,12 @@ const baseStatePages = [
         "href": "/states.html"
       },
       {
-        "label": "Georgia annual registration fee and deadline",
+        "label": "Georgia annual report deadline",
         "href": null
       }
     ],
-    "heroTitle": "Georgia annual registration fee and deadline",
-    "heroSubtitle": "Georgia calls this filing an annual registration, even though many customers still search for Georgia annual report deadlines. Start with the April 1 deadline, the common $60 online total for many profit entities, and the published $25 late penalty.",
+    "heroTitle": "Georgia annual report deadline and annual registration fee",
+    "heroSubtitle": "If you searched Georgia annual report, Georgia calls the filing an annual registration. Start with the April 1 deadline, then confirm whether the entity uses the common $60 online total or a lower entity-specific amount.",
     "heroActions": [
       {
         "href": "https://sos.ga.gov/how-to-guide/how-file-annual-registration",
@@ -338,7 +338,7 @@ const baseStatePages = [
         "text": "$25 penalty if the annual registration is filed after the deadline."
       }
     ],
-    "summaryNoteHtml": "<p class=\"table-note\">\n              Georgia is one of the states where a single flat fee is misleading. The deadline is\n              shared, but the total depends on entity type and filing method.\n            </p>",
+    "summaryNoteHtml": "<p class=\"table-note\">\n              Georgia annual report and annual registration searches usually point to the same state\n              filing. The label changes, but the fee still depends on entity type and filing method.\n            </p>",
     "caseCards": [
       {
         "label": "Most profit entities",
@@ -606,10 +606,10 @@ const baseStatePages = [
   {
     "filePath": "tools/north-carolina/annual-report-deadline/index.html",
     "titleTag": "North Carolina Annual Report Fee and Deadline | FinLogic Hub",
-    "metaDescription": "North Carolina annual report fee and deadline guidance for LLCs, L3Cs, and corporations, including the $203 online LLC fee, the $200 paper fee, and the main Secretary of State deadlines.",
+    "metaDescription": "North Carolina annual report deadline and fee guidance for LLCs, L3Cs, and corporations, including the April 15 LLC rule, the $203 online LLC fee, the $200 paper fee, and corporation fiscal-year deadlines.",
     "canonicalUrl": "https://finlogichub5.com/tools/north-carolina/annual-report-deadline/",
     "ogTitle": "North Carolina Annual Report Fee and Deadline | FinLogic Hub",
-    "ogDescription": "Review North Carolina LLC and corporation annual report fees, deadlines, and filing paths using the current Secretary of State guidance.",
+    "ogDescription": "Review North Carolina annual report deadlines for LLCs and corporations, plus the current online and paper fee split using Secretary of State guidance.",
     "state": "North Carolina",
     "breadcrumbs": [
       {
@@ -626,7 +626,7 @@ const baseStatePages = [
       }
     ],
     "heroTitle": "North Carolina annual report fee and deadline for LLCs and corporations",
-    "heroSubtitle": "Use this page if you need the North Carolina annual report fee or deadline. LLCs and L3Cs usually file by April 15 with a $203 online fee or $200 paper fee, while corporations use a fiscal-year deadline.",
+    "heroSubtitle": "If you searched North Carolina annual report, start by separating the fixed April 15 LLC and L3C filing from the corporation fiscal-year annual report rule. Then confirm whether you are paying the $200 paper fee, $202 ACH fee, or $203 card fee for an LLC.",
     "heroActions": [
       {
         "href": "https://www.sosnc.gov/divisions/business_registration/annual_report/12819032",

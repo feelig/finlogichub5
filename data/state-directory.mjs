@@ -35,11 +35,11 @@ const baseStateDirectory = [
     coverageBucket: "annual-reports",
     featuredInHomeNav: false,
     homeCardDescription:
-      "LLC and L3C due date, corporation timing, and the current online versus paper fee split.",
+      "North Carolina annual report deadlines for LLCs, L3Cs, and corporations, plus the current online versus paper fee split.",
     directoryCardDescription:
-      "LLC, L3C, and corporation timing with the current online and paper filing-fee split.",
+      "North Carolina annual report timing for LLCs, L3Cs, and corporations, with the current online and paper filing-fee split.",
     homeComparison: {
-      focus: "LLC or L3C",
+      focus: "North Carolina LLC, L3C, or corporation annual report",
       deadline: "April 15",
       fee: "$202-$203 online / $200 paper",
       lateRule: "No flat late fee stated on the due-date chart"
@@ -47,33 +47,34 @@ const baseStateDirectory = [
     directoryComparison: {
       obligation: "Annual report",
       entityFocus: "LLCs, L3Cs, corporations, partnerships",
-      deadline: "April 15 for LLCs; fiscal-year-based for corporations",
-      amount: "$202-$203 online or $200 paper for LLCs"
+      deadline: "April 15 for LLCs and L3Cs, or the 15th day of the fourth month after fiscal year end for corporations",
+      amount: "$202-$203 online or $200 paper for LLCs and L3Cs, or $20-$25 for many corporation filings"
     }
   },
   {
     state: "Georgia",
     route: "/tools/georgia/annual-report-deadline/",
-    guideLabel: "Georgia annual registration fee and deadline",
-    chipLabel: "Georgia registration",
-    guideType: "Annual registration guide",
+    guideLabel: "Georgia annual report deadline and annual registration fee",
+    chipLabel: "Georgia annual report",
+    guideType: "Annual report and registration guide",
     coverageBucket: "annual-registration-and-tax",
     featuredInHomeNav: false,
     homeCardDescription:
-      "Georgia annual registration timing, common online totals, and the published $25 late penalty, with annual report search wording mapped clearly.",
+      "Georgia annual report or annual registration timing, common online totals, and the published $25 late penalty.",
     directoryCardDescription:
-      "Georgia annual registration timing, common online totals for many profit entities, and the published $25 late penalty.",
+      "Georgia annual report or annual registration timing, common online totals for many profit entities, and the published $25 late penalty.",
     homeComparison: {
-      focus: "Profit corporation or LLC",
+      focus: "Georgia profit corporation or LLC searching annual report or annual registration",
       deadline: "April 1",
       fee: "$60 common online total",
       lateRule: "$25 late penalty"
     },
     directoryComparison: {
-      obligation: "Annual registration",
-      entityFocus: "Business entities using the annual registration portal",
-      deadline: "April 1",
-      amount: "Varies by entity type; common $60 online total"
+      obligation: "Annual registration, often searched as an annual report",
+      entityFocus: "Business entities using Georgia's annual registration portal",
+      deadline: "April 1, with Georgia labeling the filing an annual registration",
+      amount:
+        "a common $60 online total for many profit entities, with different amounts by entity type"
     }
   },
   {
@@ -104,26 +105,26 @@ const baseStateDirectory = [
   {
     state: "Delaware",
     route: "/tools/delaware/annual-report-deadline/",
-    guideLabel: "Delaware annual report and annual tax deadline",
+    guideLabel: "Delaware annual report deadline and LLC annual tax",
     chipLabel: "Delaware filing split",
     guideType: "Annual report plus annual tax guide",
     coverageBucket: "annual-registration-and-tax",
     featuredInHomeNav: true,
     homeCardDescription:
-      "Domestic corporations, foreign corporations, and Delaware LLC annual tax are separated clearly.",
+      "Domestic and foreign corporation annual report deadlines, plus the separate June 1 Delaware LLC annual tax.",
     directoryCardDescription:
-      "Separates domestic corporations, foreign corporations, and the June 1 Delaware LLC annual tax.",
+      "Separates Delaware corporation annual reports from the June 1 Delaware LLC annual tax.",
     homeComparison: {
-      focus: "Domestic corporation",
+      focus: "Domestic corporation or Delaware LLC",
       deadline: "March 1",
       fee: "$50 filing fee plus franchise tax",
       lateRule: "$200 penalty plus 1.5% monthly interest"
     },
     directoryComparison: {
-      obligation: "Annual report or annual tax",
+      obligation: "Annual report for corporations or annual tax for LLCs, LPs, and GPs",
       entityFocus: "Domestic corporations, foreign corporations, LLCs, LPs, GPs",
       deadline: "March 1, June 1, or June 30 depending on entity type",
-      amount: "$50 annual report fee or $300 LLC annual tax"
+      amount: "$50 domestic-corporation annual report fee, $125 foreign-corporation annual report fee, or $300 Delaware LLC annual tax"
     }
   },
   {
@@ -416,25 +417,25 @@ const baseStateDirectory = [
   {
     state: "Oregon",
     route: "/tools/oregon/annual-report-deadline/",
-    guideLabel: "Oregon annual report filing fee and due date",
+    guideLabel: "Oregon annual report deadline and filing fee",
     chipLabel: "Oregon annual report",
     guideType: "Annual report guide",
     coverageBucket: "annual-reports",
     featuredInHomeNav: false,
     homeCardDescription:
-      "How to file an Oregon annual report, the anniversary-date renewal rule, 45-day reminders, domestic-versus-foreign fee splits, and reinstatement guidance.",
+      "How to file an Oregon annual report, the anniversary-date renewal rule, Oregon LLC fee lanes, 45-day reminders, and reinstatement guidance.",
     directoryCardDescription:
-      "Oregon annual report filing timing, fee splits by entity type, reminder timing, and reinstatement guidance for missed filings.",
+      "Oregon annual report timing, how to file, fee splits by entity type, reminder timing, and reinstatement guidance for missed filings.",
     homeComparison: {
-      focus: "Oregon corporation, LLC, nonprofit, or LP",
-      deadline: "Anniversary date of the original filing",
+      focus: "Oregon LLC, corporation, nonprofit, or LP annual report",
+      deadline: "Anniversary date of the original filing each year",
       fee: "$100 for many domestic renewals; $275 for many foreign renewals",
       lateRule: "Administrative dissolution, then reinstatement fee plus missed annual fee(s)"
     },
     directoryComparison: {
       obligation: "Annual report",
       entityFocus: "Corporations, LLCs, nonprofits, and limited partnerships",
-      deadline: "Annual on the anniversary date of the original filing",
+      deadline: "the anniversary date of the original filing each year",
       amount: "$50 to $275 depending on entity type"
     }
   },

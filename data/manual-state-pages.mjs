@@ -200,22 +200,22 @@ export const manualStatePages = [
   },
   {
     filePath: "tools/oregon/annual-report-deadline/index.html",
-    titleTag: "Oregon Annual Report Filing Fee and Due Date | FinLogic Hub",
+    titleTag: "Oregon Annual Report Deadline and Filing Fee | FinLogic Hub",
     metaDescription:
-      "Oregon annual report filing fee and due date guidance covering the anniversary-date renewal rule, how to file an Oregon annual report, 45-day reminders, fee splits, and reinstatement after missed reports.",
+      "Oregon annual report deadline and filing fee guidance covering how to file an Oregon annual report, the anniversary-date renewal rule, 45-day reminders, fee splits, and reinstatement after missed reports.",
     canonicalUrl: "https://finlogichub5.com/tools/oregon/annual-report-deadline/",
-    ogTitle: "Oregon Annual Report Filing Fee and Due Date | FinLogic Hub",
+    ogTitle: "Oregon Annual Report Deadline and Filing Fee | FinLogic Hub",
     ogDescription:
-      "Review how to file an Oregon annual report, Oregon annual report deadlines, fee splits, reminder timing, and reinstatement rules using Oregon Secretary of State sources.",
+      "Review Oregon annual report deadlines, how to file an Oregon annual report, fee splits, reminder timing, and reinstatement rules using Oregon Secretary of State sources.",
     state: "Oregon",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Oregon annual report filing fee and due date", href: null }
+      { label: "Oregon annual report deadline", href: null }
     ],
-    heroTitle: "Oregon annual report filing fee and due date",
+    heroTitle: "Oregon annual report deadline and filing fee",
     heroSubtitle:
-      "Use this page if you need to file an Oregon annual report, check the Oregon annual report due date, or confirm the renewal fee. Most businesses start with the anniversary-date rule, then confirm whether the entity uses the domestic or foreign fee.",
+      "Use this page if you need to file an Oregon annual report, check an Oregon LLC annual report deadline, or confirm the renewal fee. Most businesses start with the anniversary-date rule, then confirm whether the entity uses the domestic or foreign fee.",
     heroActions: [
       {
         href: "https://sos.oregon.gov/business/Pages/obr-annual-report-renewal.aspx",

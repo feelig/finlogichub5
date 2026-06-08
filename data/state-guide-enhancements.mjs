@@ -340,7 +340,7 @@ const baseGuideDecisionToolByRoute = {
   "/tools/delaware/annual-report-deadline/": decisionTool({
     caseLabel: "Which Delaware filing path fits best?",
     intro:
-      "Delaware confuses people because domestic corporations, foreign corporations, and LLC or LP annual taxes are not the same filing.",
+      "If you searched Delaware annual report, the first question is whether the entity is a corporation or a Delaware LLC. Domestic corporations, foreign corporations, and LLC or LP annual taxes are not the same filing.",
     cases: [
       decisionCase({
         value: "domestic-corporation",
@@ -473,7 +473,7 @@ const baseGuideDecisionToolByRoute = {
   "/tools/georgia/annual-report-deadline/": decisionTool({
     caseLabel: "Which Georgia case looks closest?",
     intro:
-      "Georgia is one of the states where the deadline is straightforward but the fee answer is not. The common profit-entity total is useful, but it is not universal.",
+      "If you searched Georgia annual report, Georgia's first twist is that the state calls the filing an annual registration. The deadline is straightforward, but the fee answer is not.",
     cases: [
       decisionCase({
         value: "profit-entity",
@@ -671,7 +671,7 @@ const baseGuideDecisionToolByRoute = {
   "/tools/north-carolina/annual-report-deadline/": decisionTool({
     caseLabel: "Which North Carolina entity type fits best?",
     intro:
-      "North Carolina becomes much easier once you separate LLC timing from corporation timing and keep the online payment-method fees separate from the base filing fees.",
+      "If you searched North Carolina annual report, separate the fixed April 15 LLC filing from the corporation fiscal-year filing first. Then keep the online payment-method fees separate from the base filing fees.",
     cases: [
       decisionCase({
         value: "llc-or-l3c",
@@ -1043,7 +1043,7 @@ const baseGuideDecisionToolByRoute = {
   "/tools/oregon/annual-report-deadline/": decisionTool({
     caseLabel: "Which Oregon rule set fits best?",
     intro:
-      "Oregon is easy on timing and tricky on price. The anniversary-date rule is broad, but the fee changes a lot between domestic and foreign filings.",
+      "Oregon is easy on annual-report timing and trickier on price. The anniversary-date rule is broad, but the fee changes a lot between domestic and foreign filings.",
     cases: [
       decisionCase({
         value: "domestic-business",

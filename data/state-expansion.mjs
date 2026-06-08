@@ -55,22 +55,22 @@ function decisionTool({ caseLabel, intro, cases }) {
 export const expansionStatePages = [
   {
     filePath: "tools/arizona/annual-report-deadline/index.html",
-    titleTag: "Arizona Corporation Annual Report Fee and Deadline | FinLogic Hub",
+    titleTag: "Arizona Annual Report Fee and Deadline for Corporations | FinLogic Hub",
     metaDescription:
-      "Arizona corporation annual report due date and fee guidance covering Arizona Corporation Commission filing, the $45 for-profit fee, $10 nonprofit fee, six-month extension option, and delinquency timing.",
+      "Arizona annual report fee and deadline guidance for corporations, covering Arizona Corporation Commission filing, the $45 for-profit fee, $10 nonprofit fee, six-month extension option, and the Arizona LLC no-annual-report rule.",
     canonicalUrl: "https://finlogichub5.com/tools/arizona/annual-report-deadline/",
-    ogTitle: "Arizona Corporation Annual Report Fee and Deadline | FinLogic Hub",
+    ogTitle: "Arizona Annual Report Fee and Deadline for Corporations | FinLogic Hub",
     ogDescription:
-      "Review Arizona Corporation Commission annual report due dates, fees, extension rules, courtesy reminders, and delinquency timing for Arizona corporations.",
+      "Review Arizona annual report deadlines for corporations, the Arizona LLC no-annual-report rule, fees, extension options, reminders, and delinquency timing from the Arizona Corporation Commission.",
     state: "Arizona",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Arizona corporation annual report", href: null }
+      { label: "Arizona annual report deadline", href: null }
     ],
-    heroTitle: "Arizona corporation annual report fee and deadline",
+    heroTitle: "Arizona annual report fee and deadline for corporations",
     heroSubtitle:
-      "Use this page if you need the Arizona Corporation Commission annual report due date, filing fee, or extension rule for a corporation. Start by confirming the record is a corporation, because Arizona LLCs do not file annual reports with the Arizona Corporation Commission.",
+      "If you searched Arizona annual report, first confirm the record is a corporation. Arizona LLCs do not file annual reports with the Arizona Corporation Commission, while for-profit and nonprofit corporations use the ACC annual-report lane.",
     lastReviewed: "May 17, 2026",
     sourceBadge: "Source: Arizona Corporation Commission",
     summaryTitle: "At a glance",
@@ -88,7 +88,10 @@ export const expansionStatePages = [
         text: "$9 per month for late for-profit annual reports, then pending inactive status and possible administrative dissolution."
       }
     ],
-    summaryNoteHtml: null,
+    summaryNoteHtml: `<p class="table-note">
+              Arizona annual report searches often mix corporations and LLCs. The annual-report rule
+              on this page applies to corporations only, which is why the entity check comes first.
+            </p>`,
     caseCards: [
       {
         label: "For-profit corporation",
@@ -233,22 +236,22 @@ export const expansionStatePages = [
   },
   {
     filePath: "tools/indiana/business-entity-report-deadline/index.html",
-    titleTag: "Indiana Business Entity Report Fee and Due Date | FinLogic Hub",
+    titleTag: "Indiana Annual Report Deadline and Business Entity Report Fee | FinLogic Hub",
     metaDescription:
-      "Indiana business entity report due date and fee guidance covering biennial anniversary-month timing, INBiz versus paper fees, reminders, and administrative dissolution or revocation risk.",
+      "Indiana annual report deadline and Business Entity Report fee guidance covering biennial anniversary-month timing, INBiz versus paper fees, reminders, and administrative dissolution or revocation risk.",
     canonicalUrl: "https://finlogichub5.com/tools/indiana/business-entity-report-deadline/",
-    ogTitle: "Indiana Business Entity Report Fee and Due Date | FinLogic Hub",
+    ogTitle: "Indiana Annual Report Deadline and Business Entity Report Fee | FinLogic Hub",
     ogDescription:
-      "Review Indiana business entity report timing, online and paper fees, reminders, and administrative dissolution or revocation rules from INBiz and Secretary of State guidance.",
+      "Review Indiana annual report timing, official Business Entity Report rules, online and paper fees, reminders, and administrative dissolution or revocation guidance from INBiz and the Secretary of State.",
     state: "Indiana",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Indiana business entity report", href: null }
+      { label: "Indiana annual report and Business Entity Report", href: null }
     ],
-    heroTitle: "Indiana business entity report fee and due date",
+    heroTitle: "Indiana annual report deadline and Business Entity Report fee",
     heroSubtitle:
-      "Use this page if you need the Indiana business entity report due date or filing fee. The first step is knowing this is a biennial Secretary of State filing, not a tax payment, and the report is tied to the anniversary month of formation or registration.",
+      "If you searched Indiana annual report, Indiana usually calls this filing the Business Entity Report. Start with the biennial anniversary-month rule, then confirm whether the entity is for-profit or nonprofit before paying.",
     lastReviewed: "May 17, 2026",
     sourceBadge: "Source: Indiana Secretary of State and INBiz",
     summaryTitle: "At a glance",
@@ -266,7 +269,11 @@ export const expansionStatePages = [
         text: "No flat late fee is listed on the main report page, but missing the report can lead to administrative dissolution or revocation."
       }
     ],
-    summaryNoteHtml: null,
+    summaryNoteHtml: `<p class="table-note">
+              Indiana is one of the states where the official filing label differs from what many
+              searchers type. Most Indiana annual report searches are really looking for the biennial
+              Business Entity Report.
+            </p>`,
     heroActions: [
       {
         href: "https://inbiz.in.gov/business-filings/business-entityreport",
@@ -326,22 +333,22 @@ export const expansionStatePages = [
   },
   {
     filePath: "tools/michigan/annual-report-deadline/index.html",
-    titleTag: "Michigan Annual Report and Annual Statement Fees and Due Dates | FinLogic Hub",
+    titleTag: "Michigan Annual Report Deadline and Annual Statement Fees | FinLogic Hub",
     metaDescription:
-      "Michigan annual report and annual statement due date guidance covering the February 15 LLC deadline, May 15 corporation deadline, October 1 nonprofit deadline, filing fees, reminders, and penalty rules.",
+      "Michigan annual report deadline and annual statement fee guidance covering the February 15 LLC deadline, May 15 corporation deadline, October 1 nonprofit deadline, filing fees, reminders, and penalty rules.",
     canonicalUrl: "https://finlogichub5.com/tools/michigan/annual-report-deadline/",
-    ogTitle: "Michigan Annual Report and Annual Statement Fees | FinLogic Hub",
+    ogTitle: "Michigan Annual Report Deadline and Annual Statement Fees | FinLogic Hub",
     ogDescription:
-      "Review Michigan annual report and annual statement due dates, fees, late-penalty timing, reminders, and MiBusiness Registry filing paths from LARA guidance.",
+      "Review Michigan annual report deadlines, LLC annual statement rules, filing fees, reminder timing, and late-penalty schedules from Michigan LARA guidance.",
     state: "Michigan",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Michigan annual report and statement", href: null }
+      { label: "Michigan annual report deadline", href: null }
     ],
-    heroTitle: "Michigan annual report and annual statement fees and due dates",
+    heroTitle: "Michigan annual report deadline and annual statement fees",
     heroSubtitle:
-      "Use this page if you need the Michigan annual filing deadline or fee. Start with the entity type, because LLCs, corporations, PLLCs, and nonprofit corporations do not share the same due date or the same late-fee rule.",
+      "If you searched Michigan annual report, start with the entity type. Michigan uses annual reports for corporations and nonprofits, but LLCs and PLLCs file annual statements on a different deadline and fee lane.",
     lastReviewed: "May 17, 2026",
     sourceBadge: "Source: Michigan LARA Corporations Division",
     summaryTitle: "At a glance",
@@ -359,7 +366,11 @@ export const expansionStatePages = [
         text: "Email reminders and impending-status notices are sent 90 days before the due date."
       }
     ],
-    summaryNoteHtml: null,
+    summaryNoteHtml: `<p class="table-note">
+              Michigan annual report searches often bundle together corporation annual reports and LLC
+              annual statements. The filing label changes with the entity type, which is why the fee
+              and deadline answers split quickly.
+            </p>`,
     heroActions: [
       {
         href: "https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements",
@@ -419,22 +430,22 @@ export const expansionStatePages = [
   },
   {
     filePath: "tools/utah/annual-renewal-deadline/index.html",
-    titleTag: "Utah Annual Renewal Fee, Deadline, and Reinstatement Rules | FinLogic Hub",
+    titleTag: "Utah Annual Renewal and Annual Report Deadline | FinLogic Hub",
     metaDescription:
-      "Utah annual renewal due date guidance covering anniversary-date timing, $18 renewal fees for most entities, the $10 late renewal fee, Utah LLC reinstatement questions, and reinstatement limits for foreign entities.",
+      "Utah annual renewal and annual report deadline guidance covering anniversary-date timing, $18 renewal fees for most entities, the $10 late renewal fee, Utah LLC reinstatement questions, and reinstatement limits for foreign entities.",
     canonicalUrl: "https://finlogichub5.com/tools/utah/annual-renewal-deadline/",
-    ogTitle: "Utah Annual Renewal Fee, Deadline, and Reinstatement Rules | FinLogic Hub",
+    ogTitle: "Utah Annual Renewal and Annual Report Deadline | FinLogic Hub",
     ogDescription:
-      "Review Utah annual report or renewal due dates, current fee schedules, Utah LLC reinstatement questions, late renewal fees, and reinstatement limits from Utah Division of Corporations guidance.",
+      "Review Utah annual renewal and annual report timing, current fee schedules, Utah LLC reinstatement questions, late renewal fees, and reinstatement limits from Utah Division of Corporations guidance.",
     state: "Utah",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Utah annual renewal and reinstatement rules", href: null }
+      { label: "Utah annual renewal and annual report", href: null }
     ],
-    heroTitle: "Utah annual renewal fee, deadline, and reinstatement rules",
+    heroTitle: "Utah annual renewal and annual report deadline",
     heroSubtitle:
-      "Use this page if you need the Utah annual report or renewal due date, or if you are trying to sort out a Utah LLC reinstatement question after a lapse. Start with the anniversary date and then confirm whether the entity is domestic or foreign before you rely on the reinstatement path.",
+      "If you searched Utah annual report, Utah usually calls the filing an annual renewal. Start with the anniversary date, then confirm whether the entity is domestic or foreign before you rely on the renewal or reinstatement path.",
     lastReviewed: "May 17, 2026",
     sourceBadge: "Source: Utah Division of Corporations and Commercial Code",
     summaryTitle: "At a glance",
@@ -516,27 +527,27 @@ export const expansionStateDirectory = [
   {
     state: "Arizona",
     route: "/tools/arizona/annual-report-deadline/",
-    guideLabel: "Arizona corporation annual report fee and deadline",
-    chipLabel: "Arizona corporation report",
+    guideLabel: "Arizona annual report fee and deadline for corporations",
+    chipLabel: "Arizona annual report",
     guideType: "Annual report guide",
     coverageBucket: "annual-reports",
     featuredInHomeNav: false,
     homeCardDescription:
-      "Arizona Corporation Commission annual report rules for corporations, $45 or $10 fees, six-month extension options, and published delinquency timing.",
+      "Arizona annual report rules for corporations, the Arizona LLC no-annual-report rule, $45 or $10 fees, six-month extensions, and published delinquency timing.",
     directoryCardDescription:
-      "Arizona Corporation Commission annual report timing for corporations, fee splits, extension rules, and the for-profit late-penalty path.",
+      "Arizona Corporation Commission annual report timing for corporations, the Arizona LLC no-annual-report rule, fee splits, extension rules, and the for-profit late-penalty path.",
     homeComparison: {
-      focus: "Arizona for-profit or nonprofit corporation",
-      deadline: "Each year by the designated due date on the ACC record, with a six-month extension available",
+      focus: "Arizona corporation searching annual report rules",
+      deadline: "ACC-designated annual due date, with a six-month extension available",
       fee: "$45 for for-profit corporations or $10 for nonprofit corporations",
       lateRule:
         "$9 per month for late for-profit reports; nonprofits are not assessed annual-report penalties, but missed filings still lead to delinquency notices and possible dissolution"
     },
     directoryComparison: {
-      obligation: "Annual report",
+      obligation: "Annual report for corporations; Arizona LLCs do not file annual reports",
       entityFocus: "For-profit and nonprofit corporations registered in Arizona",
       deadline:
-        "Each year by the designated due date shown on the ACC record, with a six-month extension available",
+        "the designated due date shown on the ACC record each year, with a six-month extension available",
       amount: "$45 for for-profit corporations or $10 for nonprofit corporations"
     }
   },
@@ -570,28 +581,28 @@ export const expansionStateDirectory = [
   {
     state: "Indiana",
     route: "/tools/indiana/business-entity-report-deadline/",
-    guideLabel: "Indiana business entity report fee and deadline",
-    chipLabel: "Indiana entity report",
+    guideLabel: "Indiana annual report deadline and Business Entity Report fee",
+    chipLabel: "Indiana annual report",
     guideType: "Biennial report guide",
     coverageBucket: "recurring-fees-and-statements",
     featuredInHomeNav: false,
     homeCardDescription:
-      "Biennial anniversary-month timing, INBiz vs paper fee split, reminder timing, and administrative dissolution risk.",
+      "Indiana annual report or Business Entity Report timing, INBiz vs paper fee split, reminder timing, and administrative dissolution risk.",
     directoryCardDescription:
-      "Indiana biennial Business Entity Report timing, online and paper fees, reminder notices, and dissolution or revocation path.",
+      "Indiana biennial Business Entity Report timing, annual report search wording, online and paper fees, reminder notices, and dissolution or revocation path.",
     homeComparison: {
-      focus: "Indiana registered business filing a Business Entity Report",
+      focus: "Indiana business filing the Business Entity Report, often searched as an annual report",
       deadline: "Two years after registration, then every other year by the end of the anniversary month",
       fee: "$32 on INBiz or $50 paper for for-profit businesses; $22 on INBiz or $20 paper for nonprofits",
       lateRule:
         "No flat late fee is listed on the main filing page, but missed reports can lead to administrative dissolution or revocation"
     },
     directoryComparison: {
-      obligation: "Business Entity Report",
+      obligation: "Business Entity Report, often searched as an annual report",
       entityFocus:
         "Corporations, LLCs, nonprofit corporations, LPs, LLPs, benefit corporations, business trusts, and agricultural cooperatives",
       deadline:
-        "First report due two years after formation or registration; then every other year by the end of the anniversary month",
+        "the first report due two years after formation or registration, then every other year by the end of the anniversary month",
       amount:
         "$32 on INBiz or $50 by paper for for-profit entities, or $22 on INBiz and $20 by paper for nonprofits"
     }
@@ -599,17 +610,17 @@ export const expansionStateDirectory = [
   {
     state: "Michigan",
     route: "/tools/michigan/annual-report-deadline/",
-    guideLabel: "Michigan annual report and annual statement deadline",
-    chipLabel: "Michigan annual filing",
+    guideLabel: "Michigan annual report deadline and annual statement fees",
+    chipLabel: "Michigan annual report",
     guideType: "Annual report and statement guide",
     coverageBucket: "annual-registration-and-tax",
     featuredInHomeNav: false,
     homeCardDescription:
-      "February 15 LLC timing, May 15 corporation timing, October 1 nonprofit timing, and entity-specific fee or penalty splits.",
+      "Michigan annual report and annual statement deadlines for LLCs, corporations, and nonprofits, plus fee and penalty splits.",
     directoryCardDescription:
-      "Michigan annual report and annual statement deadlines by entity type, reminder timing, fee lanes, and published late-penalty sequence.",
+      "Michigan annual report and annual statement deadlines by entity type, annual report search wording, reminder timing, fee lanes, and published late-penalty sequence.",
     homeComparison: {
-      focus: "Michigan corporation, nonprofit corporation, LLC, or PLLC",
+      focus: "Michigan corporation, nonprofit, LLC, or PLLC annual filing",
       deadline: "February 15, May 15, or October 1 depending on entity type",
       fee: "$25 for LLCs and corporations, $75 for PLLCs, or $20 for nonprofit corporations",
       lateRule:
@@ -625,28 +636,28 @@ export const expansionStateDirectory = [
   {
     state: "Utah",
     route: "/tools/utah/annual-renewal-deadline/",
-    guideLabel: "Utah annual renewal fee, deadline, and reinstatement rules",
-    chipLabel: "Utah renewal",
+    guideLabel: "Utah annual renewal and annual report deadline",
+    chipLabel: "Utah annual report",
     guideType: "Annual renewal guide",
     coverageBucket: "annual-registration-and-tax",
     featuredInHomeNav: false,
     homeCardDescription:
-      "Anniversary-date renewal timing, $18 standard fee lanes, Utah LLC reinstatement questions, and reinstatement limits for foreign entities.",
+      "Utah annual renewal or annual report timing, $18 standard fee lanes, Utah LLC reinstatement questions, and reinstatement limits for foreign entities.",
     directoryCardDescription:
-      "Utah annual renewal timing, current fee schedules, late renewal fees, and the domestic-versus-foreign reinstatement split that matters after a lapse.",
+      "Utah annual renewal timing, annual report search wording, current fee schedules, late renewal fees, and the domestic-versus-foreign reinstatement split that matters after a lapse.",
     homeComparison: {
       focus: "Utah domestic or foreign corporation, nonprofit, LLC, LP, or LLP",
-      deadline: "One year from registration and annually thereafter",
+      deadline: "Anniversary date each year, beginning one year after registration",
       fee: "$18 renewal fee for corporations, nonprofits, LLCs, LPs, and LLPs",
       lateRule:
         "$10 late renewal fee, and Utah says foreign entities cannot use the reinstatement path if they lapse"
     },
     directoryComparison: {
-      obligation: "Annual report or renewal",
+      obligation: "Annual renewal, often searched as an annual report",
       entityFocus:
         "Domestic and foreign corporations, nonprofits, LLCs, LPs, and LLPs registered in Utah",
       deadline:
-        "One year from registration and annually thereafter, with notice timing tied to the anniversary date",
+        "the anniversary date each year, beginning one year after registration",
       amount:
         "$18 renewal fee for corporations, nonprofits, LLCs, LPs, and LLPs, plus a $10 late renewal fee"
     }
@@ -658,7 +669,7 @@ export const expansionStructuredStateContentByFilePath = {
     {
       type: "table",
       eyebrow: "Entity split",
-      title: "Arizona annual reports only apply to corporations",
+      title: "Arizona annual report searches should start by checking whether the entity is a corporation",
       headers: ["Entity type", "Does it file?", "Due rule", "Published amount"],
       rows: [
         [
@@ -792,7 +803,7 @@ export const expansionStructuredStateContentByFilePath = {
     {
       type: "table",
       eyebrow: "Fee and timing snapshot",
-      title: "Indiana uses a biennial report tied to the anniversary month",
+      title: "Indiana annual report searches usually mean the biennial Business Entity Report",
       headers: ["Entity lane", "When it is due", "INBiz fee", "Paper fee"],
       rows: [
         [
@@ -853,7 +864,7 @@ export const expansionStructuredStateContentByFilePath = {
     {
       type: "table",
       eyebrow: "Entity split",
-      title: "Michigan keeps separate annual filing lanes by entity type",
+      title: "Michigan annual report and annual statement searches split quickly by entity type",
       headers: ["Entity type", "Due date", "Published filing fee", "Late note"],
       rows: [
         [
@@ -926,7 +937,7 @@ export const expansionStructuredStateContentByFilePath = {
     {
       type: "table",
       eyebrow: "Fee and timing snapshot",
-      title: "Utah annual renewals run on the anniversary date with a standard fee lane",
+      title: "Utah annual renewals, often searched as annual reports, run on the anniversary date",
       headers: ["Entity type", "Core timing rule", "Published renewal fee", "Late note"],
       rows: [
         [
@@ -1031,9 +1042,9 @@ export const expansionGuideEvidenceByRoute = {
 
 export const expansionGuideDecisionToolByRoute = {
   "/tools/arizona/annual-report-deadline/": decisionTool({
-    caseLabel: "Which Arizona record fits best?",
+    caseLabel: "Which Arizona annual-report record fits best?",
     intro:
-      "Arizona is easy to misread if you flatten corporations and LLCs into one rule. Start by confirming the entity is actually a corporation before you rely on the fee or due date.",
+      "Arizona annual report searches are easy to misread if you flatten corporations and LLCs into one rule. Start by confirming the entity is actually a corporation before you rely on the fee or due date.",
     cases: [
       decisionCase({
         value: "for-profit-corporation",
@@ -1149,7 +1160,7 @@ export const expansionGuideDecisionToolByRoute = {
   "/tools/indiana/business-entity-report-deadline/": decisionTool({
     caseLabel: "Which Indiana report lane fits best?",
     intro:
-      "Indiana's main trap is forgetting that the Business Entity Report is biennial and anniversary-based. The second trap is assuming the online and paper fee lanes are identical.",
+      "If you searched Indiana annual report, the main trap is forgetting that Indiana calls it the Business Entity Report and makes it biennial and anniversary-based. The second trap is assuming the online and paper fee lanes are identical.",
     cases: [
       decisionCase({
         value: "for-profit-entity",
@@ -1207,7 +1218,7 @@ export const expansionGuideDecisionToolByRoute = {
   "/tools/michigan/annual-report-deadline/": decisionTool({
     caseLabel: "Which Michigan annual filing lane fits best?",
     intro:
-      "Michigan is one of the states where the filing label and due date both change by entity type. Start with the entity type before trusting any single deadline or fee.",
+      "Michigan annual report searches can point to either an annual report or an annual statement. Start with the entity type before trusting any single deadline or fee.",
     cases: [
       decisionCase({
         value: "llc-or-pllc",
@@ -1265,7 +1276,7 @@ export const expansionGuideDecisionToolByRoute = {
   "/tools/utah/annual-renewal-deadline/": decisionTool({
     caseLabel: "Which Utah renewal lane fits best?",
     intro:
-      "Utah's core answer is anniversary-based, but the real trap is assuming every lapsed entity can simply reinstate. Start with the entity type and whether the business is already out of good status.",
+      "If you searched Utah annual report, Utah's core answer is still the anniversary-based annual renewal. The real trap is assuming every lapsed entity can simply reinstate, so start with the entity type and status.",
     cases: [
       decisionCase({
         value: "corporation-or-llc",
