@@ -7,6 +7,10 @@ import {
   extraExpansionGuideEvidenceByRoute
 } from "./state-expansion-extra.mjs";
 import {
+  juneExpansionGuideDecisionToolByRoute,
+  juneExpansionGuideEvidenceByRoute
+} from "./state-expansion-june-2026.mjs";
+import {
   mayExpansionGuideDecisionToolByRoute,
   mayExpansionGuideEvidenceByRoute
 } from "./state-expansion-may-2026.mjs";
@@ -211,6 +215,7 @@ export const guideEvidenceByRoute = {
   ...baseGuideEvidenceByRoute,
   ...expansionGuideEvidenceByRoute,
   ...extraExpansionGuideEvidenceByRoute,
+  ...juneExpansionGuideEvidenceByRoute,
   ...mayExpansionGuideEvidenceByRoute,
   ...lateMayExpansionGuideEvidenceByRoute
 };
@@ -1273,6 +1278,7 @@ export const guideDecisionToolByRoute = {
   ...baseGuideDecisionToolByRoute,
   ...expansionGuideDecisionToolByRoute,
   ...extraExpansionGuideDecisionToolByRoute,
+  ...juneExpansionGuideDecisionToolByRoute,
   ...mayExpansionGuideDecisionToolByRoute,
   ...lateMayExpansionGuideDecisionToolByRoute
 };

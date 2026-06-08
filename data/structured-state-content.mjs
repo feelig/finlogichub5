@@ -1,5 +1,6 @@
 import { expansionStructuredStateContentByFilePath } from "./state-expansion.mjs";
 import { extraExpansionStructuredStateContentByFilePath } from "./state-expansion-extra.mjs";
+import { juneExpansionStructuredStateContentByFilePath } from "./state-expansion-june-2026.mjs";
 import { mayExpansionStructuredStateContentByFilePath } from "./state-expansion-may-2026.mjs";
 import { lateMayExpansionStructuredStateContentByFilePath } from "./state-expansion-late-may-2026.mjs";
 
@@ -1383,6 +1384,7 @@ export const structuredStateContentByFilePath = {
   ...baseStructuredStateContentByFilePath,
   ...expansionStructuredStateContentByFilePath,
   ...extraExpansionStructuredStateContentByFilePath,
+  ...juneExpansionStructuredStateContentByFilePath,
   ...mayExpansionStructuredStateContentByFilePath,
   ...lateMayExpansionStructuredStateContentByFilePath
 };
