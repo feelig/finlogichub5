@@ -152,10 +152,10 @@ const baseStatePages = [
   {
     "filePath": "tools/delaware/annual-report-deadline/index.html",
     "titleTag": "Delaware Annual Report Deadline for Corporations and LLC Annual Tax | FinLogic Hub",
-    "metaDescription": "Delaware annual report deadline guidance for domestic and foreign corporations, plus the separate June 1 Delaware LLC annual tax rule for LLCs, LPs, and GPs.",
+    "metaDescription": "Delaware annual report deadline guidance covering March 1 domestic-corporation filings, June 30 foreign-corporation filings, and the separate June 1 Delaware LLC annual tax rule.",
     "canonicalUrl": "https://finlogichub5.com/tools/delaware/annual-report-deadline/",
     "ogTitle": "Delaware Annual Report Deadline for Corporations and LLC Annual Tax | FinLogic Hub",
-    "ogDescription": "Review Delaware annual report deadlines for corporations and the separate Delaware LLC annual tax rule using Division of Corporations guidance.",
+    "ogDescription": "Review Delaware annual report deadlines for corporations, the June 1 Delaware LLC annual tax rule, and the main fee lanes using Division of Corporations guidance.",
     "state": "Delaware",
     "breadcrumbs": [
       {
@@ -172,7 +172,19 @@ const baseStatePages = [
       }
     ],
     "heroTitle": "Delaware annual report deadline for corporations and LLC annual tax",
-    "heroSubtitle": "If you searched Delaware annual report, start with the entity type. Domestic corporations file annual reports by March 1, foreign corporations by June 30, and Delaware LLCs do not file annual reports because they pay a $300 annual tax by June 1.",
+    "heroSubtitle": "If you searched Delaware annual report, start with the entity type. Domestic corporations file annual reports and franchise tax by March 1, foreign corporations file annual reports by June 30, and Delaware LLCs do not file annual reports because they pay a $300 annual tax by June 1.",
+    "heroActions": [
+      {
+        "href": "https://corp.delaware.gov/paytaxes/",
+        "label": "Open annual report and tax portal",
+        "variant": "primary"
+      },
+      {
+        "href": "https://corp.delaware.gov/alt-entitytaxinstructions/",
+        "label": "Check LLC annual tax guide",
+        "variant": "secondary"
+      }
+    ],
     "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Delaware Division of Corporations",
     "summaryTitle": "At a glance",
@@ -182,15 +194,32 @@ const baseStatePages = [
         "text": "Annual report and franchise tax due March 1."
       },
       {
-        "label": "Foreign corporation",
-        "text": "Annual report due June 30 with a $125 filing fee."
-      },
-      {
         "label": "Delaware LLC",
         "text": "No annual report; $300 annual tax due June 1."
+      },
+      {
+        "label": "Foreign corporation",
+        "text": "Annual report due June 30 with a $125 filing fee."
       }
     ],
-    "summaryNoteHtml": null,
+    "summaryNoteHtml": "<p class=\"table-note\">\n              Delaware annual report searches often mix corporation filing rules with the separate LLC annual tax. This page keeps those lanes separate so you do not pay or quote the wrong requirement.\n            </p>",
+    "caseCards": [
+      {
+        "label": "Domestic corporation",
+        "title": "Use the March 1 report and franchise-tax lane",
+        "text": "Domestic corporations file the annual report and pay franchise tax by March 1, so start there if the record is a Delaware corporation."
+      },
+      {
+        "label": "Foreign corporation",
+        "title": "Use the June 30 annual-report lane",
+        "text": "Foreign corporations still file an annual report, but the due date and fee lane differ from Delaware domestic corporations."
+      },
+      {
+        "label": "Delaware LLC, LP, or GP",
+        "title": "Do not look for an annual report",
+        "text": "Delaware LLCs, LPs, and GPs use the separate annual-tax path instead of a corporation annual report, so confirm the June 1 tax lane first."
+      }
+    ],
     "sourceLinks": [
       {
         "href": "https://corp.delaware.gov/paytaxes/",
@@ -495,7 +524,7 @@ const baseStatePages = [
         "text": "$650 before late penalties."
       }
     ],
-    "summaryNoteHtml": null,
+    "summaryNoteHtml": "<p class=\"table-note\">\n              Nevada annual fee searches often miss that the recurring state total stacks the annual list with the business license renewal. This calculator shows both before and after the published late penalties.\n            </p>",
     "caseCards": [
       {
         "label": "Nevada LLC",

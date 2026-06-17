@@ -320,7 +320,12 @@ ${section.headers
 ${section.rows
   .map(
     (row) => `                <tr>
-${row.map((cell) => `                  <td>${escapeHtml(cell)}</td>`).join("\n")}
+${row
+  .map(
+    (cell, index) =>
+      `                  <td data-label="${escapeHtml(section.headers[index] ?? "")}">${escapeHtml(cell)}</td>`
+  )
+  .join("\n")}
                 </tr>`
   )
   .join("\n")}
@@ -1059,7 +1064,7 @@ function renderPage(page) {
   const scriptSrc =
     page.scriptSrc === "/script.js" ? SCRIPT_ASSET_PATH : page.scriptSrc;
   const scriptTag = scriptSrc ? `\n    <script src="${escapeHtml(scriptSrc)}"></script>` : "";
-  const summaryNote = "";
+  const summaryNote = page.summaryNoteHtml ? `\n            ${page.summaryNoteHtml}` : "";
   const route = getPageRoute(page);
   const entry = directoryByRoute.get(route);
 

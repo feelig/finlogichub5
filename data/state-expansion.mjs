@@ -71,6 +71,18 @@ export const expansionStatePages = [
     heroTitle: "Arizona annual report fee and deadline for corporations",
     heroSubtitle:
       "If you searched Arizona annual report, first confirm the record is a corporation. Arizona LLCs do not file annual reports with the Arizona Corporation Commission, while for-profit and nonprofit corporations use the ACC annual-report lane.",
+    heroActions: [
+      {
+        href: "https://azcc.gov/docs/default-source/corps-files/how-to-file-a-corporation-annual-report.pdf",
+        label: "Open ACC filing guide",
+        variant: "primary"
+      },
+      {
+        href: "https://www.azcc.gov/docs/default-source/corps-files/fee-schedules/fee-schedule-corporations6def4cc74b1a47129d16c2b1c3851bda.pdf",
+        label: "Check official fee schedule",
+        variant: "secondary"
+      }
+    ],
     lastReviewed: "May 17, 2026",
     sourceBadge: "Source: Arizona Corporation Commission",
     summaryTitle: "At a glance",
@@ -463,7 +475,10 @@ export const expansionStatePages = [
         text: "$10 late renewal fee, and Utah says foreign entities cannot use the reinstatement path if they lapse."
       }
     ],
-    summaryNoteHtml: null,
+    summaryNoteHtml: `<p class="table-note">
+              Utah annual report searches usually mean the annual renewal. The due date follows the
+              entity's own anniversary, so the official record matters more than a calendar-month guess.
+            </p>`,
     heroActions: [
       {
         href: "https://corporations.utah.gov/renewal-process/",

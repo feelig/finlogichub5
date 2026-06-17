@@ -115,9 +115,9 @@ const baseStateDirectory = [
     directoryCardDescription:
       "Separates Delaware corporation annual reports from the June 1 Delaware LLC annual tax.",
     homeComparison: {
-      focus: "Domestic corporation or Delaware LLC",
-      deadline: "March 1",
-      fee: "$50 filing fee plus franchise tax",
+      focus: "Domestic corporation, foreign corporation, or Delaware LLC",
+      deadline: "March 1, June 1, or June 30 depending on entity type",
+      fee: "$50 domestic report fee, $125 foreign report fee, or $300 Delaware LLC annual tax",
       lateRule: "$200 penalty plus 1.5% monthly interest"
     },
     directoryComparison: {
@@ -167,16 +167,16 @@ const baseStateDirectory = [
     directoryCardDescription:
       "Annual list fees, business license renewals, and published late penalties for LLCs and corporations.",
     homeComparison: {
-      focus: "LLC",
+      focus: "Nevada LLC or corporation checking recurring state fees",
       deadline: "Last day of anniversary month",
-      fee: "$150 annual list + $200 state business license",
+      fee: "$350 LLC total or $650 corporation total before late penalties",
       lateRule: "$75 annual-list penalty + $100 license penalty"
     },
     directoryComparison: {
       obligation: "Annual list and business license renewal",
       entityFocus: "LLCs and corporations",
       deadline: "Last day of anniversary month",
-      amount: "$350 recurring LLC state total before late penalties"
+      amount: "$350 LLC total or $650 corporation total before late penalties"
     }
   },
   {

@@ -89,28 +89,34 @@ const POPULAR_GUIDE_CARDS = [
     text: "Use this guide for the April 15 LLC deadline and the current online vs paper fee split."
   },
   {
+    href: "/tools/delaware/annual-report-deadline/",
+    kicker: "High-impression guide",
+    label: "Delaware annual report and LLC annual tax",
+    text: "Start here to separate March 1 corporation filings from the June 1 Delaware LLC annual tax."
+  },
+  {
     href: "/tools/georgia/annual-report-deadline/",
     kicker: "High-impression guide",
     label: "Georgia annual report and registration",
     text: "Open this when you need the April 1 deadline, common online total, and late-penalty rule."
   },
   {
+    href: "/tools/arizona/annual-report-deadline/",
+    kicker: "High-impression guide",
+    label: "Arizona annual report fee and deadline",
+    text: "Best when you need the corporation-only filing rule and the Arizona LLC no-annual-report answer."
+  },
+  {
     href: "/tools/oregon/annual-report-deadline/",
     kicker: "High-impression guide",
     label: "Oregon annual report fee and due date",
-    text: "Best for anniversary-date renewals and domestic vs foreign fee checks."
+    text: "Use this for anniversary-date renewals and the domestic-versus-foreign fee split."
   },
   {
-    href: "/tools/pennsylvania/annual-report-deadline/",
+    href: "/tools/utah/annual-renewal-deadline/",
     kicker: "High-impression guide",
-    label: "Pennsylvania annual report fee and deadline",
-    text: "Use this guide for the filing window and the standard $7 annual report fee."
-  },
-  {
-    href: "/tools/nevada/annual-fee-calculator/",
-    kicker: "High-impression guide",
-    label: "Nevada annual fee calculator",
-    text: "Start here when you need the annual list and business-license fee estimate."
+    label: "Utah annual renewal and annual report deadline",
+    text: "Open this when you need Utah's anniversary-date renewal rule and the standard $18 fee lane."
   }
 ];
 
@@ -1170,7 +1176,7 @@ ${renderFaqCards(HOME_FAQ_ITEMS)}
             <div class="section__head">
               <p class="eyebrow">Popular state guides</p>
               <h2>Open the pages most visitors need first</h2>
-              <p>These are the state guides people most often need when they are checking deadlines, fees, or recurring filing rules.</p>
+              <p>These are the guides currently attracting the most search interest when visitors check deadlines, fees, or recurring filing rules.</p>
             </div>
             <div class="action-list action-list--triple">
 ${renderPopularGuideCards()}
@@ -1300,15 +1306,42 @@ ${renderComparisonOptions(entries)}
           </div>
         </section>
 
-        <section class="section surface">
+        <section class="section surface" data-guide-directory-root>
           <div class="section__head">
             <p class="eyebrow">All guides</p>
             <h2>All state guides</h2>
             <p>Open the full guide once you know which state and filing label you need.</p>
           </div>
+          <div class="filter-bar">
+            <div>
+              <strong>Find a guide faster</strong>
+              <span>Search by state, filing label, or entity type, then narrow the list by guide group.</span>
+              <p class="results-count" data-guide-results-count></p>
+            </div>
+            <div class="filter-bar__controls">
+              <label class="field field--search">
+                <span>Search guides</span>
+                <input
+                  type="search"
+                  placeholder="Type a state, filing label, or entity"
+                  data-guide-search-input
+                />
+              </label>
+              <label class="field">
+                <span>Guide group</span>
+                <select data-guide-bucket-select>
+                  <option value="">All guide groups</option>
+${renderGuideTypeOptions(bucketSummaries)}
+                </select>
+              </label>
+            </div>
+          </div>
           <div class="state-grid state-grid--directory">
 ${renderStateCards(entries, "directory")}
           </div>
+          <p class="empty-state" hidden data-guide-empty>
+            No guides match that search yet. Try another state name, filing label, or guide group.
+          </p>
         </section>
 
 ${renderFaqSection({
