@@ -1,6 +1,7 @@
 import { expansionStatePages } from "./state-expansion.mjs";
 import { extraExpansionStatePages } from "./state-expansion-extra.mjs";
 import { juneExpansionStatePages } from "./state-expansion-june-2026.mjs";
+import { julyExpansionStatePages } from "./state-expansion-july-2026.mjs";
 import { mayExpansionStatePages } from "./state-expansion-may-2026.mjs";
 import { lateMayExpansionStatePages } from "./state-expansion-late-may-2026.mjs";
 
@@ -969,6 +970,7 @@ export const statePages = [
   ...expansionStatePages,
   ...extraExpansionStatePages,
   ...juneExpansionStatePages,
+  ...julyExpansionStatePages,
   ...mayExpansionStatePages,
   ...lateMayExpansionStatePages
 ];

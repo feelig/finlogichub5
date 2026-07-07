@@ -1117,7 +1117,7 @@ ${renderHomeHeader()}
             </div>
             <div class="stat-grid">
               <div class="stat-card">
-                <strong>${entries.length} live state guides</strong>
+                <strong>${entries.length} live jurisdiction guides</strong>
                 <span>Annual reports, recurring fees, statements, and franchise-tax filings.</span>
               </div>
               <div class="stat-card">
@@ -1224,7 +1224,7 @@ ${renderHeader()}
               Choose 2 or 3 states to compare the filing label, deadline, amount, and late-rule starting point before you open the full guide.
             </p>
             <div class="badge-row">
-              <span class="badge">${entries.length} state guides</span>
+              <span class="badge">${entries.length} guides</span>
               <span class="badge">Checked ${escapeHtml(latestReviewText)}</span>
               <span class="badge">Daily source scan enabled</span>
             </div>
@@ -1309,7 +1309,7 @@ ${renderComparisonOptions(entries)}
         <section class="section surface" data-guide-directory-root>
           <div class="section__head">
             <p class="eyebrow">All guides</p>
-            <h2>All state guides</h2>
+            <h2>All guides</h2>
             <p>Open the full guide once you know which state and filing label you need.</p>
           </div>
           <div class="filter-bar">
