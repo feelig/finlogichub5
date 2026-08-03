@@ -949,7 +949,13 @@ ${page.caseCards
         </section>`;
 }
 
-function renderStateNextStepsSection() {
+function renderStateNextStepsSection(page) {
+  const relatedGuide = page.relatedGuide ?? {
+    href: FILING_HELP_OPTIONS_ROUTE,
+    kicker: "Help options",
+    label: "Decide whether to DIY or use help",
+    text: "Review when a simple self-serve filing is enough and when a service or advisor may be worth it."
+  };
   const cards = [
     {
       href: DIRECTORY_ROUTE,
@@ -963,18 +969,13 @@ function renderStateNextStepsSection() {
       label: "Confirm the filing label first",
       text: "Use this page if you still need to separate an annual report from an annual tax, registration, or franchise-tax filing."
     },
-    {
-      href: FILING_HELP_OPTIONS_ROUTE,
-      kicker: "Help options",
-      label: "Decide whether to DIY or use help",
-      text: "Review when a simple self-serve filing is enough and when a service or advisor may be worth it."
-    }
+    relatedGuide
   ];
 
   return `        <section class="section surface">
           <div class="section__head">
             <p class="eyebrow">Next step</p>
-            <h2>Keep moving without leaving the site map</h2>
+            <h2>${page.relatedGuide ? "Compare related filing guides" : "Keep moving without leaving the site map"}</h2>
           </div>
           <div class="action-list action-list--triple">
 ${cards
@@ -995,6 +996,7 @@ function serializeJsonLd(value) {
 }
 
 function renderStructuredData(page, entry) {
+  const modifiedDate = formatReviewDate(page.lastModified ?? page.lastReviewed);
   const breadcrumbData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -1012,7 +1014,7 @@ function renderStructuredData(page, entry) {
     name: page.heroTitle,
     description: page.metaDescription,
     url: page.canonicalUrl,
-    dateModified: formatReviewDate(page.lastReviewed),
+    dateModified: modifiedDate,
     about: {
       "@type": "AdministrativeArea",
       name: page.state
@@ -1029,7 +1031,7 @@ function renderStructuredData(page, entry) {
     description: page.metaDescription,
     url: page.canonicalUrl,
     mainEntityOfPage: page.canonicalUrl,
-    dateModified: formatReviewDate(page.lastReviewed),
+    dateModified: modifiedDate,
     about: {
       "@type": "AdministrativeArea",
       name: page.state
@@ -1067,6 +1069,7 @@ function renderPage(page) {
   const summaryNote = page.summaryNoteHtml ? `\n            ${page.summaryNoteHtml}` : "";
   const route = getPageRoute(page);
   const entry = directoryByRoute.get(route);
+  const modifiedDate = formatReviewDate(page.lastModified ?? page.lastReviewed);
 
   if (!entry) {
     throw new Error(`Missing state directory entry for route: ${route}`);
@@ -1095,7 +1098,7 @@ function renderPage(page) {
       content="${escapeHtml(page.ogDescription)}"
     />
     <meta property="og:type" content="article" />
-    <meta property="article:modified_time" content="${formatReviewDate(page.lastReviewed)}" />
+    <meta property="article:modified_time" content="${modifiedDate}" />
     <meta property="og:image" content="https://finlogichub5.com/social-preview.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1156,7 +1159,7 @@ ${pageBody}
 
 ${renderStateFaqSection(page, entry)}
 
-${renderStateNextStepsSection()}
+${renderStateNextStepsSection(page)}
 
         <section class="section surface" id="official-sources">
           <div class="section__head">

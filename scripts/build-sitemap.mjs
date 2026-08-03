@@ -77,7 +77,7 @@ const statePages = [...liveStatePages]
     loc: page.canonicalUrl,
     changefreq: "monthly",
     priority: "0.8",
-    lastmod: formatDate(parseReviewDate(page.lastReviewed))
+    lastmod: formatDate(parseReviewDate(page.lastModified ?? page.lastReviewed))
   }));
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
