@@ -30,15 +30,15 @@ const baseStateDirectory = [
   {
     state: "North Carolina",
     route: "/tools/north-carolina/annual-report-deadline/",
-    guideLabel: "North Carolina annual report fee and deadline",
+    guideLabel: "North Carolina LLC annual report: April 15 deadline and fees",
     chipLabel: "NC LLCs",
     guideType: "Annual report guide",
     coverageBucket: "annual-reports",
     featuredInHomeNav: false,
     homeCardDescription:
-      "North Carolina annual report deadlines for LLCs, L3Cs, and corporations, plus the current online versus paper fee split.",
+      "North Carolina LLC annual reports due April 15, with $203 credit-card, $202 ACH, and $200 paper filing options.",
     directoryCardDescription:
-      "North Carolina annual report timing for LLCs, L3Cs, and corporations, with the current online and paper filing-fee split.",
+      "North Carolina LLC and L3C annual report timing, the April 15 deadline, and the current online versus paper fee split.",
     homeComparison: {
       focus: "North Carolina LLC, L3C, or corporation annual report",
       deadline: "April 15",
@@ -418,15 +418,15 @@ const baseStateDirectory = [
   {
     state: "Oregon",
     route: "/tools/oregon/annual-report-deadline/",
-    guideLabel: "Oregon annual report deadline and filing fee",
+    guideLabel: "Oregon LLC annual report due date and filing fees",
     chipLabel: "Oregon annual report",
     guideType: "Annual report guide",
     coverageBucket: "annual-reports",
     featuredInHomeNav: false,
     homeCardDescription:
-      "How to file an Oregon annual report, the anniversary-date renewal rule, Oregon LLC fee lanes, 45-day reminders, and reinstatement guidance.",
+      "Oregon LLC and corporation annual reports due on the filing anniversary, with $100 domestic and $275 foreign fee lanes.",
     directoryCardDescription:
-      "Oregon annual report timing, how to file, fee splits by entity type, reminder timing, and reinstatement guidance for missed filings.",
+      "Oregon annual report anniversary timing, $100 domestic and $275 foreign fee lanes, filing steps, and missed-filing guidance.",
     homeComparison: {
       focus: "Oregon LLC, corporation, nonprofit, or LP annual report",
       deadline: "Anniversary date of the original filing each year",
