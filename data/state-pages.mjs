@@ -635,11 +635,11 @@ const baseStatePages = [
   },
   {
     "filePath": "tools/north-carolina/annual-report-deadline/index.html",
-    "titleTag": "North Carolina Annual Report Fee and Deadline | FinLogic Hub",
-    "metaDescription": "North Carolina annual report deadline and fee guidance for LLCs, L3Cs, and corporations, including the April 15 LLC rule, the $203 online LLC fee, the $200 paper fee, and corporation fiscal-year deadlines.",
+    "titleTag": "NC LLC Annual Report: April 15 Deadline & $203 Online Fee",
+    "metaDescription": "North Carolina LLC annual reports are generally due April 15. Compare the $203 online and $200 paper fees, filing steps, and official NC SOS links.",
     "canonicalUrl": "https://finlogichub5.com/tools/north-carolina/annual-report-deadline/",
-    "ogTitle": "North Carolina Annual Report Fee and Deadline | FinLogic Hub",
-    "ogDescription": "Review North Carolina annual report deadlines for LLCs and corporations, plus the current online and paper fee split using Secretary of State guidance.",
+    "ogTitle": "NC LLC Annual Report: April 15 Deadline & $203 Online Fee",
+    "ogDescription": "Check the North Carolina LLC April 15 annual report deadline, $203 online and $200 paper fees, and official Secretary of State filing links.",
     "state": "North Carolina",
     "breadcrumbs": [
       {
@@ -651,12 +651,12 @@ const baseStatePages = [
         "href": "/states.html"
       },
       {
-        "label": "North Carolina annual report fee and deadline",
+        "label": "North Carolina LLC annual report",
         "href": null
       }
     ],
-    "heroTitle": "North Carolina annual report fee and deadline for LLCs and corporations",
-    "heroSubtitle": "If you searched North Carolina annual report, start by separating the fixed April 15 LLC and L3C filing from the corporation fiscal-year annual report rule. Then confirm whether you are paying the $200 paper fee, $202 ACH fee, or $203 card fee for an LLC.",
+    "heroTitle": "North Carolina LLC annual report: April 15 deadline",
+    "heroSubtitle": "North Carolina LLC and L3C annual reports are due April 15 each year after the year of creation. The current fee is $203 by credit card online, $202 by ACH, or $200 by paper.",
     "heroActions": [
       {
         "href": "https://www.sosnc.gov/divisions/business_registration/annual_report/12819032",
@@ -670,6 +670,7 @@ const baseStatePages = [
       }
     ],
     "lastReviewed": "May 17, 2026",
+    "lastModified": "August 3, 2026",
     "sourceBadge": "Source: NC Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -704,6 +705,12 @@ const baseStatePages = [
         "text": "Some partnerships and foreign registrations use different rules or totals, so match the entity on the SOS record before you rely on the LLC number."
       }
     ],
+    "relatedGuide": {
+      "href": "/tools/michigan/annual-report-deadline/",
+      "kicker": "Related fixed-date filing",
+      "label": "Compare Michigan's LLC annual statement",
+      "text": "Michigan LLCs use a February 15 annual statement with a different filing fee."
+    },
     "sourceLinks": [
       {
         "href": "https://www.sosnc.gov/divisions/business_registration/annual_report_due_dates",

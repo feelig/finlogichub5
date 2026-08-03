@@ -345,23 +345,24 @@ export const expansionStatePages = [
   },
   {
     filePath: "tools/michigan/annual-report-deadline/index.html",
-    titleTag: "Michigan Annual Report Deadline and Annual Statement Fees | FinLogic Hub",
+    titleTag: "Michigan LLC Annual Statement: Feb. 15 Deadline & $25 Fee",
     metaDescription:
-      "Michigan annual report deadline and annual statement fee guidance covering the February 15 LLC deadline, May 15 corporation deadline, October 1 nonprofit deadline, filing fees, reminders, and penalty rules.",
+      "Check the Michigan LLC annual statement deadline, current $25 fee, LARA filing steps, late rules, and the official MiBusiness Registry portal.",
     canonicalUrl: "https://finlogichub5.com/tools/michigan/annual-report-deadline/",
-    ogTitle: "Michigan Annual Report Deadline and Annual Statement Fees | FinLogic Hub",
+    ogTitle: "Michigan LLC Annual Statement: Feb. 15 Deadline & $25 Fee",
     ogDescription:
-      "Review Michigan annual report deadlines, LLC annual statement rules, filing fees, reminder timing, and late-penalty schedules from Michigan LARA guidance.",
+      "Check the Michigan LLC February 15 annual statement deadline, $25 fee, late rules, and official LARA filing portal.",
     state: "Michigan",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Michigan annual report deadline", href: null }
+      { label: "Michigan LLC annual statement", href: null }
     ],
-    heroTitle: "Michigan annual report deadline and annual statement fees",
+    heroTitle: "Michigan LLC annual statement: February 15 deadline",
     heroSubtitle:
-      "If you searched Michigan annual report, start with the entity type. Michigan uses annual reports for corporations and nonprofits, but LLCs and PLLCs file annual statements on a different deadline and fee lane.",
+      "Michigan LLC annual statements are due February 15 each year after organization or qualification and carry a $25 filing fee. Corporations and nonprofits use separate annual report deadlines.",
     lastReviewed: "May 17, 2026",
+    lastModified: "August 3, 2026",
     sourceBadge: "Source: Michigan LARA Corporations Division",
     summaryTitle: "At a glance",
     metrics: [
@@ -412,6 +413,12 @@ export const expansionStatePages = [
         text: "Michigan nonprofit corporations use the October 1 annual-report deadline and the lower nonprofit filing-fee lane rather than the corporation or LLC schedule."
       }
     ],
+    relatedGuide: {
+      href: "/tools/north-carolina/annual-report-deadline/",
+      kicker: "Related fixed-date filing",
+      label: "Compare North Carolina's LLC annual report",
+      text: "North Carolina LLCs use an April 15 deadline and a higher annual report filing fee."
+    },
     sourceLinks: [
       {
         href: "https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements",
@@ -442,23 +449,24 @@ export const expansionStatePages = [
   },
   {
     filePath: "tools/utah/annual-renewal-deadline/index.html",
-    titleTag: "Utah Annual Renewal and Annual Report Deadline | FinLogic Hub",
+    titleTag: "Utah LLC Annual Renewal: Due Date, $18 Fee & Late Rules",
     metaDescription:
-      "Utah annual renewal and annual report deadline guidance covering anniversary-date timing, $18 renewal fees for most entities, the $10 late renewal fee, Utah LLC reinstatement questions, and reinstatement limits for foreign entities.",
+      "Check your Utah LLC annual renewal deadline, current $18 renewal fee, $10 late fee, reinstatement rules, and official Utah renewal portal.",
     canonicalUrl: "https://finlogichub5.com/tools/utah/annual-renewal-deadline/",
-    ogTitle: "Utah Annual Renewal and Annual Report Deadline | FinLogic Hub",
+    ogTitle: "Utah LLC Annual Renewal: Due Date, $18 Fee & Late Rules",
     ogDescription:
-      "Review Utah annual renewal and annual report timing, current fee schedules, Utah LLC reinstatement questions, late renewal fees, and reinstatement limits from Utah Division of Corporations guidance.",
+      "Check the Utah LLC annual renewal deadline, $18 renewal fee, $10 late fee, reinstatement rules, and the official filing portal.",
     state: "Utah",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Utah annual renewal and annual report", href: null }
+      { label: "Utah LLC annual renewal", href: null }
     ],
-    heroTitle: "Utah annual renewal and annual report deadline",
+    heroTitle: "Utah LLC annual renewal deadline and fees",
     heroSubtitle:
-      "If you searched Utah annual report, Utah usually calls the filing an annual renewal. Start with the anniversary date, then confirm whether the entity is domestic or foreign before you rely on the renewal or reinstatement path.",
+      "Utah calls this recurring filing an annual report or renewal. The current standard fee is $18 for most entities, the late renewal fee is $10, and the entity record controls the anniversary-based due date.",
     lastReviewed: "May 17, 2026",
+    lastModified: "August 3, 2026",
     sourceBadge: "Source: Utah Division of Corporations and Commercial Code",
     summaryTitle: "At a glance",
     metrics: [
@@ -508,6 +516,12 @@ export const expansionStatePages = [
         text: "Utah's reinstatement FAQ says foreign entities cannot reinstate. If the record is already lapsed, confirm the exact status before you pay."
       }
     ],
+    relatedGuide: {
+      href: "/tools/oregon/annual-report-deadline/",
+      kicker: "Related anniversary filing",
+      label: "Compare Oregon's annual report rule",
+      text: "Oregon also uses the original filing anniversary, but domestic and foreign fees differ."
+    },
     sourceLinks: [
       {
         href: "https://corporations.utah.gov/renewal-process/",
@@ -625,15 +639,15 @@ export const expansionStateDirectory = [
   {
     state: "Michigan",
     route: "/tools/michigan/annual-report-deadline/",
-    guideLabel: "Michigan annual report deadline and annual statement fees",
+    guideLabel: "Michigan LLC annual statement: February 15 deadline and $25 fee",
     chipLabel: "Michigan annual report",
     guideType: "Annual report and statement guide",
     coverageBucket: "annual-registration-and-tax",
     featuredInHomeNav: false,
     homeCardDescription:
-      "Michigan annual report and annual statement deadlines for LLCs, corporations, and nonprofits, plus fee and penalty splits.",
+      "Michigan LLC annual statements due February 15 with a $25 fee, plus separate corporation and nonprofit filing lanes.",
     directoryCardDescription:
-      "Michigan annual report and annual statement deadlines by entity type, annual report search wording, reminder timing, fee lanes, and published late-penalty sequence.",
+      "Michigan LLC annual statement timing, the February 15 deadline, $25 fee, and separate annual report rules for corporations and nonprofits.",
     homeComparison: {
       focus: "Michigan corporation, nonprofit, LLC, or PLLC annual filing",
       deadline: "February 15, May 15, or October 1 depending on entity type",
@@ -651,15 +665,15 @@ export const expansionStateDirectory = [
   {
     state: "Utah",
     route: "/tools/utah/annual-renewal-deadline/",
-    guideLabel: "Utah annual renewal and annual report deadline",
+    guideLabel: "Utah LLC annual renewal deadline and $18 fee",
     chipLabel: "Utah annual report",
     guideType: "Annual renewal guide",
     coverageBucket: "annual-registration-and-tax",
     featuredInHomeNav: false,
     homeCardDescription:
-      "Utah annual renewal or annual report timing, $18 standard fee lanes, Utah LLC reinstatement questions, and reinstatement limits for foreign entities.",
+      "Utah LLC annual renewal timing, the $18 standard fee, $10 late fee, and reinstatement rules after a lapse.",
     directoryCardDescription:
-      "Utah annual renewal timing, annual report search wording, current fee schedules, late renewal fees, and the domestic-versus-foreign reinstatement split that matters after a lapse.",
+      "Utah LLC annual renewal timing, the anniversary-based due rule, $18 standard fee, $10 late fee, and reinstatement limits.",
     homeComparison: {
       focus: "Utah domestic or foreign corporation, nonprofit, LLC, LP, or LLP",
       deadline: "Anniversary date each year, beginning one year after registration",

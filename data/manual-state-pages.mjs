@@ -200,22 +200,22 @@ export const manualStatePages = [
   },
   {
     filePath: "tools/oregon/annual-report-deadline/index.html",
-    titleTag: "Oregon Annual Report Deadline and Filing Fee | FinLogic Hub",
+    titleTag: "Oregon LLC Annual Report: Due Date & $100/$275 Fees",
     metaDescription:
-      "Oregon annual report deadline and filing fee guidance covering how to file an Oregon annual report, the anniversary-date renewal rule, 45-day reminders, fee splits, and reinstatement after missed reports.",
+      "Check the Oregon LLC and corporation annual report due date, $100 domestic and $275 foreign fees, filing steps, late consequences, and official renewal links.",
     canonicalUrl: "https://finlogichub5.com/tools/oregon/annual-report-deadline/",
-    ogTitle: "Oregon Annual Report Deadline and Filing Fee | FinLogic Hub",
+    ogTitle: "Oregon LLC Annual Report: Due Date & $100/$275 Fees",
     ogDescription:
-      "Review Oregon annual report deadlines, how to file an Oregon annual report, fee splits, reminder timing, and reinstatement rules using Oregon Secretary of State sources.",
+      "Check Oregon annual report due dates, $100 domestic and $275 foreign renewal fees, filing steps, and official Secretary of State links.",
     state: "Oregon",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Oregon annual report deadline", href: null }
+      { label: "Oregon LLC annual report", href: null }
     ],
-    heroTitle: "Oregon annual report deadline and filing fee",
+    heroTitle: "Oregon LLC annual report due date and fees",
     heroSubtitle:
-      "Use this page if you need to file an Oregon annual report, check an Oregon LLC annual report deadline, or confirm the renewal fee. Most businesses start with the anniversary-date rule, then confirm whether the entity uses the domestic or foreign fee.",
+      "Oregon annual reports are due each year on the original filing anniversary date. Most domestic LLCs and corporations pay $100; many foreign entities pay $275. Match the entity type before filing.",
     heroActions: [
       {
         href: "https://sos.oregon.gov/business/Pages/obr-annual-report-renewal.aspx",
@@ -229,6 +229,7 @@ export const manualStatePages = [
       }
     ],
     lastReviewed: "May 17, 2026",
+    lastModified: "August 3, 2026",
     sourceBadge: "Source: Oregon Secretary of State Corporation Division",
     summaryTitle: "At a glance",
     metrics: [
@@ -267,6 +268,12 @@ export const manualStatePages = [
         text: "Foreign nonprofits can use a lower annual renewal, and missed reports move you into reinstatement with separate fees."
       }
     ],
+    relatedGuide: {
+      href: "/tools/utah/annual-renewal-deadline/",
+      kicker: "Related anniversary filing",
+      label: "Compare Utah's annual renewal rule",
+      text: "Utah also uses an anniversary-based cycle, with a different filing label and fee structure."
+    },
     sourceLinks: [
       {
         href: "https://sos.oregon.gov/business/Pages/faq.aspx",
