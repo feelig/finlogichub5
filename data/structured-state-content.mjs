@@ -354,6 +354,10 @@ const baseStructuredStateContentByFilePath = {
         {
           title: "Where the fee math comes from",
           text: "North Carolina separates the statutory filing fee from the electronic payment fee. That is why the best planning answer is usually a paper amount plus a small online add-on for ACH or credit-card processing."
+        },
+        {
+          title: "A 2026 military-deployment exception may change the date",
+          text: "The North Carolina Secretary of State says SL 2026-59 lets a business that is more than 50% owned by a deployed service member file an Affidavit of Deployment before deployment. The annual report is then due 90 days after the deployment ends. Use the official Business Registration notice for the current instructions."
         }
       ]
     }

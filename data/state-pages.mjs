@@ -669,8 +669,8 @@ const baseStatePages = [
         "variant": "secondary"
       }
     ],
-    "lastReviewed": "May 17, 2026",
-    "lastModified": "August 3, 2026",
+    "lastReviewed": "October 19, 2026",
+    "lastModified": "October 19, 2026",
     "sourceBadge": "Source: NC Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -700,9 +700,9 @@ const baseStatePages = [
         "text": "North Carolina corporations do not follow the LLC April 15 rule by default, so check the fiscal-year timing before you quote a due date."
       },
       {
-        "label": "Partnership or other record",
-        "title": "Do not default to the LLC fee",
-        "text": "Some partnerships and foreign registrations use different rules or totals, so match the entity on the SOS record before you rely on the LLC number."
+        "label": "Already late or dissolved",
+        "title": "Check status before paying the normal annual-report fee",
+        "text": "North Carolina does not publish a flat late fee on the due-date chart. If the entity is already out of status, use the official reinstatement page because the normal annual-report answer may not be enough."
       }
     ],
     "relatedGuide": {
@@ -731,6 +731,10 @@ const baseStatePages = [
       {
         "href": "https://b2b.sosnc.gov/fees/by_title/_Business_Registration",
         "label": "North Carolina business registration fee table"
+      },
+      {
+        "href": "https://www.sosnc.gov/divisions/business_registration/",
+        "label": "North Carolina business registration updates and 2026 military deployment extension"
       }
     ],
     "scriptSrc": "/script.js"

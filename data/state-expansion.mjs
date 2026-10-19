@@ -449,24 +449,24 @@ export const expansionStatePages = [
   },
   {
     filePath: "tools/utah/annual-renewal-deadline/index.html",
-    titleTag: "Utah LLC Annual Renewal: Due Date, $18 Fee & Late Rules",
+    titleTag: "Utah LLC Renewal or Reinstatement: $18 and $54 Fees",
     metaDescription:
-      "Check your Utah LLC annual renewal deadline, current $18 renewal fee, $10 late fee, reinstatement rules, and official Utah renewal portal.",
+      "Renewing a Utah LLC costs $18; reinstating an eligible lapsed domestic LLC costs $54. Check the anniversary deadline, $10 late fee, and official steps.",
     canonicalUrl: "https://finlogichub5.com/tools/utah/annual-renewal-deadline/",
-    ogTitle: "Utah LLC Annual Renewal: Due Date, $18 Fee & Late Rules",
+    ogTitle: "Utah LLC Renewal or Reinstatement: $18 and $54 Fees",
     ogDescription:
-      "Check the Utah LLC annual renewal deadline, $18 renewal fee, $10 late fee, reinstatement rules, and the official filing portal.",
+      "Choose the correct Utah LLC path: $18 annual renewal, $10 late fee, or $54 reinstatement for an eligible lapsed domestic LLC.",
     state: "Utah",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
       { label: "Utah LLC annual renewal", href: null }
     ],
-    heroTitle: "Utah LLC annual renewal deadline and fees",
+    heroTitle: "Utah LLC annual renewal or reinstatement",
     heroSubtitle:
-      "Utah calls this recurring filing an annual report or renewal. The current standard fee is $18 for most entities, the late renewal fee is $10, and the entity record controls the anniversary-based due date.",
-    lastReviewed: "May 17, 2026",
-    lastModified: "August 3, 2026",
+      "Choose by current status: an active Utah LLC normally pays $18 for its annual renewal, a late renewal adds $10, and an eligible lapsed domestic LLC uses the $54 reinstatement filing. Foreign entities and DBAs cannot reinstate.",
+    lastReviewed: "October 19, 2026",
+    lastModified: "October 19, 2026",
     sourceBadge: "Source: Utah Division of Corporations and Commercial Code",
     summaryTitle: "At a glance",
     metrics: [
@@ -479,23 +479,23 @@ export const expansionStatePages = [
         text: "$18 for corporations, nonprofits, LLCs, LPs, and LLPs on the current fee schedule."
       },
       {
-        label: "Late and reinstatement rule",
-        text: "$10 late renewal fee, and Utah says foreign entities cannot use the reinstatement path if they lapse."
+        label: "Domestic LLC reinstatement",
+        text: "$54 for an eligible lapsed domestic LLC; foreign entities and DBAs cannot reinstate."
       }
     ],
     summaryNoteHtml: `<p class="table-note">
-              Utah annual report searches usually mean the annual renewal. The due date follows the
-              entity's own anniversary, so the official record matters more than a calendar-month guess.
+              Utah annual report searches usually mean the annual renewal. If the record is already
+              lapsed, stop and use the reinstatement branch instead of paying the normal renewal fee.
             </p>`,
     heroActions: [
       {
-        href: "https://corporations.utah.gov/renewal-process/",
-        label: "Open official renewal process",
+        href: "https://commerce.utah.gov/corporations/renewal-process/",
+        label: "Renew on the official Utah path",
         variant: "primary"
       },
       {
-        href: "https://businessregistration.utah.gov/",
-        label: "Open Utah business portal",
+        href: "https://commerce.utah.gov/corporations/reinstate-a-business/",
+        label: "Open official reinstatement steps",
         variant: "secondary"
       }
     ],
@@ -512,8 +512,8 @@ export const expansionStatePages = [
       },
       {
         label: "Foreign or lapsed entity",
-        title: "Check status before assuming reinstatement is available",
-        text: "Utah's reinstatement FAQ says foreign entities cannot reinstate. If the record is already lapsed, confirm the exact status before you pay."
+        title: "Separate a domestic reinstatement from a foreign re-registration",
+        text: "Eligible lapsed domestic LLCs use the $54 reinstatement filing. Utah says foreign entities and DBAs cannot reinstate, so they need the status-specific official path instead."
       }
     ],
     relatedGuide: {
@@ -524,23 +524,23 @@ export const expansionStatePages = [
     },
     sourceLinks: [
       {
-        href: "https://corporations.utah.gov/renewal-process/",
+        href: "https://commerce.utah.gov/corporations/renewal-process/",
         label: "Utah annual renewal process page"
       },
       {
-        href: "https://corporations.utah.gov/faqs/how-to-renew-a-business/",
+        href: "https://commerce.utah.gov/corporations/faqs/how-to-renew-a-business/",
         label: "Utah how to renew a business FAQ"
       },
       {
-        href: "https://corporations.utah.gov/wp-content/uploads/2023/04/currentfees.pdf",
-        label: "Utah current fee schedule PDF"
+        href: "https://commerce.utah.gov/wp-content/uploads/2023/04/currentfees.pdf",
+        label: "Utah fiscal year 2026 fee schedule PDF"
       },
       {
-        href: "https://corporations.utah.gov/faqs/how-to-reinstate-a-business-entity/",
+        href: "https://commerce.utah.gov/corporations/faqs/how-to-reinstate-a-business-entity/",
         label: "Utah reinstatement FAQ"
       },
       {
-        href: "https://corporations.utah.gov/reinstate-a-business/",
+        href: "https://commerce.utah.gov/corporations/reinstate-a-business/",
         label: "Utah reinstate a business general instructions"
       },
       {
@@ -665,21 +665,21 @@ export const expansionStateDirectory = [
   {
     state: "Utah",
     route: "/tools/utah/annual-renewal-deadline/",
-    guideLabel: "Utah LLC annual renewal deadline and $18 fee",
+    guideLabel: "Utah LLC renewal or reinstatement fees and steps",
     chipLabel: "Utah annual report",
     guideType: "Annual renewal guide",
     coverageBucket: "annual-registration-and-tax",
     featuredInHomeNav: false,
     homeCardDescription:
-      "Utah LLC annual renewal timing, the $18 standard fee, $10 late fee, and reinstatement rules after a lapse.",
+      "Utah LLC annual renewal timing, the $18 standard fee, $10 late fee, and $54 domestic reinstatement path after a lapse.",
     directoryCardDescription:
-      "Utah LLC annual renewal timing, the anniversary-based due rule, $18 standard fee, $10 late fee, and reinstatement limits.",
+      "Utah LLC annual renewal timing, the anniversary-based due rule, $18 standard fee, $10 late fee, and $54 domestic reinstatement path.",
     homeComparison: {
-      focus: "Utah domestic or foreign corporation, nonprofit, LLC, LP, or LLP",
+      focus: "Utah LLC or other registered entity choosing between renewal and reinstatement",
       deadline: "Anniversary date each year, beginning one year after registration",
       fee: "$18 renewal fee for corporations, nonprofits, LLCs, LPs, and LLPs",
       lateRule:
-        "$10 late renewal fee, and Utah says foreign entities cannot use the reinstatement path if they lapse"
+        "$10 late renewal fee; eligible domestic LLC reinstatement is $54, while foreign entities and DBAs cannot reinstate"
     },
     directoryComparison: {
       obligation: "Annual renewal, often searched as an annual report",
@@ -992,15 +992,19 @@ export const expansionStructuredStateContentByFilePath = {
     {
       type: "detailCards",
       eyebrow: "Late and reinstatement split",
-      title: "Utah separates ordinary renewals from lapsed-status cleanup",
+      title: "Use the business status to choose renewal or reinstatement",
       cards: [
         {
           title: "The standard late cost is simple",
           text: "Utah's current fee schedule shows a $10 late renewal fee on top of the standard annual renewal amount."
         },
         {
-          title: "Foreign entities do not get the same cleanup path",
-          text: "Utah's reinstatement FAQ says foreign entities and DBAs cannot reinstate. If the record has already lapsed, confirm the exact status before sending payment."
+          title: "Eligible domestic LLCs use the $54 reinstatement lane",
+          text: "Utah's fiscal year 2026 fee schedule lists a $54 reinstatement filing for a domestic LLC, LP, LLP, or LLLP. The official instructions say a domestic non-incorporated business can file online or use the offline reinstatement application."
+        },
+        {
+          title: "Foreign entities and DBAs cannot reinstate",
+          text: "Utah's reinstatement FAQ says foreign entities and DBAs cannot use the reinstatement path. Confirm the record type and current status before paying because a new registration or another status-specific filing may be required."
         },
         {
           title: "Watch for misleading renewal solicitations",
@@ -1019,8 +1023,8 @@ export const expansionStructuredStateContentByFilePath = {
           "Utah says a postcard reminder is sent about 60 days before the anniversary date."
         ],
         [
-          "What if I need the exact amount by entity type?",
-          "Use the current Utah fee schedule because the state publishes the renewal fee lanes there and updates that PDF when fees change."
+          "What if the LLC has already lapsed?",
+          "First confirm that it is a domestic LLC. Utah's current fee schedule lists a $54 domestic LLC reinstatement fee, while the reinstatement FAQ says foreign entities and DBAs cannot reinstate."
         ],
         [
           "Where should you start the filing?",
@@ -1303,9 +1307,9 @@ export const expansionGuideDecisionToolByRoute = {
     ]
   }),
   "/tools/utah/annual-renewal-deadline/": decisionTool({
-    caseLabel: "Which Utah renewal lane fits best?",
+    caseLabel: "Which Utah LLC status fits best?",
     intro:
-      "If you searched Utah annual report, Utah's core answer is still the anniversary-based annual renewal. The real trap is assuming every lapsed entity can simply reinstate, so start with the entity type and status.",
+      "Start with the live Utah record. An active entity uses the annual-renewal lane, while an eligible lapsed domestic LLC uses a separate reinstatement filing. Foreign entities and DBAs cannot reinstate.",
     cases: [
       decisionCase({
         value: "corporation-or-llc",
@@ -1342,20 +1346,37 @@ export const expansionGuideDecisionToolByRoute = {
         confirmSourceIndexes: [1, 2]
       }),
       decisionCase({
-        value: "foreign-or-lapsed-entity",
-        label: "Foreign entity or already lapsed record",
+        value: "lapsed-domestic-llc",
+        label: "Lapsed domestic LLC",
         deadline: "Resolve the status issue as soon as possible",
-        amount: "Do not assume the normal renewal answer applies",
+        amount: "$54 reinstatement fee on the fiscal year 2026 fee schedule",
         normalRule:
-          "If the record is already lapsed, the normal annual renewal answer may not be enough because Utah splits ordinary renewals from reinstatement work.",
+          "A lapsed domestic LLC no longer uses only the normal $18 annual-renewal answer. Utah provides a separate reinstatement filing for eligible domestic entities.",
         lateRule:
-          "Utah says foreign entities cannot reinstate, so a lapsed foreign record needs closer status review before any payment is sent.",
+          "Utah's fee schedule lists domestic LLC, LP, LLP, and LLLP reinstatement at $54. The official instructions say domestic non-incorporated businesses can complete reinstatement online or offline.",
         confirmRule:
-          "Confirm whether the entity is domestic or foreign and whether Utah still shows the record as renewable instead of terminated.",
+          "Confirm that the record is a domestic LLC and that Utah offers reinstatement for its current status before paying.",
         nextAction:
-          "Use Utah's reinstatement FAQ and official help pages before paying or mailing anything.",
+          "Use Utah's reinstatement FAQ, general instructions, and current fee schedule before filing.",
+        sourceIndexes: [3, 4, 5],
+        lateSourceIndexes: [3, 4, 5],
+        confirmSourceIndexes: [3, 4, 5]
+      }),
+      decisionCase({
+        value: "foreign-entity-or-dba",
+        label: "Foreign entity or DBA with a lapsed record",
+        deadline: "Use the status-specific official path",
+        amount: "Do not pay the $54 domestic reinstatement fee",
+        normalRule:
+          "The domestic reinstatement amount does not apply to every record type.",
+        lateRule:
+          "Utah says foreign entities and DBAs cannot reinstate, so they may need a new registration or another filing instead of a reinstatement application.",
+        confirmRule:
+          "Confirm the entity type and exact record status before starting a filing.",
+        nextAction:
+          "Open Utah's reinstatement FAQ and business portal instructions before paying or uploading documents.",
         sourceIndexes: [4, 5],
-        lateSourceIndexes: [4, 5, 6],
+        lateSourceIndexes: [4, 5],
         confirmSourceIndexes: [2, 4, 5]
       })
     ]

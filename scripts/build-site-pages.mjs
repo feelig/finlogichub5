@@ -115,8 +115,8 @@ const POPULAR_GUIDE_CARDS = [
   {
     href: "/tools/utah/annual-renewal-deadline/",
     kicker: "High-impression guide",
-    label: "Utah annual renewal and annual report deadline",
-    text: "Open this when you need Utah's anniversary-date renewal rule and the standard $18 fee lane."
+    label: "Utah LLC renewal or reinstatement",
+    text: "Choose between the $18 annual renewal, $10 late fee, and eligible domestic LLC $54 reinstatement path."
   }
 ];
 
